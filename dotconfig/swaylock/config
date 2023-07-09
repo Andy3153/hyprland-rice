@@ -5,13 +5,73 @@
 ## modified  08/07/23 ~ 16:57:50
 ##
 
+# {{{ Basic
 ignore-empty-password
 show-failed-attempts
 daemonize
-#indicator-idle-visible
 show-keyboard-layout
-color=000000
-image=~/.local/share/wallpaper-lock
+# }}}
+
+# {{{ Font
 font=Cantarell
-font-size=12
+font-size=14
+# }}}
+
+# {{{ Wallpaper
+image=~/.local/share/wallpaper-lock.png
 scaling=fill
+color=000000
+# }}}
+
+# {{{ Indicator
+indicator-radius=75
+indicator-thickness=10
+indicator-caps-lock
+# }}}
+
+# {{{ Colors
+key-hl-color=#89b4fa
+
+separator-color=#1e1e2e00
+
+inside-color=#11111b99
+inside-clear-color=#f9e2af33
+inside-caps-lock-color=#b4befe33
+inside-ver-color=#89b4fa33
+inside-wrong-color=#f38ba833
+
+ring-color=#181825d9
+ring-clear-color=#181825d9
+ring-caps-lock-color=#181825d9
+ring-ver-color=#181825d9
+ring-wrong-color=#181825d9
+
+line-color=#1e1e2e
+line-clear-color=#f9e2af
+line-caps-lock-color=#b4befe
+line-ver-color=#89b4fa
+line-wrong-color=#f38ba8
+
+text-color=#cdd6f4
+text-clear-color=#1e1e2e
+text-ver-color=#1e1e2e
+text-wrong-color=#1e1e2e
+
+bs-hl-color=#f9e2af
+caps-lock-key-hl-color=#f9e2af
+caps-lock-bs-hl-color=#cdd6f4
+text-caps-lock-color=#1e1e2e
+# }}}
+
+# {{{ Swaylock-Effects add-ins
+# Comment out if using unpatched Swaylock, if you mind the errors Swaylock will throw at you
+# {{{ Effects
+fade-in=0.5
+# }}}
+
+# {{{ Clock
+clock
+timestr=%H:%M:%S
+datestr=%a, %d %b
+# }}}
+# }}}
