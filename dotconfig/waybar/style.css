@@ -1,0 +1,149 @@
+/* vim: set fenc=utf-8 ts=4 sw=0 sts=0 sr et si tw=0 fdm=marker fmr={{{,}}}: */
+/* */
+/* waybar/style.css by Andy3153  */
+/* created   06/07/23 ~ 01:51:42 */
+/* */
+
+/* {{{ Colors */
+@import './colorschemes/catppuccin-mocha.css';
+
+/* When I ever change the colorscheme, I only change the imported colors up here */
+@define-color font      @text;
+@define-color font-dark @crust;
+@define-color bg1       @base;
+@define-color bg2       @surface0;
+@define-color bg3       @surface1;
+@define-color select    @blue;
+@define-color urgent    @red;
+/* }}} */
+
+/* {{{ Global settings */
+* {
+    font-family: Iosevka Nerd Font Mono;
+    font-size:   14px;
+    padding:     0px 0px;
+}
+/* }}} */
+
+/* {{{ Window settings */
+window#waybar
+{
+    /* See only modules floating */
+    background: transparent;
+}
+/* }}} */
+
+/* {{{ Module settings */
+/* {{{ General */
+.modules-left,.modules-right,.modules-center
+{
+    /* Colors */
+    color:         @font;
+    background:    @overlay0; /*@bg1;*/
+
+    /* Create gaps with margins */
+    margin-top:    20px;
+    margin-left:   20px;
+    margin-right:  20px;
+
+    /* Rounded corners */
+    border-radius: 10px;
+
+    /* Create a border around the module elements with padding */
+    padding:       5px 5px;
+}
+/* }}} */
+
+/* {{{ Common between modules */
+#workspaces, #window, #clock, #network, #pulseaudio, #backlight, #battery, #tray
+{
+    /* Colors */
+    background:    @bg2;
+
+    /* Rounded corners */
+    border-radius: 10px;
+
+    /* Padding */
+    padding-left:  5px;
+    padding-right: 5px;
+}
+
+#window, #clock, #network, #pulseaudio, #backlight, #battery, #tray
+{
+    /* Padding */
+    padding-left:  10px;
+    padding-right: 10px;
+}
+
+#network, #pulseaudio, #backlight, #battery, #tray
+{
+    /* Colors */
+    color:         @font-dark;
+}
+/* }}} */
+
+/* {{{ Workspaces */
+#workspaces button
+{
+    /* Colors */
+    color:         @font;
+
+    /* Padding */
+    padding-left:  5px;
+    padding-right: 5px;
+}
+
+#workspaces button.active
+{
+    /* Colors */
+    color:         @font-dark;
+    background:    @select;
+}
+
+#workspaces button.urgent
+{
+    /* Colors */
+    color: @font-dark;
+    background: @urgent;
+}
+/* }}} */
+
+/* {{{ Window */
+#window.empty
+{
+    /* Make it so that the entire element disappears */
+    /* Colors */
+    background: transparent;
+
+    /* Rounded corners */
+    border-radius: 0px;
+
+    /* Padding */
+    padding: 0 0px;
+}
+/* }}} */
+
+/* {{{ Network */
+#network
+{
+    /* Colors */
+    background: @blue;
+}
+
+#network.disconnected, #network.disabled
+{
+    /* Colors */
+    background: @urgent;
+}
+/* }}} */
+
+/* {{{ Custom */
+/* {{{ Space */
+#custom-space
+{
+    font-size: 0px;
+    padding: 2.5px;
+}
+/* }}} */
+/* }}} */
+/* }}} */

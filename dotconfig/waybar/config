@@ -1,0 +1,184 @@
+// vim: set fenc=utf-8 ts=4 sw=0 sts=0 sr et si tw=0 fdm=marker ft=json fmr={{{,}}}:
+//
+// waybar/config by Andy3153
+// created   06/07/23 ~ 01:51:42
+//
+
+{
+    // {{{ General settings
+    "layer":    "top",
+    "position": "top",
+    // }}}
+
+    // {{{ Modules layout
+    "modules-left":   [ "hyprland/workspaces", "custom/space", "hyprland/window", ],
+    "modules-center": [ "clock", ],
+    "modules-right":  [ "network", "custom/space", "pulseaudio", "custom/space", "backlight", "custom/space", "battery", "custom/space", "tray", ],
+    // }}}
+
+    // {{{ Module config
+    // {{{ Workspaces
+    "hyprland/workspaces":
+    {
+        "on-scroll-up":   "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1",
+        "on-click":       "activate",
+        "format":         "{id}: {icon}",
+        "format-icons":
+        {
+            //"1":     "",
+            //"2":     "",
+            "3":       "",
+            "7":       "",
+            "8":       "",
+            "9":       "",
+            "10":      "",
+            "default": "",
+            "urgent":  "",
+        },
+        "sort-by-number": true,
+    },
+    // }}}
+
+    // {{{ Window
+    "hyprland/window":
+    {
+        "icon":   true,
+        "format": "{}",
+    },
+    // }}}
+
+    // {{{ Clock
+    "clock":
+    {
+        "timezone":       "Europe/Bucharest",
+        "locale":         "ro_RO.utf8",
+        "format":         " {:%a %d %b  %H:%M:%S}",
+        "tooltip-format": "<big>{:%B %Y}</big>\n<tt>{calendar}</tt>",
+        "interval":       1,
+    },
+    // }}}
+
+    // {{{ Network
+    "network":
+    {
+        "interval":                    5,
+        "max-length":                  50,
+        "tooltip":                     true,
+
+        "format":                      " Disabled",
+        "format-ethernet":             "󰈀 Ethernet",
+        "format-wifi":                 " {essid} {signalStrength}%",
+        "format-disconnected":         " Disconnected",
+
+        "tooltip-format":              " No internet connection.",
+        "tooltip-format-ethernet":     "󰈀 {ifname}\n{ipaddr}",
+        "tooltip-format-wifi":         " {ifname}\n{ipaddr}\nStrength: {signalStrength}%",
+        "tooltip-format-disconnected": " Disconnected",
+    },
+    // }}}
+
+    // {{{ Pulseaudio
+    "pulseaudio":
+    {
+        "scroll-step": 5,
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}%",
+        "format-muted":"muted ",
+        "format-icons":
+        {
+            "headphones": "",
+            "handsfree": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    // }}}
+
+    // {{{ Backlight
+    "backlight":
+    {
+        // "device": "acpi_video1",
+        "format": "{icon} {percent}%",
+        "format-icons": ["", "", ""],
+        "on-scroll-down": "brightnessctl -c backlight set 5%",
+        "on-scroll-up": "brightnessctl -c backlight set +5%"
+    },
+    // }}}
+
+    // {{{ Battery
+    "battery":
+    {
+        "interval": 30,
+        "states":
+        {
+            // "good": 95,
+            "warning": 20,
+            "critical": 10
+        },
+        "format-charging": " {capacity}%",
+        "format": "{icon}  {capacity}%",
+        "format-icons": ["", "", "", "", ""],
+        "tooltip": true
+    },
+    // }}}
+
+    // {{{ Tray
+    "tray":
+    {
+        "icon-size": 14,
+        "spacing": 5
+    },
+    // }}}
+
+    // {{{ Taskbar
+    "hyprland/taskbar":
+    {
+        "format": "{icon}",
+        "icon-size": 14,
+        "icon-theme": "Papirus-Dark-Colors",
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close"
+    },
+    // }}}
+
+    // {{{ Custom modules
+    // {{{ Space
+    // For padding between modules
+    "custom/space":
+    {
+        "format": " ",
+    },
+    // }}}
+
+    // {{{ Weather
+    "custom/weather":
+    {
+        "format": "{}",
+        "tooltip": true,
+        "interval": 3600,
+        "exec": "$HOME/.config/waybar/scripts/waybar-wttr.py",
+        "return-type": "json"
+    },
+    // }}}
+
+    // {{{ Keyboard layout
+    // to find keyboard identifier use "swaymsg -t get_inputs"
+    "custom/keyboard-layout":
+    {
+        "format": " {}",
+        "tooltip": false,
+        "exec": "$HOME/.config/waybar/scripts/kblayout.sh"
+        // "on-click": "swaymsg exec alacritty -e ~/.config/sway/scripts/keyhint.sh",
+        // "exec": "$HOME/.config/waybar/scripts/kblayout.sh '1:1:AT_Translated_Set_2_keyboard'"
+        // "exec": "$HOME/.config/waybar/scripts/kblayout.sh '6700:3620:SEM_USB_Keyboard'"
+    },
+    // }}}
+    //}}}
+    // }}}
+}
