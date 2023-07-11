@@ -14,6 +14,7 @@
 @define-color bg2       @surface0;
 @define-color bg3       @surface1;
 @define-color select    @blue;
+@define-color warn      @yellow;
 @define-color urgent    @red;
 /* }}} */
 
@@ -21,7 +22,7 @@
 * {
     font-family: Iosevka Nerd Font Mono;
     font-size:   14px;
-    padding:     0px 0px;
+    padding:     0px;
 }
 /* }}} */
 
@@ -39,7 +40,7 @@ window#waybar
 {
     /* Colors */
     color:         @font;
-    background:    @overlay0; /*@bg1;*/
+    background:    @bg1;
 
     /* Create gaps with margins */
     margin-top:    20px;
@@ -64,15 +65,13 @@ window#waybar
     border-radius: 10px;
 
     /* Padding */
-    padding-left:  5px;
-    padding-right: 5px;
+    padding:       0px 5px;
 }
 
 #window, #clock, #network, #pulseaudio, #backlight, #battery, #tray
 {
     /* Padding */
-    padding-left:  10px;
-    padding-right: 10px;
+    padding:       0px 10px;
 }
 
 #network, #pulseaudio, #backlight, #battery, #tray
@@ -83,14 +82,22 @@ window#waybar
 /* }}} */
 
 /* {{{ Workspaces */
+#workspaces
+{
+    /* Padding */
+    padding:       0px;
+}
+
 #workspaces button
 {
     /* Colors */
     color:         @font;
 
+    /* Rounded corners */
+    border-radius: 10px;
+
     /* Padding */
-    padding-left:  5px;
-    padding-right: 5px;
+    padding:       0px 5px;
 }
 
 #workspaces button.active
@@ -119,7 +126,7 @@ window#waybar
     border-radius: 0px;
 
     /* Padding */
-    padding: 0 0px;
+    padding: 0px;
 }
 /* }}} */
 
@@ -127,7 +134,7 @@ window#waybar
 #network
 {
     /* Colors */
-    background: @blue;
+    background: @flamingo;
 }
 
 #network.disconnected, #network.disabled
@@ -137,12 +144,83 @@ window#waybar
 }
 /* }}} */
 
+/* {{{ Pulseaudio */
+#pulseaudio
+{
+    /* Colors */
+    background: @peach;
+}
+
+#pulseaudio.muted
+{
+    /* Colors */
+    background: @urgent;
+}
+
+#pulseaudio.source-muted
+{
+    /* Colors */
+    background: @warn;
+}
+/* }}} */
+
+/* {{{ Backlight */
+#backlight
+{
+    /* Colors */
+    background: @green;
+}
+/* }}} */
+
+/* {{{ Battery */
+#battery
+{
+    /* Colors */
+    background: @teal;
+}
+
+#battery.warning
+{
+    /* Colors */
+    background: @warn;
+}
+
+#battery.critical
+{
+    /* Colors */
+    background: @urgent;
+
+    /* Animations */
+    animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker
+{
+    50%
+    {
+        /* Colors */
+        color:      @font-dark;
+        background: @font;
+    }
+}
+
+/* }}} */
+
+/* {{{ Tray */
+#tray
+{
+    /* Colors */
+    background: @mauve;
+}
+/* }}} */
+
+
 /* {{{ Custom */
 /* {{{ Space */
 #custom-space
 {
     font-size: 0px;
-    padding: 2.5px;
+    padding:   0px 2.5px;
 }
 /* }}} */
 /* }}} */

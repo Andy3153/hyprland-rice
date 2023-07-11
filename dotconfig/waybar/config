@@ -43,7 +43,6 @@
     // {{{ Window
     "hyprland/window":
     {
-        "icon":   true,
         "format": "{}",
     },
     // }}}
@@ -81,49 +80,53 @@
     // {{{ Pulseaudio
     "pulseaudio":
     {
-        "scroll-step": 5,
-        "format": "{icon} {volume}%",
+        "on-click":         "pavucontrol-qt",
+
+        "scroll-step":      5,
+        "max-volume" :      150,
+
+        "format":           "{icon} {volume}%",
         "format-bluetooth": "{icon} {volume}%",
-        "format-muted":"muted ",
+        "format-muted":     " Muted",
+
         "format-icons":
         {
             "headphones": "",
-            "handsfree": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", ""]
+            "handsfree":  "",
+            "headset":    "",
+            "phone":      "",
+            "portable":   "",
+            "car":        "",
+            "default":    ["", ""],
         },
-        "on-click": "pavucontrol"
     },
     // }}}
 
     // {{{ Backlight
     "backlight":
     {
-        // "device": "acpi_video1",
-        "format": "{icon} {percent}%",
-        "format-icons": ["", "", ""],
-        "on-scroll-down": "brightnessctl -c backlight set 5%",
-        "on-scroll-up": "brightnessctl -c backlight set +5%"
+        "format":         "{icon} {percent}%",
+        "format-icons":   ["󰃞", "󰃟", "󰃠"],
+        "on-scroll-down": "brightnessctl -c backlight set 5%-",
+        "on-scroll-up":   "brightnessctl -c backlight set 5%+"
     },
     // }}}
 
     // {{{ Battery
     "battery":
     {
-        "interval": 30,
+        "interval": 5,
+        "tooltip": true,
+
         "states":
         {
-            // "good": 95,
             "warning": 20,
-            "critical": 10
+            "critical": 10,
         },
-        "format-charging": " {capacity}%",
-        "format": "{icon}  {capacity}%",
+
+        "format": "{icon} {capacity}%",
+        "format-charging": "󱐋 {capacity}%",
         "format-icons": ["", "", "", "", ""],
-        "tooltip": true
     },
     // }}}
 
@@ -131,7 +134,7 @@
     "tray":
     {
         "icon-size": 14,
-        "spacing": 5
+        "spacing":   10,
     },
     // }}}
 
