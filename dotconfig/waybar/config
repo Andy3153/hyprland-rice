@@ -13,7 +13,7 @@
     // {{{ Modules layout
     "modules-left":   [ "hyprland/workspaces", "custom/space", "hyprland/window", ],
     "modules-center": [ "clock", ],
-    "modules-right":  [ "network", "custom/space", "pulseaudio", "custom/space", "backlight", "custom/space", "battery", "custom/space", "tray", ],
+    "modules-right":  [ "network", "custom/space", "custom/kb-layout", "custom/space", "pulseaudio", "custom/space", "backlight", "custom/space", "battery", "custom/space", "tray", ],
     // }}}
 
     // {{{ Module config
@@ -159,29 +159,15 @@
     },
     // }}}
 
-    // {{{ Weather
-    "custom/weather":
-    {
-        "format": "{}",
-        "tooltip": true,
-        "interval": 3600,
-        "exec": "$HOME/.config/waybar/scripts/waybar-wttr.py",
-        "return-type": "json"
-    },
-    // }}}
-
     // {{{ Keyboard layout
-    // to find keyboard identifier use "swaymsg -t get_inputs"
-    "custom/keyboard-layout":
+    "custom/kb-layout":
     {
-        "format": " {}",
-        "tooltip": false,
-        "exec": "$HOME/.config/waybar/scripts/kblayout.sh"
-        // "on-click": "swaymsg exec alacritty -e ~/.config/sway/scripts/keyhint.sh",
-        // "exec": "$HOME/.config/waybar/scripts/kblayout.sh '1:1:AT_Translated_Set_2_keyboard'"
-        // "exec": "$HOME/.config/waybar/scripts/kblayout.sh '6700:3620:SEM_USB_Keyboard'"
+        "format":   "󰌌 {}",
+        "exec":     "hyprctl devices -j | jq -r '.keyboards[] | .active_keymap' | tail -n1 | cut -c1-2 | tr 'A-Z' 'a-z'",
+        "interval": 1,
+
     },
     // }}}
-    //}}}
+    // }}}
     // }}}
 }

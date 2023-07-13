@@ -56,7 +56,7 @@ window#waybar
 /* }}} */
 
 /* {{{ Common between modules */
-#workspaces, #window, #clock, #network, #pulseaudio, #backlight, #battery, #tray
+#workspaces, #window, #clock, #network, #custom-kb-layout, #pulseaudio, #backlight, #battery, #tray
 {
     /* Colors */
     background:    @bg2;
@@ -68,13 +68,13 @@ window#waybar
     padding:       0px 5px;
 }
 
-#window, #clock, #network, #pulseaudio, #backlight, #battery, #tray
+#window, #clock, #network, #custom-kb-layout, #pulseaudio, #backlight, #battery, #tray
 {
     /* Padding */
     padding:       0px 10px;
 }
 
-#network, #pulseaudio, #backlight, #battery, #tray
+#network, #custom-kb-layout, #pulseaudio, #backlight, #battery, #tray
 {
     /* Colors */
     color:         @font-dark;
@@ -141,6 +141,14 @@ window#waybar
 {
     /* Colors */
     background: @urgent;
+}
+/* }}} */
+
+/* {{{ Tray */
+#custom-kb-layout
+{
+    /* Colors */
+    background: @maroon;
 }
 /* }}} */
 
