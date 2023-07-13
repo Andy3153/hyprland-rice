@@ -13,7 +13,7 @@
     // {{{ Modules layout
     "modules-left":   [ "hyprland/workspaces", "custom/space", "hyprland/window", ],
     "modules-center": [ "clock", ],
-    "modules-right":  [ "mpris", "custom/space", "network", "custom/space", "bluetooth", "custom/space", "pulseaudio", "custom/space", "backlight", "custom/space", "battery", "custom/space", "custom/kb-layout", "custom/space", "tray", ],
+    "modules-right":  [ "mpris", "custom/space", "network", "custom/space", "bluetooth", "custom/space", "pulseaudio", "custom/space", "backlight", "custom/space", "battery", "custom/space", "custom/kb-layout", "custom/space", "tray", "custom/space", "custom/maximize", "custom/close" ],
     // }}}
 
     // {{{ Module config
@@ -116,24 +116,24 @@
     // {{{ Pulseaudio
     "pulseaudio":
     {
-        "on-click":         "pavucontrol-qt",
+        "on-click":                            "pavucontrol-qt",
 
-        "scroll-step":      5,
-        "max-volume" :      150,
+        "scroll-step":                         5,
+        "max-volume" :                         150,
 
-        "format":           "{icon} {volume}%",
-        "format-bluetooth": "{icon} {volume}%",
-        "format-muted":     " Muted",
+        "format":                              "{icon} {volume}%",
+        "format-bluetooth":                    "{icon} {volume}%",
+        "format-muted":                        " Muted",
 
         "format-icons":
         {
-            "headphones": "",
-            "handsfree":  "",
-            "headset":    "",
-            "phone":      "",
-            "portable":   "",
-            "car":        "",
-            "default":    ["", ""],
+            "headphones":                      "",
+            "handsfree":                       "",
+            "headset":                         "",
+            "phone":                           "",
+            "portable":                        "",
+            "car":                             "",
+            "default":                         ["", ""],
         },
     },
     // }}}
@@ -141,59 +141,74 @@
     // {{{ Backlight
     "backlight":
     {
-        "format":         "{icon} {percent}%",
-        "format-icons":   ["󰃞", "󰃟", "󰃠"],
-        "on-scroll-down": "brightnessctl -c backlight set 5%-",
-        "on-scroll-up":   "brightnessctl -c backlight set 5%+"
+        "format":                              "{icon} {percent}%",
+        "format-icons":                        ["󰃞", "󰃟", "󰃠"],
+        "on-scroll-down":                      "brightnessctl -c backlight set 5%-",
+        "on-scroll-up":                        "brightnessctl -c backlight set 5%+"
     },
     // }}}
 
     // {{{ Battery
     "battery":
     {
-        "interval": 5,
-        "tooltip": true,
+        "interval":                            5,
+        "tooltip":                             true,
 
         "states":
         {
-            "warning": 20,
-            "critical": 10,
+            "warning":                         20,
+            "critical":                        10,
         },
 
-        "format": "{icon} {capacity}%",
-        "format-charging": "󱐋 {capacity}%",
-        "format-icons": ["", "", "", "", ""],
+        "format":                              "{icon} {capacity}%",
+        "format-charging":                     "󱐋 {capacity}%",
+        "format-icons":                        ["", "", "", "", ""],
     },
     // }}}
 
     // {{{ Tray
     "tray":
     {
-        "icon-size": 14,
-        "spacing":   10,
+        "icon-size":                           14,
+        "spacing":                             10,
     },
     // }}}
 
     // {{{ Keyboard layout
     "custom/kb-layout":
     {
-        "on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next",
-        "format":   "󰌌 {}",
-        "exec":     "hyprctl devices -j | jq -r '.keyboards[] | .active_keymap' | tail -n1 | cut -c1-2 | tr 'A-Z' 'a-z'",
-        "interval": 1,
-
+        "on-click":                            "hyprctl switchxkblayout at-translated-set-2-keyboard next",
+        "format":                              "󰌌 {}",
+        "exec":                                "hyprctl devices -j | jq -r '.keyboards[] | .active_keymap' | tail -n1 | cut -c1-2 | tr 'A-Z' 'a-z'",
+        "interval":                            1,
     },
     // }}}
 
     // {{{ Taskbar
     "hyprland/taskbar":
     {
-        "format": "{icon}",
-        "icon-size": 14,
-        "icon-theme": "Papirus-Dark-Colors",
-        "tooltip-format": "{title}",
-        "on-click": "activate",
-        "on-click-middle": "close"
+        "format":                              "{icon}",
+        "icon-size":                           14,
+        "icon-theme":                          "Papirus-Dark-Colors",
+        "tooltip-format":                      "{title}",
+        "on-click":                            "activate",
+        "on-click-middle":                     "close"
+    },
+    // }}}
+
+    // {{{ Maximize
+    "custom/maximize":
+    {
+        "on-click":                            "hyprctl dispatch fullscreen 1",
+        "format":                              "",
+    },
+    // }}}
+
+    // {{{ Close
+    "custom/close":
+    {
+        "on-click":                            "hyprctl dispatch killactive",
+        "format":                              "",
     },
     // }}}
 

@@ -41,6 +41,9 @@
 @define-color kb-layout                @lavender;
 
 @define-color tray                     @mauve;
+
+@define-color maximize                 @blue;
+@define-color close                    @red;
 /* }}} */
 
 /* {{{ Global settings */
@@ -81,7 +84,7 @@ window#waybar
 /* }}} */
 
 /* {{{ Common between modules */
-#workspaces, #window, #clock, #mpris, #network, #bluetooth, #pulseaudio, #backlight, #battery, #custom-kb-layout, #tray
+#workspaces, #window, #clock, #mpris, #network, #bluetooth, #pulseaudio, #backlight, #battery, #custom-kb-layout, #tray, #custom-maximize, #custom-close
 {
     /* Colors */
     background:    @bg2;
@@ -93,13 +96,13 @@ window#waybar
     padding:       0px 5px;
 }
 
-#window, #clock, #mpris, #network, #bluetooth, #pulseaudio, #backlight, #battery, #custom-kb-layout, #tray
+#window, #clock, #mpris, #network, #bluetooth, #pulseaudio, #backlight, #battery, #custom-kb-layout, #tray, #custom-maximize, #custom-close
 {
     /* Padding */
     padding:       0px 10px;
 }
 
-#mpris, #network, #bluetooth, #pulseaudio, #backlight, #battery, #custom-kb-layout, #tray
+#mpris, #network, #bluetooth, #pulseaudio, #backlight, #battery, #custom-kb-layout, #tray, #custom-maximize, #custom-close
 {
     /* Colors */
     color:         @font-dark;
@@ -260,6 +263,30 @@ window#waybar
 {
     /* Colors */
     background: @tray;
+}
+/* }}} */
+
+/* {{{ Maximize */
+#custom-maximize
+{
+    /* Colors */
+    background: @maximize;
+
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    padding-right: 5px;
+}
+/* }}} */
+
+/* {{{ Close */
+#custom-close
+{
+    /* Colors */
+    background: @close;
+
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    padding-left: 5px;
 }
 /* }}} */
 
