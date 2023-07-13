@@ -12,8 +12,8 @@
 
     // {{{ Modules layout
     "modules-left":   [ "hyprland/workspaces", "custom/space", "hyprland/window", ],
-    "modules-center": [ "clock", ],
-    "modules-right":  [ "mpris", "custom/space", "network", "custom/space", "bluetooth", "custom/space", "pulseaudio", "custom/space", "backlight", "custom/space", "battery", "custom/space", "custom/kb-layout", "custom/space", "tray", "custom/space", "custom/maximize", "custom/close" ],
+    "modules-center": [ "clock", "custom/space", "mpris", ],
+    "modules-right":  [ "network", "custom/space", "bluetooth", "custom/space", "pulseaudio", "custom/space", "backlight", "custom/space", "battery", "custom/space", "custom/kb-layout", "custom/space", "tray", "custom/space", "custom/maximize", "custom/close" ],
     // }}}
 
     // {{{ Module config
@@ -62,6 +62,7 @@
     "mpris":
     {
         "interval":                           1,
+        "max-length":                         55,
 
         "format":                             "{player_icon} {title} - {artist}",
         "format-paused":                      "{status_icon} <i>{title} - {artist}</i>",
@@ -101,6 +102,7 @@
     "bluetooth":
     {
         "on-click":                           "blueman-manager",
+        "max-length":                         50,
 
         "format":                             "󰂯 {status}",
         "format-disabled":                    "󰂲 Disabled",
