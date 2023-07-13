@@ -1,0 +1,33 @@
+## vim: set fenc=utf-8 ts=4 sw=0 sts=0 sr et si tw=0 fdm=marker fmr={{{,}}}:
+##
+## cava/config by Andy3153
+## created   11/07/23 ~ 16:43:09
+##
+
+[color]
+gradient = 1
+gradient_count=2
+
+# Breeze
+#gradient_color_2 = '#1d99f3'
+#gradient_color_1 = '#3daee9'
+
+# Nord
+#gradient_color_2 = '#5e81ac'
+#gradient_color_1 = '#87bcbb'
+
+# Dracula
+#gradient_color_2 = '#bd93f9'
+#gradient_color_1 = '#6272a4'
+
+# Gruvbox
+#gradient_color_2 = '#b8bb26'
+#gradient_color_1 = '#98971a'
+
+# Catppuccin (more purple)
+#gradient_color_1 = '#C9CBFF'
+#gradient_color_2 = '#DDB6F2'
+
+# Catppuccin
+gradient_color_2 = '#b4befe'
+gradient_color_1 = '#89b4fa'
