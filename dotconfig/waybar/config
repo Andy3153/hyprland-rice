@@ -61,6 +61,8 @@
     // {{{ Network
     "network":
     {
+        "on-click":                    "networkmanager_dmenu",
+
         "interval":                    5,
         "max-length":                  50,
         "tooltip":                     true,
