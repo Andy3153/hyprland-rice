@@ -13,84 +13,102 @@
     // {{{ Modules layout
     "modules-left":   [ "hyprland/workspaces", "custom/space", "hyprland/window", ],
     "modules-center": [ "clock", ],
-    "modules-right":  [ "network", "custom/space", "bluetooth", "custom/space", "pulseaudio", "custom/space", "backlight", "custom/space", "battery", "custom/space", "custom/kb-layout", "custom/space", "tray", ],
+    "modules-right":  [ "mpris", "custom/space", "network", "custom/space", "bluetooth", "custom/space", "pulseaudio", "custom/space", "backlight", "custom/space", "battery", "custom/space", "custom/kb-layout", "custom/space", "tray", ],
     // }}}
 
     // {{{ Module config
     // {{{ Workspaces
     "hyprland/workspaces":
     {
-        "on-scroll-up":   "hyprctl dispatch workspace e+1",
-        "on-scroll-down": "hyprctl dispatch workspace e-1",
-        "on-click":       "activate",
-        "format":         "{id}: {icon}",
+        "on-scroll-up":                       "hyprctl dispatch workspace e+1",
+        "on-scroll-down":                     "hyprctl dispatch workspace e-1",
+        "on-click":                           "activate",
+        "format":                             "{id}: {icon}",
         "format-icons":
         {
-            //"1":     "",
-            //"2":     "",
-            "3":       "",
-            "7":       "",
-            "8":       "",
-            "9":       "",
-            "10":      "",
-            "default": "",
-            "urgent":  "",
+            //"1":                            "",
+            //"2":                            "",
+            "3":                              "",
+            "7":                              "",
+            "8":                              "",
+            "9":                              "",
+            "10":                             "",
+            "default":                        "",
+            "urgent":                         "",
         },
-        "sort-by-number": true,
+        "sort-by-number":                     true,
     },
     // }}}
 
     // {{{ Window
     "hyprland/window":
     {
-        "format": "{}",
+        "format":                             "{}",
     },
     // }}}
 
     // {{{ Clock
     "clock":
     {
-        "timezone":       "Europe/Bucharest",
-        "locale":         "ro_RO.utf8",
-        "format":         " {:%a %d %b  %H:%M:%S}",
-        "tooltip-format": "<big>{:%B %Y}</big>\n<tt>{calendar}</tt>",
-        "interval":       1,
+        "timezone":                           "Europe/Bucharest",
+        "locale":                             "ro_RO.utf8",
+        "format":                             " {:%a %d %b  %H:%M:%S}",
+        "tooltip-format":                     "<big>{:%B %Y}</big>\n<tt>{calendar}</tt>",
+        "interval":                           1,
+    },
+    // }}}
+
+    // {{{ MPRIS
+    "mpris":
+    {
+        "interval":                           1,
+
+        "format":                             "{player_icon} {title} - {artist}",
+        "format-paused":                      "{status_icon} <i>{title} - {artist}</i>",
+        "player-icons":
+        {
+            "default":                        "",
+        },
+        "status-icons":
+        {
+            "paused":                         ""
+        },
     },
     // }}}
 
     // {{{ Network
     "network":
     {
-        "on-click":                    "networkmanager_dmenu",
+        "on-click":                           "networkmanager_dmenu",
 
-        "interval":                    5,
-        "max-length":                  50,
-        "tooltip":                     true,
+        "interval":                           5,
+        "max-length":                         50,
+        "tooltip":                            true,
 
-        "format":                      "󰈂 Disabled",
-        "format-ethernet":             "󰈀 Ethernet",
-        "format-wifi":                 " {essid} {signalStrength}%",
-        "format-disconnected":         " Disconnected",
+        "format":                             "󰈂 Disabled",
+        "format-ethernet":                    "󰈀 Ethernet",
+        "format-wifi":                        " {essid} {signalStrength}%",
+        "format-disconnected":                " Disconnected",
 
-        "tooltip-format":              " No internet connection.",
-        "tooltip-format-ethernet":     "󰈀 {ifname}\n{ipaddr}",
-        "tooltip-format-wifi":         " {ifname}\n{ipaddr}\nStrength: {signalStrength}%",
-        "tooltip-format-disconnected": " Disconnected",
+        "tooltip-format":                     " No internet connection.",
+        "tooltip-format-ethernet":            "󰈀 {ifname}\n{ipaddr}",
+        "tooltip-format-wifi":                " {ifname}\n{ipaddr}\nStrength: {signalStrength}%",
+        "tooltip-format-disconnected":        " Disconnected",
     },
     // }}}
 
     // {{{ Bluetooth
     "bluetooth":
     {
-        "on-click":         "blueman-manager",
+        "on-click":                           "blueman-manager",
 
-        "format":           "󰂯 {status}",
-        "format-disabled":  "󰂲 Disabled",
-        "format-off":       "󰂲 Off",
-        "format-on":        "󰂲 Disconnected",
-        "format-connected": "󰂯 {device_alias}",
-        "tooltip-format": "󰂯 {status}",
-        "tooltip-format-connected": "Connected to:\n{device_enumerate}",
+        "format":                             "󰂯 {status}",
+        "format-disabled":                    "󰂲 Disabled",
+        "format-off":                         "󰂲 Off",
+        "format-on":                          "󰂲 Disconnected",
+        "format-connected":                   "󰂯 {device_alias}",
+        "tooltip-format":                     "󰂯 {status}",
+        "tooltip-format-connected":           "Connected to:\n{device_enumerate}",
         "tooltip-format-enumerate-connected": "󰂯 {device_alias}\t{device_address}\t {device_battery_percentage}%",
     },
     // }}}

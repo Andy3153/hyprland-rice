@@ -21,6 +21,8 @@
 @define-color workspaces-button_active @select;
 @define-color workspaces-button_urgent @urgent;
 
+@define-color mpris                    @peach;
+
 @define-color network                  @green;
 @define-color network_disconnected     @urgent;
 
@@ -79,7 +81,7 @@ window#waybar
 /* }}} */
 
 /* {{{ Common between modules */
-#workspaces, #window, #clock, #network, #bluetooth, #pulseaudio, #backlight, #battery, #custom-kb-layout, #tray
+#workspaces, #window, #clock, #mpris, #network, #bluetooth, #pulseaudio, #backlight, #battery, #custom-kb-layout, #tray
 {
     /* Colors */
     background:    @bg2;
@@ -91,13 +93,13 @@ window#waybar
     padding:       0px 5px;
 }
 
-#window, #clock, #network, #bluetooth, #pulseaudio, #backlight, #battery, #custom-kb-layout, #tray
+#window, #clock, #mpris, #network, #bluetooth, #pulseaudio, #backlight, #battery, #custom-kb-layout, #tray
 {
     /* Padding */
     padding:       0px 10px;
 }
 
-#network, #bluetooth, #pulseaudio, #backlight, #battery, #custom-kb-layout, #tray
+#mpris, #network, #bluetooth, #pulseaudio, #backlight, #battery, #custom-kb-layout, #tray
 {
     /* Colors */
     color:         @font-dark;
@@ -150,6 +152,14 @@ window#waybar
 
     /* Padding */
     padding: 0px;
+}
+/* }}} */
+
+/* {{{ MPRIS */
+#mpris
+{
+    /* Colors */
+    background: @mpris;
 }
 /* }}} */
 
