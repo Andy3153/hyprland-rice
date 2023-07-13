@@ -157,6 +157,7 @@
     // {{{ Keyboard layout
     "custom/kb-layout":
     {
+        "on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next",
         "format":   "󰌌 {}",
         "exec":     "hyprctl devices -j | jq -r '.keyboards[] | .active_keymap' | tail -n1 | cut -c1-2 | tr 'A-Z' 'a-z'",
         "interval": 1,
