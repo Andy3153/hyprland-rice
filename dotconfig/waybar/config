@@ -13,7 +13,7 @@
     // {{{ Modules layout
     "modules-left":   [ "hyprland/workspaces", "custom/space", "hyprland/window", ],
     "modules-center": [ "clock", ],
-    "modules-right":  [ "network", "custom/space", "custom/kb-layout", "custom/space", "pulseaudio", "custom/space", "backlight", "custom/space", "battery", "custom/space", "tray", ],
+    "modules-right":  [ "network", "custom/space", "pulseaudio", "custom/space", "backlight", "custom/space", "battery", "custom/space", "custom/kb-layout", "custom/space", "tray", ],
     // }}}
 
     // {{{ Module config
@@ -138,6 +138,16 @@
     },
     // }}}
 
+    // {{{ Keyboard layout
+    "custom/kb-layout":
+    {
+        "format":   "󰌌 {}",
+        "exec":     "hyprctl devices -j | jq -r '.keyboards[] | .active_keymap' | tail -n1 | cut -c1-2 | tr 'A-Z' 'a-z'",
+        "interval": 1,
+
+    },
+    // }}}
+
     // {{{ Taskbar
     "hyprland/taskbar":
     {
@@ -150,22 +160,12 @@
     },
     // }}}
 
-    // {{{ Custom modules
+    // {{{ Other
     // {{{ Space
     // For padding between modules
     "custom/space":
     {
         "format": " ",
-    },
-    // }}}
-
-    // {{{ Keyboard layout
-    "custom/kb-layout":
-    {
-        "format":   "󰌌 {}",
-        "exec":     "hyprctl devices -j | jq -r '.keyboards[] | .active_keymap' | tail -n1 | cut -c1-2 | tr 'A-Z' 'a-z'",
-        "interval": 1,
-
     },
     // }}}
     // }}}

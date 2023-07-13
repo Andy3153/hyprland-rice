@@ -144,14 +144,6 @@ window#waybar
 }
 /* }}} */
 
-/* {{{ Tray */
-#custom-kb-layout
-{
-    /* Colors */
-    background: @maroon;
-}
-/* }}} */
-
 /* {{{ Pulseaudio */
 #pulseaudio
 {
@@ -212,6 +204,14 @@ window#waybar
     }
 }
 
+/* }}} */
+
+/* {{{ Keyboard layout */
+#custom-kb-layout
+{
+    /* Colors */
+    background: @maroon;
+}
 /* }}} */
 
 /* {{{ Tray */
