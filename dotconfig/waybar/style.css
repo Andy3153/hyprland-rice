@@ -16,6 +16,27 @@
 @define-color select    @blue;
 @define-color warn      @yellow;
 @define-color urgent    @red;
+
+/* Module colors */
+@define-color workspaces-button_active @select;
+@define-color workspaces-button_urgent @urgent;
+
+@define-color network                  @flamingo;
+@define-color network_disconnected     @urgent;
+
+@define-color pulseaudio               @peach;
+@define-color pulseaudio_muted         @urgent;
+@define-color pulseaudio_source-muted  @warn;
+
+@define-color backlight                @green;
+
+@define-color battery                  @teal;
+@define-color battery_warning          @warn;
+@define-color battery_critical         @urgent;
+
+@define-color kb-layout                @maroon;
+
+@define-color tray                     @mauve;
 /* }}} */
 
 /* {{{ Global settings */
@@ -104,14 +125,14 @@ window#waybar
 {
     /* Colors */
     color:         @font-dark;
-    background:    @select;
+    background:    @workspaces-button_active;
 }
 
 #workspaces button.urgent
 {
     /* Colors */
     color: @font-dark;
-    background: @urgent;
+    background: @workspaces-button_urgent;
 }
 /* }}} */
 
@@ -134,13 +155,13 @@ window#waybar
 #network
 {
     /* Colors */
-    background: @flamingo;
+    background: @network;
 }
 
 #network.disconnected, #network.disabled
 {
     /* Colors */
-    background: @urgent;
+    background: @network_disconnected;
 }
 /* }}} */
 
@@ -148,19 +169,19 @@ window#waybar
 #pulseaudio
 {
     /* Colors */
-    background: @peach;
+    background: @pulseaudio;
 }
 
 #pulseaudio.muted
 {
     /* Colors */
-    background: @urgent;
+    background: @pulseaudio_muted;
 }
 
 #pulseaudio.source-muted
 {
     /* Colors */
-    background: @warn;
+    background: @pulseaudio_source-muted;
 }
 /* }}} */
 
@@ -168,7 +189,7 @@ window#waybar
 #backlight
 {
     /* Colors */
-    background: @green;
+    background: @backlight;
 }
 /* }}} */
 
@@ -176,19 +197,19 @@ window#waybar
 #battery
 {
     /* Colors */
-    background: @teal;
+    background: @battery;
 }
 
 #battery.warning
 {
     /* Colors */
-    background: @warn;
+    background: @battery_warning;
 }
 
 #battery.critical
 {
     /* Colors */
-    background: @urgent;
+    background: @battery_critical;
 
     /* Animations */
     animation: blinker 1s linear infinite;
@@ -210,7 +231,7 @@ window#waybar
 #custom-kb-layout
 {
     /* Colors */
-    background: @maroon;
+    background: @kb-layout;
 }
 /* }}} */
 
@@ -218,7 +239,7 @@ window#waybar
 #tray
 {
     /* Colors */
-    background: @mauve;
+    background: @tray;
 }
 /* }}} */
 
