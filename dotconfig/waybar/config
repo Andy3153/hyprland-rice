@@ -13,7 +13,7 @@
     // {{{ Modules layout
     "modules-left":   [ "hyprland/workspaces", "custom/space", "hyprland/window", ],
     "modules-center": [ "clock", ],
-    "modules-right":  [ "network", "custom/space", "pulseaudio", "custom/space", "backlight", "custom/space", "battery", "custom/space", "custom/kb-layout", "custom/space", "tray", ],
+    "modules-right":  [ "network", "custom/space", "bluetooth", "custom/space", "pulseaudio", "custom/space", "backlight", "custom/space", "battery", "custom/space", "custom/kb-layout", "custom/space", "tray", ],
     // }}}
 
     // {{{ Module config
@@ -65,7 +65,7 @@
         "max-length":                  50,
         "tooltip":                     true,
 
-        "format":                      " Disabled",
+        "format":                      "󰈂 Disabled",
         "format-ethernet":             "󰈀 Ethernet",
         "format-wifi":                 " {essid} {signalStrength}%",
         "format-disconnected":         " Disconnected",
@@ -74,6 +74,22 @@
         "tooltip-format-ethernet":     "󰈀 {ifname}\n{ipaddr}",
         "tooltip-format-wifi":         " {ifname}\n{ipaddr}\nStrength: {signalStrength}%",
         "tooltip-format-disconnected": " Disconnected",
+    },
+    // }}}
+
+    // {{{ Bluetooth
+    "bluetooth":
+    {
+        "on-click":         "blueman-manager",
+
+        "format":           "󰂯 {status}",
+        "format-disabled":  "󰂲 Disabled",
+        "format-off":       "󰂲 Off",
+        "format-on":        "󰂲 Disconnected",
+        "format-connected": "󰂯 {device_alias}",
+        "tooltip-format": "󰂯 {status}",
+        "tooltip-format-connected": "Connected to:\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "󰂯 {device_alias}\t{device_address}\t {device_battery_percentage}%",
     },
     // }}}
 
