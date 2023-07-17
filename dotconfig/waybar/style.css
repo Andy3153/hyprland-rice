@@ -62,6 +62,18 @@ window#waybar
 }
 /* }}} */
 
+/* {{{ Tooltip settings */
+tooltip
+{
+    /* Colors */
+    color:         @font;
+    background:    alpha(@bg1, 0.8);
+
+    /* Border */
+    border: 0px;
+}
+/* }}} */
+
 /* {{{ Module settings */
 /* {{{ General */
 .modules-left,.modules-right,.modules-center
@@ -229,7 +241,7 @@ window#waybar
     background: @battery_warning;
 }
 
-#battery.critical
+#battery.critical:not(.charging)
 {
     /* Colors */
     background: @battery_critical;
