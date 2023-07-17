@@ -274,7 +274,7 @@ window#waybar
 
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
-    padding-right: 5px;
+    padding-right: 7px;
 }
 /* }}} */
 
@@ -286,7 +286,7 @@ window#waybar
 
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
-    padding-left: 5px;
+    padding-left: 7px;
 }
 /* }}} */
 
