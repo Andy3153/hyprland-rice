@@ -22,6 +22,7 @@
 @define-color workspaces-button_urgent @urgent;
 
 @define-color mpris                    @peach;
+@define-color cava                     @maroon;
 
 @define-color network                  @green;
 @define-color network_disconnected     @urgent;
@@ -96,7 +97,7 @@ tooltip
 /* }}} */
 
 /* {{{ Common between modules */
-#workspaces, #window, #clock, #mpris, #network, #bluetooth, #pulseaudio, #backlight, #battery, #custom-kb-layout, #tray, #custom-maximize, #custom-close
+#workspaces, #window, #clock, #mpris, #custom-cava, #network, #bluetooth, #pulseaudio, #backlight, #battery, #custom-kb-layout, #tray, #custom-maximize, #custom-close
 {
     /* Colors */
     background:    @bg2;
@@ -108,13 +109,13 @@ tooltip
     padding:       0px 5px;
 }
 
-#window, #clock, #mpris, #network, #bluetooth, #pulseaudio, #backlight, #battery, #custom-kb-layout, #tray, #custom-maximize, #custom-close
+#window, #clock, #mpris, #custom-cava, #network, #bluetooth, #pulseaudio, #backlight, #battery, #custom-kb-layout, #tray, #custom-maximize, #custom-close
 {
     /* Padding */
     padding:       0px 10px;
 }
 
-#mpris, #network, #bluetooth, #pulseaudio, #backlight, #battery, #custom-kb-layout, #tray, #custom-maximize, #custom-close
+#mpris, #custom-cava, #network, #bluetooth, #pulseaudio, #backlight, #battery, #custom-kb-layout, #tray, #custom-maximize, #custom-close
 {
     /* Colors */
     color:         @font-dark;
@@ -175,6 +176,14 @@ tooltip
 {
     /* Colors */
     background: @mpris;
+}
+/* }}} */
+
+/* {{{ Cava */
+#custom-cava
+{
+    /* Colors */
+    background: @cava;
 }
 /* }}} */
 
