@@ -13,7 +13,7 @@
     // {{{ Modules layout
     "modules-left":   [ "hyprland/workspaces", "custom/space", "hyprland/window", ],
     "modules-center": [ "clock", "custom/space", "mpris", ],
-    "modules-right":  [ "custom/cava", "custom/space", "network", "custom/space", "bluetooth", "custom/space", "pulseaudio", "custom/space", "backlight", "custom/space", "battery", "custom/space", "custom/kb-layout", "custom/space", "tray", "custom/space", "custom/maximize", "custom/close", ],
+    "modules-right":  [ "custom/cava", "custom/space", "network", "custom/space", "bluetooth", "custom/space", "pulseaudio", "custom/space", "battery", "custom/space", "custom/kb-layout", "custom/space", "tray", "custom/space", "custom/maximize", "custom/close", ],
     // }}}
 
     // {{{ Module config

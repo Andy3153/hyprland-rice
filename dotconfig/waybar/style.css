@@ -22,18 +22,18 @@
 @define-color workspaces-button_urgent @urgent;
 
 @define-color mpris                    @peach;
-@define-color cava                     @maroon;
+@define-color cava                     @green;
 
-@define-color network                  @green;
+@define-color network                  @teal;
 @define-color network_disconnected     @urgent;
 
-@define-color bluetooth                @teal;
+@define-color bluetooth                @sky;
 
-@define-color pulseaudio               @sky;
+@define-color pulseaudio               @sapphire;
 @define-color pulseaudio_muted         @urgent;
 @define-color pulseaudio_source-muted  @warn;
 
-@define-color backlight                @sapphire;
+/*@define-color backlight                @sapphire;*/
 
 @define-color battery                  @blue;
 @define-color battery_warning          @warn;
