@@ -53,7 +53,7 @@
         "timezone":                           "Europe/Bucharest",
         "locale":                             "ro_RO.utf8",
         "format":                             " {:%a %d %b  %H:%M:%S}",
-        "tooltip-format":                     "<big>{:%B %Y}</big>\n<tt>{calendar}</tt>",
+        "tooltip-format":                     "<tt>{calendar}</tt>",
         "interval":                           1,
     },
     // }}}
