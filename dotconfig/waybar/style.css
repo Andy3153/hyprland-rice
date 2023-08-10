@@ -5,17 +5,8 @@
 /* */
 
 /* {{{ Colors */
-@import './colorschemes/catppuccin-mocha.css';
-
 /* When I ever change the colorscheme, I only change the imported colors up here */
-@define-color font      @text;
-@define-color font-dark @crust;
-@define-color bg1       #272737;   /* it's @base with lightness 16 */
-@define-color bg2       @surface0;
-@define-color bg3       @surface1;
-@define-color select    @blue;
-@define-color warn      @yellow;
-@define-color urgent    @red;
+@import '../css-common/colorschemes/common-colors.css';
 
 /* Module colors */
 @define-color workspaces-button_active @select;
