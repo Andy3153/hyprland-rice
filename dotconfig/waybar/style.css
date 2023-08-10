@@ -6,7 +6,7 @@
 
 /* {{{ Colors */
 /* When I ever change the colorscheme, I only change the imported colors up here */
-@import '../css-common/colorschemes/common-colors.css';
+@import '../css-common/common-colors/common-colors-catppuccin-mocha.css';
 
 /* Module colors */
 @define-color workspaces-button_active @select;
