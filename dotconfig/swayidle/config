@@ -7,4 +7,4 @@
 timeout 600  'brightnessctl set 5%'      resume 'brightnessctl set 100%'
 timeout 720  'swaylock'
 timeout 900  'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on'
-before-sleep 'swaylock'
+before-sleep 'hyprctl dispatch dpms on && swaylock'
