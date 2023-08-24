@@ -9,7 +9,7 @@
 @import '../css-common/common-colors/common-colors-catppuccin-mocha.css';
 
 /* Module colors */
-@define-color workspaces-button_active @select;
+@define-color workspaces-button_active @select1;
 @define-color workspaces-button_urgent @urgent;
 
 @define-color mpris                    @peach;
