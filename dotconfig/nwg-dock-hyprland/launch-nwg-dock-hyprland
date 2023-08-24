@@ -1,0 +1,9 @@
+#!/bin/sh
+
+trap "killall nwg-dock-hyprland" EXIT
+
+while true; do
+    nwg-dock-hyprland -d -i 25 &
+    inotifywait --event create,modify --recursive ~/.config/nwg-dock-hyprland/
+    killall nwg-dock-hyprland
+done

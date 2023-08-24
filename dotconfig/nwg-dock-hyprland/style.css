@@ -1,0 +1,67 @@
+/* vim: set fenc=utf-8 ts=4 sw=0 sts=0 sr et si tw=0 fdm=marker fmr={{{,}}}: */
+/* */
+/* nwg-dock-hyprland/style.css by Andy3153  */
+/* created   06/07/23 ~ 01:51:42 */
+/* */
+
+
+/* {{{ Colors */
+/* When I ever change the colorscheme, I only change the imported colors up here */
+@import '../css-common/common-colors/common-colors-catppuccin-mocha.css';
+/* }}} */
+
+/* {{{ Global settings */
+*
+{
+    font-family:   Iosevka Nerd Font Mono;
+    font-size:     14px;
+    padding:       0px;
+}
+/* }}} */
+
+/* {{{ Window settings */
+window
+{
+    background:     transparent;
+}
+/* }}} */
+
+/* {{{ Box surrounding every icon */
+#box
+{
+    padding:       10px;
+}
+/* }}} */
+
+/* {{{ Active window indicator */
+#active
+{
+    border-style:  solid;
+    border-radius: 5px;
+    border-bottom: solid 5px;
+    border-color:  @select1;
+}
+/* }}} */
+
+/* {{{ Button */
+button
+{
+    background:    alpha(@bg2, 0.8);
+
+    padding:       5px;
+    margin-bottom: 10px;
+    margin-left:   2px;
+    margin-right:  2px;
+
+    border-style:  solid;
+    border-width:  2px;
+    border-radius: 10px;
+    border-color:  alpha(@bg3, 0.8);
+}
+
+button:hover
+{
+    background:    @select1;
+    border-radius: 10px;
+}
+/* }}} */
