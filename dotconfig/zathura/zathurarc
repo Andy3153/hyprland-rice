@@ -1,0 +1,35 @@
+## vim: set fenc=utf-8 ts=4 sw=0 sts=0 sr et si tw=0 ft=conf fdm=marker fmr={{{,}}}:
+##
+## zathurarc by Andy3153
+## created   16/08/23 ~ 15:58:28
+##
+
+# {{{ Colorscheme
+include colorschemes/catppuccin-mocha
+# }}}
+
+# {{{ Font
+set font "Iosevka Nerd Font Mono 12"
+# }}}
+
+# {{{ Look
+set page-padding 20
+set statusbar-home-tilde "true"
+# }}}
+
+# {{{ Clipboard
+set selection-clipboard clipboard
+# }}}
+
+# {{{ Scrolling
+set scroll-page-aware "true"
+set smooth-scroll "true"
+set scroll-full-overlap 0.01
+set scroll-step 100
+# }}}
+
+# {{{ Keybinds
+unmap f
+map f toggle_fullscreen
+map [fullscreen] f toggle_fullscreen
+# }}}
