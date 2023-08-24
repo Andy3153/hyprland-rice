@@ -6,12 +6,13 @@
 
 @import '../colorschemes/catppuccin-mocha.css';
 
-@define-color font      @text;
-@define-color font-dark @crust;
-@define-color bg0       @base;
-@define-color bg1       #272737;   /* it's @base with lightness 16 */
-@define-color bg2       @surface0;
-@define-color bg3       @surface1;
-@define-color select    @blue;
-@define-color warn      @yellow;
-@define-color urgent    @red;
+@define-color font             @text;
+@define-color font-dark        @crust;
+@define-color bg0              @base;
+@define-color bg1              #272737;   /* it's @base with lightness 16 */
+@define-color bg2              @surface0;
+@define-color bg3              @surface1;
+@define-color select1          @blue;
+@define-color select2          @lavender;
+@define-color warn             @yellow;
+@define-color urgent           @red;
