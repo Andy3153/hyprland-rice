@@ -1,0 +1,47 @@
+/* vim: set fenc=utf-8 ts=4 sw=0 sts=0 sr et si tw=0 fdm=marker fmr={{{,}}}: */
+/* */
+/* nwg-bar/style.css by Andy3153  */
+/* created   29/08/23 ~ 01:41:54 */
+/* */
+
+/* {{{ Colors */
+/* When I ever change the colorscheme, I only change the imported colors up here */
+@import '../css-common/common-colors/common-colors-catppuccin-mocha.css';
+/* }}} */
+
+/* {{{ Global settings */
+*
+{
+    font-family:   Cantarell;
+    font-size:     14px;
+    padding:       0px;
+}
+/* }}} */
+
+/* {{{ Window, outer and inner box*/
+window, #outer-box, #inner-box
+{
+    background:    transparent;
+}
+/* }}} */
+
+/* {{{ Button */
+button
+{
+    background:    alpha(@bg2, 0.8);
+
+    padding:       5px;
+    margin:        5px;
+
+    border-style:  solid;
+    border-width:  5px;
+    border-radius: 10px;
+    border-color:  alpha(@bg3, 0.8);
+}
+
+button:hover
+{
+    background:    @select1;
+    border-radius: 10px;
+}
+/* }}} */
