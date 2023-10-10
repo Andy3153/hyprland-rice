@@ -16,7 +16,7 @@ follow = keyboard
 # dynamic width from 0 to 300
 # width = (0, 300)
 # constant width of 300
-width = 400
+width = (0,400)
 
 # The maximum height of a single notification, excluding the frame.
 height = 300
@@ -136,7 +136,7 @@ format = "<b>%a</b>: <b>%s</b>\n%b"
 
 # Alignment of message text.
 # Possible values are "left", "center" and "right".
-alignment = center
+alignment = left #center
 
 # Vertical alignment of message text and icon.
 # Possible values are "top", "center" and "bottom".
