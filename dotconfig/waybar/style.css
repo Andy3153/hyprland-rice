@@ -85,6 +85,18 @@ tooltip
     /* Create a border around the module elements with padding */
     padding:       5px 5px;
 }
+
+.modules-left
+{
+    /* Rounded corners */
+    border-radius: 20px 10px 20px 10px;
+}
+
+.modules-right
+{
+    /* Rounded corners */
+    border-radius: 10px 20px 10px 20px;
+}
 /* }}} */
 
 /* {{{ Common between modules */
@@ -94,10 +106,7 @@ tooltip
     background:    @bg2;
 
     /* Rounded corners */
-    border-radius: 10px;
-
-    /* Padding */
-    padding:       0px 5px;
+    border-radius: 20px 10px 20px 10px;
 }
 
 #window, #clock, #mpris, #custom-cava, #network, #bluetooth, #pulseaudio, #backlight, #battery, #custom-kb-layout, #tray, #custom-maximize, #custom-close
@@ -106,10 +115,25 @@ tooltip
     padding:       0px 10px;
 }
 
+#clock, #mpris, #custom-cava, #network, #bluetooth, #pulseaudio, #backlight, #battery, #custom-kb-layout, #tray, #custom-maximize, #custom-close
+{
+    /* Rounded corners */
+    border-radius: 20px;
+
+    /* Padding */
+    padding:       0px 10px;
+}
+
 #mpris, #custom-cava, #network, #bluetooth, #pulseaudio, #backlight, #battery, #custom-kb-layout, #tray, #custom-maximize, #custom-close
 {
     /* Colors */
     color:         @font-dark;
+
+    /* Rounded corners */
+    border-radius: 10px 20px 10px 20px;
+
+    /* Padding */
+    padding:       0px 12px;
 }
 /* }}} */
 
@@ -137,6 +161,7 @@ tooltip
     /* Colors */
     color:         @font-dark;
     background:    @workspaces-button_active;
+    border-radius: 30px;
 }
 
 #workspaces button.urgent
