@@ -2,8 +2,41 @@
 # hyprland-rice
 These are the configuration files for all of the programs I am going to use inside Hyprland, a Wayland compositor.
 
-## Dependencies (in Arch Linux package names)
-`hyprland-git xdg-desktop-portal-hyprland-git hy3-git xwaylandvideobridge-cursor-mode-2-git swaylock-effects blueman networkmanager-dmenu-git nwg-look qt5ct qt6ct libcanberra brightnessctl dunst kitty fuzzel hyprpaper grimblast-git grim slurp hyprpicker wl-clipboard swayidle waybar-git nwg-dock-hyprland nwg-drawer nwg-bar swayosd-git`
+<details>
+  <summary>Dependencies (in Arch Linux package names)</summary>
+  ```
+  hyprland-git
+  xdg-desktop-portal-hyprland-git
+  xdg-desktop-portal-gtk
+  xwaylandvideobridge-cursor-mode-2-git
+  hy3-git
+  swaylock-effects
+  blueman
+  networkmanager-dmenu-git
+  nwg-look
+  catppuccin-gtk-theme-mocha
+  papirus-icon-theme
+  qt5ct
+  qt6ct
+  libcanberra
+  brightnessctl
+  dunst
+  kitty
+  fuzzel
+  hyprpaper
+  hyprpicker
+  wl-clipboard
+  swayidle
+  waybar-git
+  nwg-dock-hyprland
+  nwg-drawer
+  nwg-bar
+  swayosd-git
+  flameshot
+  grim
+  kcalc
+  ```
+</details>
 
 ## Installation
 This Git repo contains `dotconfig` and `dotlocal`. These correspond to `~/.config` and `~/.local` respectively. So, you can go two ways about 'installing' these.
