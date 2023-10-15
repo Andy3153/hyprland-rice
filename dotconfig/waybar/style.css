@@ -16,6 +16,7 @@
 @define-color cava                     @green;
 
 @define-color network                  @teal;
+@define-color network2                 #a8f0e4;
 @define-color network_disconnected     @urgent;
 
 @define-color bluetooth                @sky;
@@ -207,7 +208,7 @@ tooltip
 #network
 {
     /* Colors */
-    background: @network;
+    background: linear-gradient(45deg, @network2 35%, @network 100%);
 }
 
 #network.disconnected, #network.disabled
@@ -221,7 +222,7 @@ tooltip
 #bluetooth
 {
     /* Colors */
-    background: @bluetooth;
+    background: linear-gradient(45deg, @network 35%, @bluetooth 100%);
 }
 /* }}} */
 
@@ -229,7 +230,7 @@ tooltip
 #pulseaudio
 {
     /* Colors */
-    background: @pulseaudio;
+    background: linear-gradient(45deg, @bluetooth 35%, @pulseaudio 100%);
 }
 
 #pulseaudio.muted
@@ -257,7 +258,7 @@ tooltip
 #battery
 {
     /* Colors */
-    background: @battery;
+    background: linear-gradient(45deg, @pulseaudio 35%, @battery 100%);
 }
 
 #battery.warning
@@ -291,7 +292,7 @@ tooltip
 #custom-kb-layout
 {
     /* Colors */
-    background: @kb-layout;
+    background: linear-gradient(45deg, @battery 35%, @kb-layout 100%);
 }
 /* }}} */
 
@@ -299,7 +300,7 @@ tooltip
 #tray
 {
     /* Colors */
-    background: @tray;
+    background: linear-gradient(45deg, @kb-layout 35%, @tray 100%);
 }
 /* }}} */
 
