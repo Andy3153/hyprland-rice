@@ -9,7 +9,7 @@ include colorschemes/catppuccin-mocha
 # }}}
 
 # {{{ Font
-set font "Iosevka Nerd Font Mono 12"
+set font "IosevkaTerm NF 12"
 # }}}
 
 # {{{ Look
