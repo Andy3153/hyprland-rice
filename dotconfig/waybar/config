@@ -11,9 +11,28 @@
     // }}}
 
     // {{{ Modules layout
-    "modules-left":   [ "hyprland/workspaces", "custom/space", "hyprland/window", ],
-    "modules-center": [ "clock", "custom/space", "mpris", ],
-    "modules-right":  [ "custom/left-arrow-network", "network", "custom/left-arrow-bluetooth", "bluetooth", "custom/left-arrow-pulseaudio", "pulseaudio", "custom/left-arrow-battery", "battery", "custom/left-arrow-kb-layout", "custom/kb-layout", "custom/left-arrow-tray", "tray", "custom/left-arrow-maxmin", "custom/maximize", "custom/close", ],
+    "modules-left":
+    [
+        "hyprland/workspaces",          "custom/right-hollow-arrow-workspaces",
+        "hyprland/window",              "custom/right-arrow-window",
+    ],
+
+    "modules-center":
+    [
+        "clock",
+        "mpris",
+    ],
+
+    "modules-right":
+    [
+        "custom/left-arrow-network",    "network",
+        "custom/left-arrow-bluetooth",  "bluetooth",
+        "custom/left-arrow-pulseaudio", "pulseaudio",
+        "custom/left-arrow-battery",    "battery",
+        "custom/left-arrow-kb-layout",  "custom/kb-layout",
+        "custom/left-arrow-tray",       "tray",
+        "custom/left-arrow-maxmin",     "custom/maximize",  "custom/close",
+    ],
     // }}}
 
     // {{{ Module config
@@ -23,7 +42,8 @@
         "on-scroll-up":                       "hyprctl dispatch workspace e+1",
         "on-scroll-down":                     "hyprctl dispatch workspace e-1",
         "on-click":                           "activate",
-        "format":                             "{id}: {icon}",
+        "active-only":                        "false",
+        "format":                             "{icon} {id}", //"{id}: {icon}",
         "format-icons":
         {
             "1":                              " ",
@@ -222,14 +242,29 @@
     },
     // }}}
 
-    // {{{ Other
     // {{{ Space
     // For padding between modules
     "custom/space":
     {
         "format": " ",
     },
+    // }}}
 
+    // {{{ Arrows    
+    // {{{ modules-left
+    "custom/right-hollow-arrow-workspaces":
+    {
+        "format": "",
+        "tooltip": false
+    },
+
+    "custom/right-arrow-window":
+    {
+        "format": "",
+        "tooltip": false
+    },
+    // }}}
+    // {{{ modules-right
     "custom/left-arrow-network":
     {
         "format": "",

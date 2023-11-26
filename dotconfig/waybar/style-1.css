@@ -51,7 +51,7 @@
 window#waybar
 {
     /* Background */
-    background: alpha(@base, 0.8);
+    background: transparent;
 }
 /* }}} */
 
@@ -90,13 +90,13 @@ tooltip
 .modules-left
 {
     /* Rounded corners */
-    border-radius: 20px 10px 20px 10px;
+    /*border-radius: 20px 10px 20px 10px;*/
 }
 
 .modules-right
 {
     /* Rounded corners */
-    border-radius: 10px 20px 10px 20px;
+    /*border-radius: 10px 20px 10px 20px;*/
 }
 /* }}} */
 
@@ -107,13 +107,14 @@ tooltip
     background:    alpha(@bg1, 0.8);
 
     /* Rounded corners */
-    border-radius: 0px;
+    /*border-radius: 0px;*/
+    padding:       0px 10px;
 }
 
 #window, #clock, #mpris, #custom-cava, #network, #bluetooth, #pulseaudio, #backlight, #battery, #custom-kb-layout, #tray, #custom-maximize, #custom-close
 {
     /* Padding */
-    padding:       0px 10px;
+    /*padding:       0px 10px;*/
 }
 
 #clock, #mpris, #custom-cava, #network, #bluetooth, #pulseaudio, #backlight, #battery, #custom-kb-layout, #tray, #custom-maximize, #custom-close
@@ -122,7 +123,7 @@ tooltip
     /*border-radius: 20px;*/
 
     /* Padding */
-    padding:       0px 10px;
+    /*padding:       0px 10px;*/
 }
 
 #mpris, #custom-cava, #network, #bluetooth, #pulseaudio, #backlight, #battery, #custom-kb-layout, #tray, #custom-maximize, #custom-close
@@ -134,7 +135,7 @@ tooltip
     /*border-radius: 10px 20px 10px 20px;*/
 
     /* Padding */
-    padding:       0px 12px;
+    /*padding:       0px 10px;*/
 }
 
 #custom-cava, #network, #bluetooth, #pulseaudio, #backlight, #battery, #custom-kb-layout, #tray, #custom-maximize, #custom-close
@@ -154,7 +155,7 @@ tooltip
 #workspaces
 {
     /* Padding */
-    padding:       0px;
+    padding:       0 10px 0 0;
 }
 
 #workspaces button
@@ -163,7 +164,7 @@ tooltip
     color:         @font;
 
     /* Rounded corners */
-    border-radius: 0px;
+    border-radius: 7px;
 
     /* Padding */
     padding:       0px 5px;
@@ -174,7 +175,6 @@ tooltip
     /* Colors */
     color:         @font-dark;
     background:    @workspaces-button_active;
-    border-radius: 0px;
 }
 
 #workspaces button.urgent
@@ -183,14 +183,16 @@ tooltip
     color: @font-dark;
     background: @workspaces-button_urgent;
 }
+#custom-right-hollow-arrow-workspaces { color: @font; background: alpha(@bg1, 0.8) }
 /* }}} */
 
 /* {{{ Window */
+/* Useless, it cannot detect there's no window in Hyprland */
 #window.empty
 {
     /* Make it so that the entire element disappears */
     /* Colors */
-    background: transparent;
+    background: red;
 
     /* Rounded corners */
     border-radius: 0px;
@@ -198,6 +200,8 @@ tooltip
     /* Padding */
     padding: 0px;
 }
+
+#custom-right-arrow-window { color: alpha(@bg1, 0.8); background: transparent }
 /* }}} */
 
 /* {{{ MPRIS */
@@ -217,7 +221,7 @@ tooltip
 /* }}} */
 
 /* {{{ Network */
-#custom-left-arrow-network { color: @network; background: alpha(@base, 0.8); }
+#custom-left-arrow-network { color: @network; background: transparent }
 #network
 {
     /* Colors */
@@ -343,7 +347,6 @@ tooltip
 }
 /* }}} */
 
-/* {{{ Custom */
 /* {{{ Space */
 #custom-space
 {
@@ -352,12 +355,11 @@ tooltip
 }
 /* }}} */
 
-/* {{{ Arrows to the left */
-#custom-left-arrow-network, #custom-left-arrow-bluetooth, #custom-left-arrow-pulseaudio, #custom-left-arrow-battery, #custom-left-arrow-kb-layout, #custom-left-arrow-tray, #custom-left-arrow-maxmin, #custom-left-arrow-close
+/* {{{ Arrows */
+#custom-right-hollow-arrow-workspaces, #custom-right-arrow-window, #custom-left-arrow-network, #custom-left-arrow-bluetooth, #custom-left-arrow-pulseaudio, #custom-left-arrow-battery, #custom-left-arrow-kb-layout, #custom-left-arrow-tray, #custom-left-arrow-maxmin, #custom-left-arrow-close
 {
-    font-size: 20px;
+    font-size: 18px;
     padding:   0;
 }
-/* }}} */
 /* }}} */
 /* }}} */
