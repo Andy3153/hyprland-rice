@@ -4,7 +4,8 @@
 ## created   11/07/23 ~ 13:15:52
 ##
 
-timeout 600  'brightnessctl set 5% && openrgb --device "ASUS TUF Keyboard" --brightness 50'                  resume 'brightnessctl set 100% && openrgb --device "ASUS TUF Keyboard" --brightness 100'
-timeout 720  'swaylock'
-timeout 900  'hyprctl dispatch dpms off && openrgb --device "ASUS TUF Keyboard" --brightness 0'              resume 'hyprctl dispatch dpms on && openrgb --device "ASUS TUF Keyboard" --brightness 100'
-before-sleep 'hyprctl dispatch dpms on && openrgb --device "ASUS TUF Keyboard" --brightness 100 && swaylock'
+lock         'swaylock -f'
+timeout 600  'brightnessctl set 5% && openrgb --device "ASUS TUF Keyboard" --brightness 50'                                            resume 'brightnessctl set 100% && openrgb --device "ASUS TUF Keyboard" --brightness 100'
+timeout 720  'loginctl lock-session'
+timeout 900  'hyprctl dispatch dpms off && openrgb --device "ASUS TUF Keyboard" --brightness 0'                                        resume 'hyprctl dispatch dpms on && openrgb --device "ASUS TUF Keyboard" --brightness 100'
+before-sleep 'hyprctl dispatch dpms on  && openrgb --device "ASUS TUF Keyboard" --brightness 100 && loginctl lock-session && sleep 5s'
