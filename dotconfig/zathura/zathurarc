@@ -32,4 +32,6 @@ set scroll-step 100
 unmap f
 map f toggle_fullscreen
 map [fullscreen] f toggle_fullscreen
+
+map i set recolor
 # }}}
