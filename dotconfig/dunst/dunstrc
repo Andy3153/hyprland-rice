@@ -192,7 +192,8 @@ history_length = 20
 
 ### Misc/Advanced ###
 # dmenu path.
-dmenu = "/usr/bin/fuzzel --dmenu --prompt dunst: "
+dmenu = "/usr/bin/rofi -dmenu --prompt dunst: "
+#dmenu = "/usr/bin/fuzzel --dmenu --prompt dunst: "
 
 # Browser for opening urls in context menu.
 browser = /usr/bin/xdg-open
