@@ -7,18 +7,18 @@
 @theme "catppuccin-mocha"
 
 configuration {
-    modes: "window,drun,run,ssh,combi";
+    modes:       "window,drun,run,ssh,combi";
+    combi-modes: "drun,run"; //"window,drun,run";
 
-    font: "IosevkaTerm NF 14";
-    show-icons: true;
-    icon-theme: "Papirus Dark";
+    font:        "IosevkaTerm NF 14";
+    show-icons:  true;
+    icon-theme:  "Papirus Dark";
 
-    terminal: "kitty";
+    terminal:    "kitty";
 
     window-match-fields: "class,title";
-    window-format: "{t} {c}";
+    window-format:       "{t} {c}";
 
-    combi-modes: "window,drun,run";
 
     filebrowser
     {

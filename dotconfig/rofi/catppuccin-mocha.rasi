@@ -1,111 +1,177 @@
 // vim: set fenc=utf-8 ts=4 sw=0 sts=0 sr et si tw=0 fdm=marker ft=css fmr={{{,}}}:
-* {
-    bg-col:  #1e1e2e; //cc;
-    bg-col-light: #1e1e2e;
-    blue: #89b4fa;
-    border-col: @blue;
-    selected-col: @blue;
-    fg-col: #cdd6f4;
-    fg-col2: #f38ba8;
-    grey: #6c7086;
 
+*
+{
+    // {{{ Catppuccin Mocha
+    /*
+    *
+    * Catppuccin Mocha palette
+    * Maintainer: rubyowo
+    *
+    */
+
+    base:      #1e1e2e;
+    mantle:    #181825;
+    crust:     #11111b;
+
+    text:      #cdd6f4;
+    subtext0:  #a6adc8;
+    subtext1:  #bac2de;
+
+    surface0:  #313244;
+    surface1:  #45475a;
+    surface2:  #585b70;
+
+    overlay0:  #6c7086;
+    overlay1:  #7f849c;
+    overlay2:  #9399b2;
+
+    blue:      #89b4fa;
+    lavender:  #b4befe;
+    sapphire:  #74c7ec;
+    sky:       #89dceb;
+    teal:      #94e2d5;
+    green:     #a6e3a1;
+    yellow:    #f9e2af;
+    peach:     #fab387;
+    maroon:    #eba0ac;
+    red:       #f38ba8;
+    mauve:     #cba6f7;
+    pink:      #f5c2e7;
+    flamingo:  #f2cdcd;
+    rosewater: #f5e0dc;
+    // }}}
+
+    // {{{ Common colors
+    font:      @text;
+    font-dark: @crust;
+    bg0:       @base;
+    bg0-alpha: #1e1e2eee;
+    bg1:       #272737;
+    bg1-alpha: #272737ee;
+    bg2:       @surface0;
+    bg3:       @surface1;
+    select1:   @blue;
+    select2:   @lavender;
+    // }}}
 }
 
-element-text, element-icon , mode-switcher {
+element-text, element-icon , mode-switcher
+{
     background-color: inherit;
     text-color:       inherit;
 }
 
-window {
-    width: 984px;
-    height: 388px;
+window
+{
+    width:  1000px;
+    height: 400px;
     border: 2px;
-    border-color: @border-col;
-    background-color: @bg-col;
+    border-color: @select1;
+    border-radius: 10px;
+    background-color: @bg0-alpha;
 }
 
-mainbox {
-    background-color: @bg-col;
+mainbox
+{
+    background-color: transparent;
 }
 
-inputbar {
+inputbar
+{
     children: [prompt,entry];
-    background-color: @bg-col;
+    background-color: transparent;
     border-radius: 5px;
     padding: 2px;
 }
 
-prompt {
-    background-color: @blue;
+prompt
+{
+    background-color: @select1;
     padding: 6px;
-    text-color: @bg-col;
-    border-radius: 3px;
+    text-color: @font-dark;
+    border-radius: 7px;
     margin: 20px 0px 0px 20px;
 }
 
-textbox-prompt-colon {
+textbox-prompt-colon
+{
     expand: false;
     str: ":";
 }
 
-entry {
+entry
+{
     padding: 6px;
-    margin: 20px 0px 0px 10px;
-    text-color: @fg-col;
-    background-color: @bg-col;
+    border-radius: 7px;
+    margin: 20px 20px 0px 10px;
+    text-color: @font;
+    background-color: @bg1;
 }
 
-listview {
+listview
+{
     border: 0px 0px 0px;
-    padding: 6px 0px 0px;
-    margin: 10px 0px 0px 20px;
+    padding: 6px 0px 0px 6px;
+    margin: 10px 20px 0px 14px;
     columns: 1;
     lines: 5;
-    background-color: @bg-col;
+    background-color: transparent;
 }
 
-element {
+element
+{
     padding: 0;
-    background-color: @bg-col;
-    text-color: @fg-col  ;
+    padding: 0px 9px 0px 9px;
+    background-color: @bg1;
+    border-radius: 7px;
+    text-color: @font;
 }
 
-element-icon {
+element-icon
+{
     size: 25px;
 }
 
-element selected {
-    background-color:  @selected-col ;
-    text-color: @fg-col2  ;
+element selected
+{
+    background-color:  @select1;
+    text-color: @font-dark;
+    border-radius: 7px;
 }
 
-mode-switcher {
+mode-switcher
+{
     spacing: 0;
-  }
+}
 
-button {
+button
+{
     padding: 10px;
-    background-color: @bg-col-light;
-    text-color: @grey;
+    background-color: @bg0;
+    text-color: @font;
     vertical-align: 0.5;
     horizontal-align: 0.5;
 }
 
-button selected {
-  background-color: @bg-col;
-  text-color: @blue;
+button selected
+{
+  background-color: @bg0;
+  text-color: @select1;
 }
 
-message {
-    background-color: @bg-col-light;
+message
+{
+    background-color: @bg0;
     margin: 2px;
     padding: 2px;
     border-radius: 5px;
 }
 
-textbox {
+textbox
+{
     padding: 6px;
     margin: 20px 0px 0px 20px;
-    text-color: @blue;
-    background-color: @bg-col-light;
+    text-color: @select1;
+    background-color: @bg0;
 }
