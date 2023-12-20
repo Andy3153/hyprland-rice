@@ -4,8 +4,8 @@
 ## created   11/07/23 ~ 13:15:52
 ##
 
-lock         'swaylock --daemonize --grace 10'
+lock         'canberra-gtk-play --file ~/.local/share/sounds/sounds/lock-screen.oga & swaylock ; canberra-gtk-play --file ~/.local/share/sounds/sounds/unlock-screen.ogg'
 timeout 600  'brightnessctl set 5% && openrgb --device "ASUS TUF Keyboard" --brightness 50'                                resume 'brightnessctl set 100% && openrgb --device "ASUS TUF Keyboard" --brightness 100'
-timeout 720  'loginctl lock-session'
+timeout 720  'canberra-gtk-play --file ~/.local/share/sounds/sounds/lock-screen.oga & swaylock --grace 10 ; canberra-gtk-play --file ~/.local/share/sounds/sounds/unlock-screen.ogg'
 timeout 900  'hyprctl dispatch dpms off && openrgb --device "ASUS TUF Keyboard" --brightness 0'                            resume 'hyprctl dispatch dpms on && openrgb --device "ASUS TUF Keyboard" --brightness 100'
 before-sleep 'loginctl lock-session && hyprctl dispatch dpms on  && openrgb --device "ASUS TUF Keyboard" --brightness 100'
