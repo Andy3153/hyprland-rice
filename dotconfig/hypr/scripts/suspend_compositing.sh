@@ -80,7 +80,7 @@ Try '%s help' for more information.\n
 # }}}
 
 # {{{ Check if Hyprland is running
-if [ "$DESKTOP_SESSION" != "hyprland" ] || [ "$XDG_CURRENT_DESKTOP" != "Hyprland" ] || [ -n "$(which hyprctl)" ]
+if [ "$DESKTOP_SESSION" != "hyprland" ] && [ "$XDG_CURRENT_DESKTOP" != "Hyprland" ] && [ -n "$(which hyprctl)" ]
 then
   printf "Not running Hyprland!!! Exiting.\n"
   $notify_send --urgency=critical --expire-time=1500 --icon=dialog-scripts --app-name="$0" "Compositing" "Not running Hyprland!!! Exiting."
