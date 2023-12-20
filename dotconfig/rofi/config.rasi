@@ -8,7 +8,7 @@
 
 configuration {
     modes:       "window,drun,run,ssh,combi";
-    combi-modes: "drun,run"; //"window,drun,run";
+    combi-modes: "drun,run";
 
     font:        "IosevkaTerm NF 14";
     show-icons:  true;
