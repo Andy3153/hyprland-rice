@@ -8,7 +8,7 @@
 # {{{ Basic
 ignore-empty-password
 show-failed-attempts
-daemonize
+#daemonize
 show-keyboard-layout
 # }}}
 
@@ -66,7 +66,7 @@ text-caps-lock-color=#1e1e2e
 # {{{ Swaylock-Effects add-ins
 # Comment out if using unpatched Swaylock, if you mind the errors Swaylock will throw at you
 # {{{ Effects
-fade-in=0.5
+#fade-in=0.5
 # }}}
 
 # {{{ Clock
