@@ -61,7 +61,7 @@ Imitate KDE's suspend compositing function in Hyprland\n\
   toggle    toggle between suspending and resuming compositing\n\
   help      display this help and exit\n\
 \n\
-https://github.com/Andy3153
+https://github.com/Andy3153\n
 " "$0"
 }
 # }}}
@@ -71,12 +71,21 @@ noOptionScreen()
 {
   printf "\
 Usage: %s [OPTION]...\n\
-Try '%s help' for more information.
+Try '%s help' for more information.\n
 " "$0" "$0"
 
   exit 1
 }
 # }}}
+# }}}
+
+# {{{ Check if Hyprland is running
+if [ "$DESKTOP_SESSION" != "hyprland" ] && [ "$XDG_CURRENT_DESKTOP" != "Hyprland" ] && [ -n "$(which hyprctl)" ]
+then
+  printf "Not running Hyprland!!! Exiting.\n"
+  $notify_send --urgency=critical --expire-time=1500 --icon=dialog-scripts --app-name="$0" "Compositing" "Not running Hyprland!!! Exiting."
+  exit 1
+fi
 # }}}
 
 # {{{ Parsing command-line options
