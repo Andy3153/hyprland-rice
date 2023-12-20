@@ -10,7 +10,11 @@
 ##
 
 # {{{ Variables
+# Check if animations are enabled
 animationsEnabled="$(hyprctl getoption animations:enabled | awk 'NR==2{print $2}')"
+
+# Programs
+notify_send="$(which notify-send)"
 # }}}
 
 # {{{ Functions
@@ -39,8 +43,8 @@ resumeCompositing()
 toggleCompositing()
 {
   if [ $animationsEnabled = 1 ]
-  then suspendCompositing
-  else resumeCompositing
+  then suspendCompositing ; $notify_send --urgency=normal --expire-time=1500 --icon=dialog-scripts --app-name="$0" "Compositing" "Compositing has been suspended."
+  else resumeCompositing ; $notify_send --urgency=normal --expire-time=1500 --icon=dialog-scripts --app-name="$0" "Compositing" "Compositing has been resumed."
   fi
 }
 # }}}
@@ -77,7 +81,7 @@ Try '%s help' for more information.
 
 # {{{ Parsing command-line options
 case "$1" in
-  "suspend" ) suspendCompositing ;;
+  "suspend" ) suspendCompositing ; $notify_send --urgency=normal --expire-time=1500 --icon=dialog-scripts --app-name="$0" "Compositing" "Compositing has been suspended by an external application.";;
   "resume" )  resumeCompositing ;;
   "toggle" )  toggleCompositing ;;
   "help" )    helpScreen ;;
