@@ -4,8 +4,26 @@
 ## created   11/07/23 ~ 13:15:52
 ##
 
-lock         'canberra-gtk-play --file ~/.local/share/sounds/sounds/lock-screen.oga & swaylock ; canberra-gtk-play --file ~/.local/share/sounds/sounds/unlock-screen.ogg'
+#lock         'canberra-gtk-play --file ~/.local/share/sounds/sounds/lock-screen.oga & swaylock ; canberra-gtk-play --file ~/.local/share/sounds/sounds/unlock-screen.ogg'
+#timeout 600  'brightnessctl set 5% && openrgb --device "ASUS TUF Keyboard" --brightness 50'                                resume 'brightnessctl set 100% && openrgb --device "ASUS TUF Keyboard" --brightness 100'
+#timeout 720  'canberra-gtk-play --file ~/.local/share/sounds/sounds/lock-screen.oga & swaylock --grace 10 ; canberra-gtk-play --file ~/.local/share/sounds/sounds/unlock-screen.ogg'
+#timeout 900  'hyprctl dispatch dpms off && openrgb --device "ASUS TUF Keyboard" --brightness 0'                            resume 'hyprctl dispatch dpms on && openrgb --device "ASUS TUF Keyboard" --brightness 100'
+#before-sleep 'loginctl lock-session && hyprctl dispatch dpms on  && openrgb --device "ASUS TUF Keyboard" --brightness 100'
+
+#lock         'swaylock'
+#timeout 600  'brightnessctl set 5% && openrgb --device "ASUS TUF Keyboard" --brightness 50'                                resume 'brightnessctl set 100% && openrgb --device "ASUS TUF Keyboard" --brightness 100'
+#timeout 720  'swaylock --grace 10'
+#timeout 900  'hyprctl dispatch dpms off && openrgb --device "ASUS TUF Keyboard" --brightness 0'                            resume 'hyprctl dispatch dpms on && openrgb --device "ASUS TUF Keyboard" --brightness 100'
+#before-sleep 'loginctl lock-session && hyprctl dispatch dpms on  && openrgb --device "ASUS TUF Keyboard" --brightness 100'
+
+lock         'swaylock'
 timeout 600  'brightnessctl set 5% && openrgb --device "ASUS TUF Keyboard" --brightness 50'                                resume 'brightnessctl set 100% && openrgb --device "ASUS TUF Keyboard" --brightness 100'
-timeout 720  'canberra-gtk-play --file ~/.local/share/sounds/sounds/lock-screen.oga & swaylock --grace 10 ; canberra-gtk-play --file ~/.local/share/sounds/sounds/unlock-screen.ogg'
+timeout 720  'swaylock --grace 10'
 timeout 900  'hyprctl dispatch dpms off && openrgb --device "ASUS TUF Keyboard" --brightness 0'                            resume 'hyprctl dispatch dpms on && openrgb --device "ASUS TUF Keyboard" --brightness 100'
 before-sleep 'loginctl lock-session && hyprctl dispatch dpms on  && openrgb --device "ASUS TUF Keyboard" --brightness 100'
+
+#lock         'echo "\nlock\n" ; canberra-gtk-play --file ~/.local/share/sounds/sounds/lock-screen.oga & swaylock ; canberra-gtk-play --file ~/.local/share/sounds/sounds/unlock-screen.ogg'
+#timeout 6  'echo "\ntimeout 60\n" ; brightnessctl set 5% & openrgb --device "ASUS TUF Keyboard" --brightness 50 > /dev/null'                                resume 'brightnessctl set 100% & openrgb --device "ASUS TUF Keyboard" --brightness 100 > /dev/null'
+#timeout 7  'echo "\ntimeout 720\n" ; canberra-gtk-play --file ~/.local/share/sounds/sounds/lock-screen.oga & swaylock --grace 10 ; canberra-gtk-play --file ~/.local/share/sounds/sounds/unlock-screen.ogg'
+#timeout 9  'echo "\ntimeout 900\n" ; hyprctl dispatch dpms off & openrgb --device "ASUS TUF Keyboard" --brightness 0 > /dev/null'                            resume 'hyprctl dispatch dpms on & openrgb --device "ASUS TUF Keyboard" --brightness 100 > /dev/null'
+#before-sleep 'loginctl lock-session & hyprctl dispatch dpms on & openrgb --device "ASUS TUF Keyboard" --brightness 100 > /dev/null'

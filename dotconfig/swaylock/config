@@ -8,7 +8,7 @@
 # {{{ Basic
 ignore-empty-password
 show-failed-attempts
-#daemonize
+daemonize
 show-keyboard-layout
 # }}}
 
