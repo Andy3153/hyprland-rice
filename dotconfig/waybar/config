@@ -13,8 +13,11 @@
     // {{{ Modules layout
     "modules-left":
     [
-        "hyprland/workspaces",          "custom/right-hollow-arrow-workspaces",
-        "hyprland/window",              "custom/right-arrow-window",
+        //"hyprland/workspaces",          "custom/right-hollow-arrow-workspaces",
+        //"hyprland/window",              "custom/right-arrow-window",
+
+        "hyprland/workspaces", "custom/space",
+        "hyprland/window",     "custom/space",
     ],
 
     "modules-center":
@@ -25,13 +28,21 @@
 
     "modules-right":
     [
-        "custom/left-arrow-network",    "network",
-        "custom/left-arrow-bluetooth",  "bluetooth",
-        "custom/left-arrow-pulseaudio", "pulseaudio",
-        "custom/left-arrow-battery",    "battery",
-        "custom/left-arrow-kb-layout",  "custom/kb-layout",
-        "custom/left-arrow-tray",       "tray",
-        "custom/left-arrow-maxmin",     "custom/maximize",  "custom/close",
+        //"custom/left-arrow-network",    "network",
+        //"custom/left-arrow-bluetooth",  "bluetooth",
+        //"custom/left-arrow-pulseaudio", "pulseaudio",
+        //"custom/left-arrow-battery",    "battery",
+        //"custom/left-arrow-kb-layout",  "custom/kb-layout",
+        //"custom/left-arrow-tray",       "tray",
+        //"custom/left-arrow-maxmin",     "custom/maximize",  "custom/close",
+
+        "custom/space",        "network",
+        "custom/space",        "bluetooth",
+        "custom/space",        "pulseaudio",
+        "custom/space",        "battery",
+        "custom/space",        "custom/kb-layout",
+        "custom/space",        "tray",
+        "custom/space",        "custom/maximize",  "custom/close",
     ],
     // }}}
 
