@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
+## vim: set fenc=utf-8 ts=2 sw=0 sts=0 sr et si tw=0 fdm=marker fmr={{{,}}}:
 ##
 ## suspend-compositing.sh by Andy3153
 ## created   16/12/23 ~ 16:02:28
