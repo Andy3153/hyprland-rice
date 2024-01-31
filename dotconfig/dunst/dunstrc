@@ -25,7 +25,7 @@ height = 300
 origin = top-right
 
 # Offset from the origin
-offset = 10x50
+offset = 13x13
 
 # Scale factor. It is auto-detected if value is 0.
 scale = 0
@@ -170,7 +170,7 @@ show_indicators = yes
 enable_recursive_icon_lookup = true
 
 # Set icon theme (only used for recursive icon lookup)
-icon_theme = "Papirus-Colors-Dark, breeze"
+icon_theme = "Papirus-Dark, breeze"
 
 # Align icons left/right/top/off
 icon_position = left
