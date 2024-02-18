@@ -54,7 +54,7 @@
 /* {{{ Window settings */
 window#waybar
 {
-    background:    alpha(@bg1, 0.6);
+    background:    alpha(@bg0, 0.8);
 }
 /* }}} */
 
