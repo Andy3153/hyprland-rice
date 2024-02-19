@@ -12,7 +12,7 @@
 
 # {{{ Variables
 # Check if animations are enabled
-animationsEnabled="$(hyprctl getoption animations:enabled | awk 'NR==2{print $2}')"
+animationsEnabled="$(hyprctl getoption animations:enabled | awk 'NR==1{print $2}')"
 
 # Programs
 notify_send="$(which notify-send)"
@@ -26,8 +26,8 @@ suspendCompositing()
     keyword animations:enabled 0;\
     keyword decoration:drop_shadow 0;\
     keyword decoration:blur:enabled 0;\
-    keyword decoration:rounding 0\
-    keyword windowrulev2 opaque,class:(.*)\
+    keyword decoration:rounding 0;\
+    keyword windowrulev2 opaque,class:(.*);\
     keyword bind CTRL_SHIFT_SUPER, c, exec, hyprctl reload\
   "
 }
