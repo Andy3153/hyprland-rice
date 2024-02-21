@@ -62,7 +62,7 @@ window#waybar
 tooltip
 {
     color:         @font;
-    background:    alpha(@bg4, 0.8);
+    background:    alpha(@bg0, 0.8);
 }
 /* }}} */
 
@@ -240,6 +240,44 @@ tooltip
 {
     color: @tray;
     border-bottom: 3px solid @tray;
+}
+/* }}} */
+
+/* {{{ Weather */
+#custom-weather
+{
+    color: @battery;
+    border-bottom: 3px solid @battery;
+}
+
+#custom-weather.clear
+{
+    color: @teal; /*#c2ca76;*/
+    border-bottom: 3px solid @teal;
+}
+
+#custom-weather.cloudy
+{
+    color: @yellow; /*#c2ddda;*/
+    border-bottom: 3px solid @yellow;
+}
+
+#custom-weather.rain
+{
+    color: @sapphire; /*#5aaca5;*/
+    border-bottom: 3px solid @sapphire;
+}
+
+#custom-weather.snow
+{
+    color: @subtext1; /*#d6e7e5;*/
+    border-bottom: 3px solid @subtext1;
+}
+
+#custom-weather.storm
+{
+    color: @red; /*#eb937d;*/
+    border-bottom: 3px solid @red;
 }
 /* }}} */
 
