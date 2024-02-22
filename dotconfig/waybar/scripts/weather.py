@@ -9,11 +9,12 @@
 ##
 ## This could've probably been quite shorter, since Open-Meteo provides a Python
 ## lib but this was my first attempt at using APIs and I wanted my fun. Bonus:
-## not many libraries, only requires python-requests and argparse.
+## not many libraries, only requires python-requests, time and argparse.
 ##
 
 # {{{ Imports
 import requests
+import time
 import argparse
 # }}}
 
@@ -331,19 +332,31 @@ units = {
 # }}}
 
 # {{{ Fetch weather info
-# Get latitude and longitude
-#
-# You can replace coordiantes manually if you don't wish to use IP geolocation:
-#
-# latitude  = 29.97916
-# longitude = 31.13421
-#
+internetConnection = False
+start = time.time()
 
-latitude  = IP()["latitude"]
-longitude = IP()["longitude"]
+# Check for internet connection every 5 seconds
+while not(internetConnection):
+    try:
+        # Get latitude and longitude
+        #
+        # You can replace coordiantes manually if you don't wish to use IP geolocation:
+        #
+        # latitude  = 29.97916
+        # longitude = 31.13421
+        #
+        latitude  = IP()["latitude"]
+        longitude = IP()["longitude"]
 
-# Store weather info
-weather = weather(str(latitude), str(longitude))
+        # Store weather info
+        weather = weather(str(latitude), str(longitude))
+    except requests.ConnectionError:
+        time.sleep(5)
+
+        end = time.time()
+        if end - start > 1752: quit() # quit right before waybar refreshes the script
+    else:
+        internetConnection = True
 # }}}
 
 # {{{ Data to output to Waybar
