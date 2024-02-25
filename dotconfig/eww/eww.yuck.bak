@@ -1,0 +1,65 @@
+;; vim: set fenc=utf-8 ts=4 sw=0 sts=0 sr et si tw=0 fdm=marker fmr={{{,}}}:
+;;
+;; eww.yuck by Andy3153
+;; created   30/11/23 ~ 20:57:45
+;;
+
+(defwindow milsugi ; define window milsugi
+ :monitor 0          ; which monitor this window should be displayed on
+ :geometry (geometry ; geometry of the window
+                     :anchor "bottom center" ; anchor-point of the window
+                     :x      "0%"            ; window position relative to anchor
+                     :y      "0%"            ; window position relative to anchor
+                     :width  "100%"          ; window size
+                     :height "30px")         ; window size
+
+ :stacking  "overlay" ; where the window should appear in the stack
+ :exclusive true      ; whether the compositor should reserve space for the window
+ :focusable false     ; whether the window should be able to be focused
+
+ (greeter ; use greeter widget
+          :text "Say ${time}!" ; greeter widget attributes
+          :name "milbei"))    ; greeter widget attributes
+
+(defwidget greeter [?text name] ; define widget greeter with two attributes ? means optional
+ (box ; create a widget
+      :orientation "horizontal" ; orientation
+      :halign      "center"     ; horizontal alignment
+
+      text    ; use text declaration
+      (button ; create button
+              :onclick "notify-send 'hello' 'hello, ${name}'" ; what does the button do on a click
+              "milbei!!!")                                  ; button text
+
+      ; Literal
+      (literal :content contains_yuck)))
+
+      ;;; JSON
+      ;;(box
+      ;; (for entry in my-json)
+      ;; (button :onclick "notify-send 'click' 'button ${entry}'"
+      ;;     entry))))
+
+
+; Basic variables
+(defvar time-visible false)   ; for :run-while property of below variable
+                              ; when this turns true, the polling starts and
+                              ; var gets updated with given interval
+
+; Polling variables
+(defpoll time
+              :interval  "1s"
+              :initial   "initial-value"  ; optional, defaults to poll at startup
+              :run-while time-visible     ; optional, defaults to 'true'
+  `date +%H:%M:%S`)
+
+; Listening variables
+(deflisten foo :initial "whatever"
+  `tail -F /tmp/some_file`)
+
+; Literal
+(defvar contains_yuck
+ "(box (button 'milsugi') (button 'milbei'))")
+
+;;; JSON
+;;(defvar my-json "[1, 2, 3]")
