@@ -223,12 +223,13 @@ weatherIcon = {
 # {{{ Functions
 # {{{ Fetch IP details
 def IP():
-    link     = 'http://ip-api.com/json/?fields=lat,lon'
+    link     = 'http://ip-api.com/json/?fields=lat,lon,city'
     response = requests.get(link).json()
 
     locationData = {
         "latitude":  response.get("lat"),
         "longitude": response.get("lon"),
+        "city":      response.get("city"),
     }
 
     return locationData
@@ -272,7 +273,7 @@ def weather(latitude, longitude):
         "wind_speed":     response_current.get("wind_speed_10m"),
         "wind_direction": response_current.get("wind_direction_10m"),
         "weather_code":   response_current.get("weather_code"),
-        "is_day":   response_current.get("is_day"),
+        "is_day":         response_current.get("is_day"),
     }
     # }}}
 
@@ -332,8 +333,9 @@ units = {
 # }}}
 
 # {{{ Fetch weather info
+city = ""
 internetConnection = False
-start = time.time()
+start              = time.time()
 
 # Check for internet connection every 5 seconds
 while not(internetConnection):
@@ -347,6 +349,7 @@ while not(internetConnection):
         #
         latitude  = IP()["latitude"]
         longitude = IP()["longitude"]
+        city      = IP()["city"]
 
         # Store weather info
         weather = weather(str(latitude), str(longitude))
@@ -375,9 +378,11 @@ longMsg              = weatherMessage["long"][weatherCode]
 
 # {{{ Output for stdout
 if args.output == "stdout":
-    output = icon + " " + temp_degree + '\n' +\
-             '\n' +\
-             longMsg + '\n'\
+    output = icon          + '\n' +\
+             temp_degree   + '\n' +\
+             city          + '\n' +\
+             '\n'                 +\
+             longMsg       + '\n' +\
              'Feels like ' + tempFeelsLike_degree
 # }}}
 
@@ -388,6 +393,7 @@ if args.output == "waybar":
 
     waybarTooltip = ('<span size=\'xx-large\'>' + icon                 + '</span>'  + '\\n'
                      '<span size=\'xx-large\'>' + temp_degree          + '</span>'  + '\\n'
+                     '<big>'                    + city                 + '</big>'   + '\\n'
                      '\\n'
                      '<big>'                    + longMsg              + '</big>'   + '\\n'
                      'Feels like '              + tempFeelsLike_degree
