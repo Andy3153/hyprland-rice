@@ -1,0 +1,11 @@
+## vim: set fenc=utf-8 ts=4 sw=0 sts=0 sr et si tw=0 fdm=marker fmr={{{,}}}:
+##
+## lfrc by Andy3153
+## created   07/03/24 ~ 01:22:25
+##
+
+# {{{ Ranger transition
+# {{{ File previews
+set previewer ~/.config/lf/scripts/scope-lf.sh
+# }}}
+# }}}
