@@ -76,7 +76,7 @@ tooltip
 /* }}} */
 
 /* {{{ Common between modules */
-#window, #clock, #mpris, #custom-cava, #network, #bluetooth, #pulseaudio, #backlight, #battery, #custom-kb-layout, #tray, #custom-maximize, #custom-close
+#window, #clock, #custom-weather #mpris, #custom-cava, #network, #bluetooth, #pulseaudio, #backlight, #battery, #custom-kb-layout, #tray, #custom-maximize, #custom-close
 {
     padding:       0px 5px;
 }
@@ -297,6 +297,5 @@ tooltip
     background: @close;
     padding:    0px 8px;
 }
-/* }}} */
 /* }}} */
 /* }}} */
