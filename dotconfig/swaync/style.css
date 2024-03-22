@@ -1,0 +1,260 @@
+/* vim: set fenc=utf-8 ts=4 sw=0 sts=0 sr et si tw=0 fdm=marker fmr={{{,}}}: */
+/* */
+/* swaync/style.css by Andy3153  */
+/* created   30/01/24 ~ 23:07:59 */
+/* */
+
+/* {{{ Colors */
+/* When I ever change the colorscheme, I only change the imported colors up here */
+@import '../css-common/common-colors/common-colors-catppuccin-mocha.css';
+
+@define-color urgent @red;
+/* }}} */
+
+/* {{{ Global settings */
+* {
+    font-family:   Cantarell;
+    font-size:     18px;
+    padding:       0px;
+    margin:        0px;
+    border:        none;
+    border-radius: 0px;
+    box-shadow:    none;
+}
+/* }}} */
+
+.blank-window
+{
+    background: transparent;
+}
+
+.control-center
+{
+    background:    alpha(@bg0, 0.8);
+    border-radius: 10px;
+    border:        2px solid @select1;
+    margin:        14px; /*window gaps*/
+    padding:       12px;
+}
+.control-center .notification-row .notification-background, .control-center .notification-row .notification-background .notification.critical
+{
+    background-color: alpha(@bg0, 0.4);
+    border-radius: 10px;
+    margin: 4px 0px;
+    padding: 4px;
+}
+
+.control-center .notification-row .notification-background .notification.critical {
+  color: @urgent;
+}
+
+.control-center .notification-row .notification-background .notification .notification-content {
+  margin: 4px;
+  padding: 8px 6px 2px 2px;
+}
+
+.control-center .notification-row .notification-background .notification > *:last-child > * {
+  min-height: 3.4em;
+}
+
+.control-center .notification-row .notification-background .notification > *:last-child > * .notification-action {
+  background: @bg1;
+  color: @font;
+  border-radius: 8px;
+  margin: 6px;
+  border: 2px solid transparent;
+}
+
+.control-center .notification-row .notification-background .notification > *:last-child > * .notification-action:hover {
+  color: @bg0;
+}
+
+.control-center .notification-row .notification-background .notification > *:last-child > * .notification-action:active {
+  background-color: @select1;
+  color: @bg0;
+}
+
+/* Buttons */
+
+.control-center .notification-row .notification-background .close-button {
+  border: 1px solid transparent;
+  background: transparent;
+  border-radius: 6px;
+  color: @select1;
+  margin: 0px;
+  padding: 4px;
+}
+
+.control-center .notification-row .notification-background .close-button:hover {
+  background-color: @bg0;
+  border: 1px solid @select1;
+}
+
+.control-center .notification-row .notification-background .close-button:active {
+  background-color: @select1;
+  color: @bg0;
+}
+
+progressbar,
+progress,
+trough {
+  border-radius: 12px;
+}
+
+progressbar {
+  background: @select2;
+}
+
+.notification-group {
+  margin: 2px 8px 2px 8px;
+
+}
+.notification-group-headers {
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: @font;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+
+.notification-group-icon {
+  color: @font;
+}
+
+.notification-group-collapse-button,
+.notification-group-close-all-button {
+  background: transparent;
+  margin: 4px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 4px;
+}
+
+.notification-group-collapse-button:hover,
+.notification-group-close-all-button:hover {
+  background: alpha(@font, .2);
+  border: 2px solid @font;
+}
+
+  /* Notification clear button */
+.widget-title {
+  font-size: 1.2em;
+  margin: 2px;
+}
+
+.widget-title button {
+  border-radius: 10px;
+  padding: 4px 16px;
+  border: 2px solid @select1;
+}
+
+.widget-title button:hover {
+  background-color: alpha(@font, .2);
+  border: 2px solid @select1;
+}
+
+.widget-title button:active {
+  background-color: @select1;
+  color: @bg0;
+}
+
+  /* Do not disturb */
+.widget-dnd {
+  margin: 8px 2px;
+  font-size: 1.2rem;
+}
+
+.widget-dnd > switch {
+  font-size: initial;
+  border-radius: 8px;
+  border: 2px solid @select1;
+  box-shadow: none;
+}
+
+.widget-dnd > switch:hover {
+  background: alpha(@font, .2);
+}
+
+.widget-dnd > switch:checked {
+  background: @select1;
+}
+
+.widget-dnd > switch:checked:hover {
+  background: alpha(@select1, .8);
+}
+
+.widget-dnd > switch slider {
+  background: @font;
+  border-radius: 6px;
+}
+
+  /* Buttons menu */
+.widget-buttons-grid {
+  font-size: x-large;
+  padding: 6px 2px;
+  margin: 6px;
+  border-radius: 12px;
+  background: alpha(@select1, .2);
+}
+
+.widget-buttons-grid>flowbox>flowboxchild>button {
+  margin: 4px 10px;
+  padding: 6px 12px;
+  background: transparent;
+  border-radius: 8px;
+  border: 2px solid transparent;
+}
+.widget-buttons-grid>flowbox>flowboxchild>button:hover {
+  background: alpha(@bg1, .6);
+}
+
+  /* Music player */
+.widget-mpris {
+    background: alpha(@select1, .2);
+    border-radius: 16px;
+    color: @font;
+    padding: 6px;
+    margin:  20px 6px;
+}
+
+.widget-mpris button {
+  color: alpha(@font, .6);
+  border-radius: 6px;
+}
+
+.widget-mpris button:hover {
+  color: @font;
+}
+
+  /* NOTE: Background need *opacity 1* otherwise will turn into the album art blurred  */
+.widget-mpris-player {
+    background: @select1;
+    padding: 6px 10px;
+    margin: 10px;
+    border-radius: 14px;
+}
+
+.widget-mpris-album-art {
+  border-radius: 16px;
+}
+
+.widget-mpris-title {
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.widget-mpris-subtitle {
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
+
+/* Volume */
+.widget-volume {
+  background: @bg1;
+  color: @bg0;
+  padding: 4px;
+  margin: 6px;
+  border-radius: 6px;
+}
+

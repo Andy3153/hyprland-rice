@@ -1,0 +1,138 @@
+{
+    "$schema": "/etc/xdg/swaync/configSchema.json",
+
+    "positionX": "right",
+    "positionY": "center",
+
+    "timeout":          5,
+    "timeout-low":      5,
+    "timeout-critical": 0,
+
+    "notification-window-width": 400,
+    "control-center-width": 500,
+    "control-center-height": 200,
+
+    "widgets":
+    [
+        "label",
+        "inhibitors",
+        "buttons-grid",
+        "menubar",
+        "mpris",
+        "volume",
+        "backlight",
+        "title",
+        "dnd",
+        "notifications"
+    ],
+
+    "widget-config":
+    {
+        "label":
+        {
+            "text": "System Center"
+        },
+
+        "title":
+        {
+            "text": "Notifications",
+            "clear-all-button": true,
+            "button-text": "󰎟"
+        },
+
+        "dnd":
+        {
+            "text": "Do Not Disturb"
+        },
+
+        "volume":
+        {
+            "label": "󰕾",
+            "show-per-app": true,
+            "show-per-app-icon": true,
+            "show-per-app-label": true,
+            "expand-button-label": "Apps",
+            "collapse-button-label": "Apps"
+        },
+
+        "backlight":
+        {
+            "label": "Brightness"
+        },
+
+        "inhibitors":
+        {
+            "text": "Inhibitors"
+        },
+
+        "menubar":
+        {
+            "menu#power":
+            {
+                "label": "Power",
+                "position": "right",
+                "actions":
+                [
+                    {
+                        "label": "Lock",
+                        "command": "loginctl lock-session"
+                    },
+
+                    {
+                        "label": "Logout",
+                        "command": "hyprctl dispatch exit"
+                    },
+
+                    {
+                        "label": "Suspend",
+                        "command": "systemctl suspend"
+                    },
+
+                    {
+                        "label": "Reboot",
+                        "command": "systemctl reboot"
+                    },
+
+                    {
+                        "label": "Power Off",
+                        "command": "systemctl -i poweroff"
+                    }
+                ]
+            },
+
+            "menu#screenshot":
+            {
+                "label": "Screenshot",
+                "position": "left",
+                "actions":
+                [
+                    {
+                        "label": "Entire screen",
+                        "command": "flameshot screen"
+                    },
+
+                    {
+                        "label": "All screens",
+                        "command": "flameshot screen"
+                    },
+
+                    {
+                        "label": "Rectangular selection",
+                        "command": "flameshot gui"
+                    }
+                ]
+            }
+        },
+
+        "buttons-grid":
+        {
+            "actions":
+            [
+                {
+                    "label": "Wi-Fi",
+                    "command": "networkmanager_dmenu"
+                }
+            ]
+        }
+    }
+}
