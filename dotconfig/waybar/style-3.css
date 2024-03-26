@@ -9,34 +9,35 @@
 @import '../css-common/common-colors/common-colors-catppuccin-mocha.css';
 
 /* Module colors */
-@define-color workspaces-button_active @select1;
-@define-color workspaces-button_urgent @urgent;
+@define-color workspaces-button_active  @select1;
+@define-color workspaces-button_urgent  @urgent;
+@define-color workspaces-button_special @select2;
 
-@define-color mpris                    @peach;
-@define-color cava                     @green;
+@define-color mpris                     @peach;
+@define-color cava                      @green;
 
-@define-color network                  @teal;
-@define-color network2                 #a8f0e4;
-@define-color network_disconnected     @urgent;
+@define-color network                   @teal;
+@define-color network2                  #a8f0e4;
+@define-color network_disconnected      @urgent;
 
-@define-color bluetooth                @sky;
+@define-color bluetooth                 @sky;
 
-@define-color pulseaudio               @sapphire;
-@define-color pulseaudio_muted         @urgent;
-@define-color pulseaudio_source-muted  @warn;
+@define-color pulseaudio                @sapphire;
+@define-color pulseaudio_muted          @urgent;
+@define-color pulseaudio_source-muted   @warn;
 
-/*@define-color backlight                @sapphire;*/
+/*@define-color backlight                 @sapphire;*/
 
-@define-color battery                  @blue;
-@define-color battery_warning          @warn;
-@define-color battery_critical         @urgent;
+@define-color battery                   @blue;
+@define-color battery_warning           @warn;
+@define-color battery_critical          @urgent;
 
-@define-color kb-layout                @lavender;
+@define-color kb-layout                 @lavender;
 
-@define-color tray                     @mauve;
+@define-color tray                      @mauve;
 
-@define-color maximize                 @blue;
-@define-color close                    @red;
+@define-color maximize                  @blue;
+@define-color close                     @red;
 /* }}} */
 
 /* {{{ Global settings */
@@ -121,6 +122,20 @@ tooltip
     border-bottom: 3px dotted @workspaces-button_urgent;
     font-weight:   bold;
     animation:     workspace-blinker 1s linear infinite;
+}
+
+#workspaces button.special
+{
+    color:         @font;
+    border-bottom: 3px dotted @font;
+    font-weight:   bold;
+}
+
+#workspaces button.special.active
+{
+    color:         @workspaces-button_special;
+    border-bottom: 3px dotted @workspaces-button_special;
+    font-weight:   bold;
 }
 
 @keyframes workspace-blinker
