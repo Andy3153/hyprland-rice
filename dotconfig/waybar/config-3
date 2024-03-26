@@ -6,7 +6,6 @@
 
 {
     // {{{ General settings
-    "layer":    "top",
     "position": "top",
     // }}}
 
@@ -53,7 +52,7 @@
         "custom/space",        "bluetooth",
         "custom/space",        "pulseaudio",
         "custom/space",        "battery",
-        "custom/space",        "custom/kb-layout",
+        "custom/space",        "hyprland/language",
         "custom/space",        "tray",
         "custom/space",        "custom/maximize",  "custom/close",
     ],
@@ -91,6 +90,7 @@
     "hyprland/window":
     {
         "format":                             "{}",
+        "separate-outputs":                   true,
     },
     // }}}
 
@@ -233,13 +233,13 @@
     },
     // }}}
 
-    // {{{ Keyboard layout
-    "custom/kb-layout":
+    // {{{ Language
+    "hyprland/language":
     {
-        "on-click":                            "hyprctl switchxkblayout at-translated-set-2-keyboard next",
         "format":                              "󰌌  {}",
-        "exec":                                "hyprctl devices -j | jq -r '.keyboards[] | .active_keymap' | tail -n1 | cut -c1-2 | tr 'A-Z' 'a-z'",
-        "interval":                            1,
+        "format-en":                           "en",
+        "format-ro":                           "ro",
+        "on-click":                            "hyprctl switchxkblayout at-translated-set-2-keyboard next",
     },
     // }}}
 
