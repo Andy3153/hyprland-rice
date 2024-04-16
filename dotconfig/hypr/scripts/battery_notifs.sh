@@ -35,7 +35,7 @@ while true
 do
   sleep 1m
 
-  if [ "${bat_status}" = "Discharging"]
+  if [ "${bat_status}" = "Discharging" ]
   then
     if [ "${bat_percent}" -le "10" ]
     then notify-send --urgency=critical --app-name="Battery" "Low battery" "Battery is at ${bat_percent}%. Please plug in your charger."
