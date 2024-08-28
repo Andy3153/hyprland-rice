@@ -2,26 +2,26 @@
  {
    "label": "Lock",
    "exec": "loginctl lock-session",
-   "icon": "/usr/share/nwg-bar/images/system-lock-screen.svg"
+   "icon": "img/lock.png"
  },
  {
    "label": "Logout",
    "exec": "hyprctl dispatch exit",
-   "icon": "/usr/share/nwg-bar/images/system-log-out.svg"
+   "icon": "img/logout.png"
  },
  {
    "label": "Suspend",
    "exec": "systemctl suspend",
-   "icon": "/usr/share/nwg-bar/images/system-reboot.svg"
+   "icon": "img/suspend.png"
  },
  {
    "label": "Reboot",
    "exec": "systemctl reboot",
-   "icon": "/usr/share/nwg-bar/images/system-reboot.svg"
+   "icon": "img/reboot.png"
  },
  {
    "label": "Power Off",
    "exec": "systemctl -i poweroff",
-   "icon": "/usr/share/nwg-bar/images/system-shutdown.svg"
+   "icon": "img/poweroff.png"
  }
 ]
