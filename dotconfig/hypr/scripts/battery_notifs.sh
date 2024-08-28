@@ -25,20 +25,29 @@ fi
 # }}}
 
 # Battery percent
-bat_percent=$(cat "${battery}/capacity")
+#bat_percent=$(cat "${battery}/capacity")
 
 # Battery status
-bat_status=$(cat "${battery}/status")
+#bat_status=$(cat "${battery}/status")
 # }}}
 
-while true
-do
-  sleep 1m
+#while inotifywait --quiet --event modify
+#do
+#  bat_percent=$(cat "${battery}/capacity")
+#  bat_status=$(cat "${battery}/status")
+#
+#done
 
-  if [ "${bat_status}" = "Discharging" ]
-  then
-    if [ "${bat_percent}" -le "10" ]
-    then notify-send --urgency=critical --app-name="Battery" "Low battery" "Battery is at ${bat_percent}%. Please plug in your charger."
-    fi
-  fi
-done
+inotifywait --event modify "./sdf.txt"
+
+#while true
+#do
+#  sleep 1m
+#
+#  if [ "${bat_status}" = "Discharging" ]
+#  then
+#    if [ "${bat_percent}" -le "10" ]
+#    then notify-send --urgency=critical --app-name="Battery" "Low battery" "Battery is at ${bat_percent}%. Please plug in your charger."
+#    fi
+#  fi
+#done
