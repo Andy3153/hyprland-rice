@@ -46,9 +46,9 @@
     font:      @text;
     font-dark: @crust;
     bg0:       @base;
-    bg0-alpha: #1e1e2eee;
+    bg0-alpha: #1e1e2ecc;
     bg1:       #272737;
-    bg1-alpha: #272737ee;
+    bg1-alpha: #27273755;
     bg2:       @surface0;
     bg3:       @surface1;
     select1:   @blue;
@@ -106,7 +106,7 @@ entry
     border-radius: 7px;
     margin: 20px 20px 0px 10px;
     text-color: @font;
-    background-color: @bg1;
+    background-color: @bg1-alpha;
 }
 
 listview
@@ -123,7 +123,7 @@ element
 {
     padding: 0;
     padding: 0px 9px 0px 9px;
-    background-color: @bg1;
+    background-color: @bg1-alpha;
     border-radius: 7px;
     text-color: @font;
 }
@@ -148,7 +148,7 @@ mode-switcher
 button
 {
     padding: 10px;
-    background-color: @bg0;
+    background-color: @bg0-alpha;
     text-color: @font;
     vertical-align: 0.5;
     horizontal-align: 0.5;
@@ -156,13 +156,13 @@ button
 
 button selected
 {
-  background-color: @bg0;
+  background-color: @bg0-alpha;
   text-color: @select1;
 }
 
 message
 {
-    background-color: @bg0;
+    background-color: @bg0-alpha;
     margin: 2px;
     padding: 2px;
     border-radius: 5px;
@@ -173,5 +173,5 @@ textbox
     padding: 6px;
     margin: 20px 0px 0px 20px;
     text-color: @select1;
-    background-color: @bg0;
+    background-color: @bg0-alpha;
 }
