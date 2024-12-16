@@ -16,10 +16,10 @@ follow = keyboard
 # dynamic width from 0 to 300
 # width = (0, 300)
 # constant width of 300
-width = (0,400)
+width = (100, 400)
 
-# The maximum height of a single notification, excluding the frame.
-height = 300
+# The height of a single notification, excluding the frame.
+height = (0, 300)
 
 # Position the notification in the top right corner
 origin = top-right
@@ -61,11 +61,6 @@ icon_corner_radius = 0
 # notification_limit).
 indicate_hidden = yes
 
-# The transparency of the window.  Range: [0; 100].
-# This option will only work if a compositing window manager is
-# present (e.g. xcompmgr, compiz, etc.). (X11 only)
-transparency = 20
-
 # Draw a line of "separator_height" pixel height between two
 # notifications.
 # Set to 0 to disable.
@@ -83,7 +78,7 @@ text_icon_padding = 0
 
 # Defines width in pixels of frame around the notification window.
 # Set to 0 to disable.
-frame_width = 3
+frame_width = 2
 
 # Defines color of the frame around the notification window.
 frame_color = "#89B4FA"
@@ -92,7 +87,7 @@ frame_color = "#89B4FA"
 # If value is greater than 0, separator_height will be ignored and a border
 # of size frame_width will be drawn around each notification instead.
 # Click events on gaps do not currently propagate to applications below.
-gap_size = 10
+gap_size = 14
 
 # Define a color for the separator.
 # possible values are:
@@ -137,7 +132,7 @@ format = "<b>%s</b>\n%b"
 
 # Alignment of message text.
 # Possible values are "left", "center" and "right".
-alignment = left #center
+alignment = center
 
 # Vertical alignment of message text and icon.
 # Possible values are "top", "center" and "bottom".
@@ -170,7 +165,7 @@ show_indicators = yes
 enable_recursive_icon_lookup = true
 
 # Set icon theme (only used for recursive icon lookup)
-icon_theme = "Papirus-Dark, breeze"
+icon_theme = Papirus-Dark, Papirus
 
 # Align icons left/right/top/off
 icon_position = left
@@ -189,15 +184,14 @@ max_icon_size = 32
 sticky_history = yes
 
 # Maximum amount of notifications kept in history
-history_length = 20
+history_length = 50
 
 ### Misc/Advanced ###
 # dmenu path.
 dmenu = "rofi -dmenu --prompt dunst: "
-#dmenu = "/usr/bin/fuzzel --dmenu --prompt dunst: "
 
 # Browser for opening urls in context menu.
-browser = /usr/bin/xdg-open
+browser = xdg-open
 
 # Always run rule-defined scripts, even if the notification is suppressed
 always_run_script = true
@@ -276,21 +270,21 @@ per_monitor_dpi = false
 [urgency_low]
 # IMPORTANT: colors have to be defined in quotation marks.
 # Otherwise the "#" and following would be interpreted as a comment.
-background = "#1E1E2E"
+background = "#1E1E2ECC"
 foreground = "#CDD6F4"
 timeout = 5
 # Icon for notifications with low urgency, uncomment to enable
 #default_icon = /path/to/icon
 
 [urgency_normal]
-background = "#1E1E2E"
+background = "#1E1E2ECC"
 foreground = "#CDD6F4"
 timeout = 5
 # Icon for notifications with normal urgency, uncomment to enable
 #default_icon = /path/to/icon
 
 [urgency_critical]
-background = "#1E1E2E"
+background = "#1E1E2ECC"
 foreground = "#CDD6F4"
 frame_color = "#FAB387"
 timeout = 0
