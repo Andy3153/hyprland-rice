@@ -15,6 +15,11 @@
    "icon": "img/suspend.png"
  },
  {
+   "label": "Hibernate",
+   "exec": "systemctl hibernate",
+   "icon": "img/hibernate.png"
+ },
+ {
    "label": "Reboot",
    "exec": "systemctl reboot",
    "icon": "img/reboot.png"
