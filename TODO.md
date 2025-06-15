@@ -1,0 +1,3 @@
+- hyprlock brightness thing
+- hyprland plugins: scroll, overview, cursor shake
+- swayosd config file / css
