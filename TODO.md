@@ -1,3 +1,4 @@
-- hyprlock brightness thing
-- hyprland plugins: scroll, overview, cursor shake
+- B   A   R
+- kruler window rule + shortcut (shift+calc)
 - swayosd config file / css
+- find wifi gui
