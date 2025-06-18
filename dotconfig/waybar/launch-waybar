@@ -1,9 +1,0 @@
-#!/bin/sh
-
-trap "killall waybar" EXIT
-
-while true; do
-    waybar &
-    inotifywait --event create,modify --recursive ~/.config/waybar/
-    killall waybar
-done
