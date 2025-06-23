@@ -1,43 +1,73 @@
 /* vim: set fenc=utf-8 ts=4 sw=0 sts=0 sr et si tw=0 fdm=marker fmr={{{,}}}: */
 /* */
-/* waybar/style.css by Andy3153  */
-/* created   30/01/24 ~ 23:07:59 */
+/* waybar/style.css by Andy3153 */
+/* created   06/07/23 ~ 01:51:42   */
+/* remade1   18/06/25 ~ 23:17:45   */
 /* */
 
 /* {{{ Colors */
 /* When I ever change the colorscheme, I only change the imported colors up here */
 @import '../css-common/common-colors/common-colors-catppuccin-mocha.css';
 
-/* Module colors */
-@define-color workspaces-button_active  @select1;
-@define-color workspaces-button_urgent  @urgent;
-@define-color workspaces-button_special @select2;
+/* {{{ Consecutive colors */
+@define-color C01 @surface0;
+@define-color C02 @surface1;
+@define-color C03 @surface2;
+@define-color C04 @overlay0;
+@define-color C05 @overlay1;
+@define-color C06 @C02;
+@define-color C07 @C03;
+@define-color C08 @C04;
+@define-color C09 @C05;
+/* }}} */
+/* }}} */
 
-@define-color mpris                     @peach;
-@define-color cava                      @green;
+/* {{{ Keyframes */
+/* {{{ #workspaces button.urgent */
+@keyframes workspaces-button_urgent
+{
+    50%
+    {
+        color:      @font;
+        background: @urgent;
+    }
+}
+/* }}} */
 
-@define-color network                   @teal;
-@define-color network2                  #a8f0e4;
-@define-color network_disconnected      @urgent;
+/* {{{ #battery.low:not(.charging), #battery.critical:not(.charging) */
+@keyframes battery_not-charging
+{
+    50%
+    {
+        color: @font;
+    }
+}
+/* }}} */
 
-@define-color bluetooth                 @sky;
+/* {{{ window#waybar.battery-critical */
+@keyframes window_waybar_battery-critical
+{
+    0%  { background: alpha(@urgent, 0.8); }
+    3%  { background: alpha(@bg0, 0.8); }
 
-@define-color pulseaudio                @sapphire;
-@define-color pulseaudio_muted          @urgent;
-@define-color pulseaudio_source-muted   @warn;
+    5%  { background: alpha(@urgent, 0.8); }
+    8%  { background: alpha(@bg0, 0.8); }
 
-/*@define-color backlight                 @sapphire;*/
+    10% { background: alpha(@urgent, 0.8); }
+    13% { background: alpha(@bg0, 0.8); }
+}
+/* }}} */
 
-@define-color battery                   @blue;
-@define-color battery_warning           @warn;
-@define-color battery_critical          @urgent;
-
-@define-color language                  @lavender;
-
-@define-color tray                      @mauve;
-
-@define-color maximize                  @blue;
-@define-color close                     @red;
+/* {{{ #tray > .needs-attention */
+@keyframes tray_needs-attention
+{
+    50%
+    {
+        color:        @font;
+        background:   @urgent;
+    }
+}
+/* }}} */
 /* }}} */
 
 /* {{{ Global settings */
@@ -48,22 +78,23 @@
     margin:        0px;
     border:        none;
     border-radius: 0px;
+    min-height:    0px;
     box-shadow:    none;
+    /*color:         @font;*/
 }
 /* }}} */
 
 /* {{{ Window settings */
 window#waybar
 {
-    background:    alpha(@bg0, 0.8);
+    background: alpha(@bg0, 0.8);
 }
 /* }}} */
 
 /* {{{ Tooltip settings */
 tooltip
 {
-    color:         @font;
-    background:    alpha(@bg0, 0.8);
+    background: alpha(@bg0, 0.8);
 }
 /* }}} */
 
@@ -71,246 +102,195 @@ tooltip
 /* {{{ General */
 .modules-left,.modules-right,.modules-center
 {
-    color:         @font;
-    background:    transparent;
+    background: transparent;
 }
 /* }}} */
 
 /* {{{ Common between modules */
-#window, #clock, #custom-weather #mpris, #custom-cava, #network, #bluetooth, #pulseaudio, #backlight, #battery, #language, #tray, #custom-maximize, #custom-close
+#custom-overview, #custom-weather, #window,
+#clock,
+#mpris, #network, #bluetooth, #pulseaudio, #battery, #language, #tray, #privacy, #custom-maximize, #custom-close
 {
-    padding:       0px 5px;
+    padding: 0px 5px;
 }
 /* }}} */
+
+/* {{{ Left modules */
+/* {{{ Overview */
+#custom-overview
+{
+    background: @C01;
+    padding:    0px 0px 0px 5px;
+}
+/* }}} */
+
+#custom-arrR-01 { color: @C01; background: @C02; }
 
 /* {{{ Workspaces */
 #workspaces
 {
-    padding:       0px;
+    background: @C02;
+    padding:    0px 0px 0px 2px;
 }
 
 #workspaces button
 {
-    color:         @font;
-    padding:       0px 5px;
-    border-bottom: 4px solid transparent;
+    color:   @font;
+    padding: 0px 5px;
 }
 
 #workspaces button:hover
 {
-    color:         @font;
-    border-bottom: 4px dotted @font;
-    font-weight:   bold;
+    background:  @C01;
+    font-weight: bold;
 }
 
 #workspaces button.active
 {
-    color:         @workspaces-button_active;
-    border-bottom: 3px solid @workspaces-button_active;
+    color: @select1;
+    border-left: 2px @select1 solid;
 }
 
-#workspaces button.active:hover
+#workspaces button.special { padding: 0px 5px 0px 10px; }
+
+#workspaces button.special.active
 {
-    color:         @workspaces-button_active;
-    border-bottom: 4px dotted @workspaces-button_active;
-    font-weight:   bold;
+    color:       @select2;
+    font-weight: bold;
 }
 
 #workspaces button.urgent
 {
-    color:         @workspaces-button_urgent;
-    border-bottom: 3px dotted @workspaces-button_urgent;
-    font-weight:   bold;
-    animation:     workspace-blinker 1s linear infinite;
-}
-
-#workspaces button.special
-{
-    color:         @font;
-    border-bottom: 3px dotted @font;
-    font-weight:   bold;
-}
-
-#workspaces button.special.active
-{
-    color:         @workspaces-button_special;
-    border-bottom: 3px dotted @workspaces-button_special;
-    font-weight:   bold;
-}
-
-@keyframes workspace-blinker
-{
-    50%
-    {
-        color:        @font;
-        border-color: @font;
-        background:   @workspaces-button_urgent;
-    }
+    color:       @urgent;
+    font-weight: bold;
+    animation:   workspaces-button_urgent 1s linear infinite;
 }
 /* }}} */
 
-/* {{{ Window */
-#window.#waybar.empty
-{
-    color:         transparent;
-    background:    transparent;
-    border-radius: 0px;
-    padding:       0px;
-}
-/* }}} */
-
-/* {{{ MPRIS */
-#mpris
-{
-    color: @mpris;
-    border-bottom: 3px solid @mpris;
-}
-/* }}} */
-
-/* {{{ Network */
-#network
-{
-    color: @network;
-    border-bottom: 3px solid @network;
-}
-
-#network.disconnected, #network.disabled
-{
-    /* Colors */
-    color: @network_disconnected;
-    border-bottom: 3px solid @network_disconnected;
-}
-/* }}} */
-
-/* {{{ Bluetooth */
-#bluetooth
-{
-    color: @bluetooth;
-    border-bottom: 3px solid @bluetooth;
-    /*padding:       0px 0px 0px 5px;*/
-}
-/* }}} */
-
-/* {{{ Pulseaudio */
-#pulseaudio
-{
-    color: @pulseaudio;
-    border-bottom: 3px solid @pulseaudio;
-}
-
-#pulseaudio.muted
-{
-    color: @pulseaudio_muted;
-    border-bottom: 3px solid @pulseaudio_muted;
-}
-
-#pulseaudio.source-muted
-{
-    color: @pulseaudio_source-muted;
-    border-bottom: 3px solid @pulseaudio_source-muted;
-}
-/* }}} */
-
-/* {{{ Battery */
-#battery
-{
-    color: @battery;
-    border-bottom: 3px solid @battery;
-}
-
-#battery.warning
-{
-    color: @battery_warning;
-    border-bottom: 3px solid @battery_warning;
-}
-
-#battery.critical:not(.charging)
-{
-    color: @battery_critical;
-    border-bottom: 3px solid @battery_critical;
-    animation: battery-blinker 1s linear infinite;
-}
-
-@keyframes battery-blinker
-{
-    50%
-    {
-        color:        @font;
-        border-color: @font;
-        background:   @battery_critical;
-    }
-}
-/* }}} */
-
-/* {{{ Language */
-#language
-{
-    color: @language;
-    border-bottom: 3px solid @language;
-}
-/* }}} */
-
-/* {{{ Tray */
-#tray
-{
-    color: @tray;
-    border-bottom: 3px solid @tray;
-}
-/* }}} */
+#custom-arrR-02 { color: @C02; background: @C03; }
 
 /* {{{ Weather */
 #custom-weather
 {
-    color: @battery;
-    border-bottom: 3px solid @battery;
+    color: @select1;
+    background: @C03;
 }
 
-#custom-weather.clear
-{
-    color: @teal; /*#c2ca76;*/
-    border-bottom: 3px solid @teal;
-}
+#custom-weather.clear  { color: @teal; }
+#custom-weather.cloudy { color: @yellow; }
+#custom-weather.rain   { color: @sapphire; }
+#custom-weather.snow   { color: @subtext1; }
+#custom-weather.storm  { color: @red; }
+/* }}} */
 
-#custom-weather.cloudy
-{
-    color: @yellow; /*#c2ddda;*/
-    border-bottom: 3px solid @yellow;
-}
+#custom-arrR-03 { color: @C03; background: @C04; }
 
-#custom-weather.rain
-{
-    color: @sapphire; /*#5aaca5;*/
-    border-bottom: 3px solid @sapphire;
-}
+/* {{{ Window */
+#window { background: @C04; }
+/* }}} */
 
-#custom-weather.snow
-{
-    color: @subtext1; /*#d6e7e5;*/
-    border-bottom: 3px solid @subtext1;
-}
+#custom-arrR-04 { color: @C04; background: transparent; }
+/* }}} */
 
-#custom-weather.storm
+/* {{{ Center modules */
+/* }}} */
+
+/* {{{ Right modules */
+#custom-arrL-09 { color: @C09; background: transparent; }
+
+/* {{{ MPRIS */
+#mpris { background: @C09; }
+/* }}} */
+
+#custom-arrL-08 { color: @C08; background: @C09; }
+
+/* {{{ Network */
+#network              { background: @C08; }
+#network.disabled     { color: @urgent; }
+#network.disconnected { color: @urgent; }
+/* }}} */
+
+#custom-arrL-07 { color: @C07; background: @C08; }
+
+/* {{{ Bluetooth */
+#bluetooth               { background: @C07; }
+#bluetooth.no-controller { padding: 0px; }
+/* }}} */
+
+#custom-arrL-06 { color: @C06; background: @C07; }
+
+/* {{{ Pulseaudio */
+#pulseaudio { background: @C06; }
+/* }}} */
+
+#custom-arrL-05 { color: @C05; background: @C06; }
+
+/* {{{ Battery */
+#battery                         { background: @C05; }
+#battery.low                     { color: @warn; }
+#battery.low:not(.charging)      { animation: battery_not-charging 1s linear infinite; }
+#battery.critical                { color: @urgent; }
+#battery.critical:not(.charging) { animation: battery_not-charging .5s linear infinite; }
+#battery.charging                { color: @green; }
+window#waybar.battery-critical   { animation: window_waybar_battery-critical 10s infinite; }
+/* }}} */
+
+#custom-arrL-04 { color: @C04; background: @C05; }
+
+/* {{{ Language */
+#language { background: @C04; }
+/* }}} */
+
+#custom-arrL-03 { color: @C03; background: @C04; }
+
+/* {{{ Tray */
+#tray { background: @C03; }
+
+#tray > .needs-attention
 {
-    color: @red; /*#eb937d;*/
-    border-bottom: 3px solid @red;
+    background: @bg0;
+    animation:  tray_needs-attention 1s linear infinite;
 }
 /* }}} */
+
+#custom-arrL-02 { color: @C02; background: @C03; }
+
+/* {{{ Privacy */
+#privacy { background: @C02; }
+/* }}} */
+
+#custom-arrL-01 { color: @C01; background: @C02; }
 
 /* {{{ Maximize */
 #custom-maximize
 {
-    color:      @font-dark;
-    background: @maximize;
+    color:      @select1;
+    background: @C01;
     padding:    0px 8px;
+
+    border-right: 2px solid @C02;
 }
 /* }}} */
 
 /* {{{ Close */
 #custom-close
 {
-    color:      @font-dark;
-    background: @close;
+    color:      @urgent;
+    background: @C01;
     padding:    0px 8px;
+}
+/* }}} */
+/* }}} */
+
+/* {{{ Common between arrows   */
+#custom-arrR-01, #custom-arrR-02, #custom-arrR-03, #custom-arrR-04,
+
+#custom-arrL-09,
+#custom-arrL-08, #custom-arrL-07, #custom-arrL-06, #custom-arrL-05,
+#custom-arrL-04, #custom-arrL-03, #custom-arrL-02, #custom-arrL-01
+{
+    font-size: 20px;
+    padding:   0;
 }
 /* }}} */
 /* }}} */
