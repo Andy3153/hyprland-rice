@@ -1,45 +1,26 @@
 <!-- vim: set fenc=utf-8 ts=2 sw=0 sts=0 sr et si tw=0 fdm=marker fmr={{{,}}}: -->
 # hyprland-rice
-These are the configuration files for all of the programs I am going to use inside Hyprland, a Wayland compositor.
+![Preview](./.img/preview.png)
 
-<details>
-  <summary>Dependencies (in Arch Linux package names)</summary>
-  ```
-  hyprland-git
-  xdg-desktop-portal-hyprland-git
-  xdg-desktop-portal-gtk
-  xwaylandvideobridge-cursor-mode-2-git
-  hy3-git
-  swaylock-effects
-  blueman
-  networkmanager-dmenu-git
-  nwg-look
-  catppuccin-gtk-theme-mocha
-  papirus-icon-theme
-  qt5ct
-  qt6ct
-  libcanberra
-  brightnessctl
-  dunst
-  kitty
-  fuzzel
-  hyprpaper
-  hyprpicker
-  wl-clipboard
-  swayidle
-  waybar-git
-  nwg-dock-hyprland
-  nwg-drawer
-  nwg-bar
-  swayosd-git
-  flameshot
-  grim
-  kcalc
-  ```
-</details>
+(seen in the screenshot: [NixOS config](https://github.com/Andy3153/nixos-rice), [Neovim config](https://github.com/Andy3153/andy3153-init.lua), [Zsh config](https://github.com/Andy3153/andy3153-zshrc))
+
+## Dependencies
+See [Andy3153/nixos-rice/modules/gui/rices/hyprland-rice](https://github.com/Andy3153/nixos-rice/blob/master/modules/gui/rices/hyprland-rice.nix).
+- Needed programs:
+  - `custom.extraPackages`
+  - `home-manager.users.${mainUser}.wayland.windowManager.hyprland`
+  - `home-manager.users.${mainUser}.programs`
+  - `home-manager.users.${mainUser}.services`
+- Needed scripts:
+  - `home-manager.users.${mainUser}.home.file`
+- Needed config files:
+  - `home-manager.users.${mainUser}.xdg.configFile`
+  - `home-manager.users.${mainUser}.xdg.dataFile`
+- Used GTK/Qt themes, icon themes, fonts, cursors etc.:
+  - `custom.gui`
 
 ## Installation
-This Git repo contains `dotconfig` and `dotlocal`. These correspond to `~/.config` and `~/.local` respectively. So, you can go two ways about 'installing' these.
+This Git repo contains `dotconfig` and `dotlocal`. These contain files that correspond to files that go in `~/.config` and `~/.local` respectively. So, you just have to symlink/copy the files you need into your respective folders.
 
 Firstly, clone the repo:
 ```bash
@@ -47,29 +28,11 @@ cd /path/to/clone/folder/
 git clone https://github.com/Andy3153/hyprland-rice/
 ```
 
-(replace `/path/to/clone/folder/` with the folder you want to clone the Git repo inside. Your choice, could be your Home directory)
+(replace `/path/to/clone/folder/` with the folder you want to clone the Git repo inside.
 
-Then, follow either of these methods:
+Then, get the files you want in your configuration:
 
-- Symlinks (you need to keep the cloned folder)
 ```bash
-ln -s /path/to/clone/folder/hyprland-rice/dotconfig/* ~/.config
-ln -s /path/to/clone/folder/hyprland-rice/dotlocal/* ~/.local
+ln -s /path/to/clone/folder/hyprland-rice/dotconfig/EXAMPLE ~/.config
+ln -s /path/to/clone/folder/hyprland-rice/dotlocal/EXAMPLE ~/.local
 ```
-
-- Copying
-```bash
-cd hyprland-rice/
-cp -r dotconfig/* ~/.config
-cp -r dotlocal/* ~/.local
-cd ..
-rm -rf hyprland-rice/ # feel free to delete the folder
-```
-
-## Other dotfiles of mine
-- [Zsh config](https://github.com/Andy3153/andy3153-zshrc)
-- [Neovim config](https://github.com/Andy3153/andy3153-init.lua)
-- [Sway rice](https://github.com/Andy3153/sway-rice)
-
-## Contributing
-Feel free to give me advice on this, or even help me with it!
