@@ -1,0 +1,9 @@
+## vim: set fenc=utf-8 ts=4 sw=0 sts=0 sr et si tw=0 fdm=marker fmr={{{,}}}:
+##
+## waycorner/config.toml by Andy3153
+## created   23/06/25 ~ 09:44:15
+##
+
+[all-monitors]
+command   = [ "hyprctl", "dispatch", "overview:open" ]
+locations = [ "top_left" ]
