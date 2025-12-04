@@ -10,11 +10,11 @@
 @import '../css-common/common-colors/common-colors-catppuccin-mocha.css';
 
 /* {{{ Consecutive colors */
-@define-color C01 @surface0;
-@define-color C02 @surface1;
-@define-color C03 @surface2;
-@define-color C04 @overlay0;
-@define-color C05 @overlay1;
+@define-color C01 #272F41;
+@define-color C02 #303E5A;
+@define-color C03 #415377;
+@define-color C04 #52658E;
+@define-color C05 #6B81B2;
 @define-color C06 @C02;
 @define-color C07 @C03;
 @define-color C08 @C04;
