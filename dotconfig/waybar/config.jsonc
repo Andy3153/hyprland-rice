@@ -56,9 +56,9 @@
         // {{{ Overview
         "custom/overview":
         {
-            "on-click":        "hyprctl dispatch overview:open",
+            "on-click":        "rofi -show combi",
             "format":          "󰍜 ",
-            "tooltip-format":  "󰍜 Overview",
+            "tooltip-format":  "󰍜 Applications",
         },
         // }}}
 
