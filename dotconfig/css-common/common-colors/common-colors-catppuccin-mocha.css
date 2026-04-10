@@ -4,7 +4,7 @@
 /* created   10/08/23 ~ 13:46:04 */
 /* */
 
-@import '../colorschemes/catppuccin-mocha.css';
+@import '../colorschemes/catppuccin-css/themes/mocha.css';
 
 @define-color font             @text;
 @define-color font-dark        @crust;
