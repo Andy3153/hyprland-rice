@@ -1,0 +1,3 @@
+[submodule "dotconfig/hypr/colorschemes/catppuccin-hyprland"]
+	path = dotconfig/hypr/colorschemes/catppuccin-hyprland
+	url = https://github.com/catppuccin/hyprland
