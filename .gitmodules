@@ -4,3 +4,6 @@
 [submodule "dotconfig/css-common/colorschemes/catppuccin-css"]
 	path = dotconfig/css-common/colorschemes/catppuccin-css
 	url = https://github.com/catppuccin/waybar
+[submodule "dotconfig/hypr/colorschemes/catppuccin-hyprtoolkit"]
+	path = dotconfig/hypr/colorschemes/catppuccin-hyprtoolkit
+	url = https://github.com/catppuccin/hyprtoolkit
