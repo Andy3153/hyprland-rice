@@ -1,0 +1,59 @@
+{
+  "css": ".config/wleave/style.css",
+
+  "buttons-per-row":     "3",
+  "close-on-lost-focus": true,
+  "no-version-info":     true,
+  "show-keybinds":       true,
+
+  "buttons":
+  [
+    {
+      "text":    "Lock",
+      "label":   "lock",
+      "action":  "loginctl lock-session",
+      "keybind": "l",
+      "icon":    ".config/wleave/img/lock.svg"
+    },
+
+    {
+      "text":    "Suspend",
+      "label":   "suspend",
+      "action":  "systemctl suspend -i",
+      "keybind": "s",
+      "icon":    ".config/wleave/img/suspend.svg"
+    },
+
+    {
+      "text":    "Hibernate",
+      "label":   "hibernate",
+      "action":  "systemctl hibernate",
+      "keybind": "H",
+      "icon":    ".config/wleave/img/hibernate.svg"
+    },
+
+    {
+      "text":    "Log Out",
+      "label":   "logout",
+      "action":  "hyprshutdown --top-label 'Logging out...'",
+      "keybind": "L",
+      "icon":    ".config/wleave/img/logout.svg"
+    },
+
+    {
+      "text":    "Reboot",
+      "label":   "reboot",
+      "action":  "hyprshutdown --top-label 'Rebooting...' --post-cmd 'systemctl reboot'",
+      "keybind": "R",
+      "icon":    ".config/wleave/img/reboot.svg"
+    },
+
+    {
+      "text":    "Power Off",
+      "label":   "poweroff",
+      "action":  "hyprshutdown --top-label 'Powering off...' --post-cmd 'systemctl poweroff'",
+      "keybind": "P",
+      "icon":    ".config/wleave/img/poweroff.svg"
+    }
+  ]
+}
