@@ -24,14 +24,14 @@
             "custom/overview",     "custom/arrR-01",
             "hyprland/workspaces", "custom/arrR-02",
             "custom/weather",      "custom/arrR-03",
-            "hyprland/window",     "custom/arrR-04",
+            "hyprland/window",     "custom/arrR-04"
         ],
         // }}}
 
         // {{{ Center modules
         "modules-center":
         [
-            "clock",
+            "clock"
         ],
         // }}}
 
@@ -58,11 +58,11 @@
         {
             "on-click":        "rofi -show combi",
             "format":          "󰍜 ",
-            "tooltip-format":  "󰍜 Applications",
+            "tooltip-format":  "󰍜 Applications"
         },
         // }}}
 
-        "custom/arrR-01": { "format": "", "tooltip": false, },
+        "custom/arrR-01": { "format": "", "tooltip": false },
 
         // {{{ Workspaces
         "hyprland/workspaces":
@@ -85,12 +85,12 @@
                 "default": " ",
                 "empty":   " ",
                 "special": "󰓎 ",
-                "urgent":  " ",
-            },
+                "urgent":  " "
+            }
         },
         // }}}
 
-        "custom/arrR-02": { "format": "", "tooltip": false, },
+        "custom/arrR-02": { "format": "", "tooltip": false },
 
         // {{{ Weather
         "custom/weather":
@@ -98,11 +98,11 @@
             "exec":             "weather4bar --output waybar",
             "hide-empty-text":  true,
             "restart-interval": 1800,
-            "return-type":      "json",
+            "return-type":      "json"
         },
         // }}}
 
-        "custom/arrR-03": { "format": "", "tooltip": false, },
+        "custom/arrR-03": { "format": "", "tooltip": false },
 
         // {{{ Window
         "hyprland/window":
@@ -110,11 +110,11 @@
             "icon":             true,
             "icon-size":        16,
             "icon-theme":       "Papirus-Dark",
-            "separate-outputs": true,
+            "separate-outputs": true
         },
         // }}}
 
-        "custom/arrR-04": { "format": "", "tooltip": false, },
+        "custom/arrR-04": { "format": "", "tooltip": false },
         // }}}
 
         // {{{ Center modules
@@ -136,13 +136,13 @@
                     "days":       "<span color='#b4befe'>{}</span>",
                     "today":      "<span color='#f38ba8'><b><u>{}</u></b></span>"
                 }
-            },
+            }
         },
         // }}}
         // }}}
 
         // {{{ Right modules
-        "custom/arrL-09": { "format": "", "tooltip": false, },
+        "custom/arrL-09": { "format": "", "tooltip": false },
 
         // {{{ MPRIS
         "mpris":
@@ -152,13 +152,7 @@
 
             "format": "{player_icon} {status_icon} {title} - {artist}",
 
-            "tooltip-format":
-"{status_icon} {status} on {player_icon} {player}
-
-󰎇 {title}
-󰠃 {artist}
-󰀥 {album}
-󱦟 {position} - {length}",
+            "tooltip-format": "{status_icon} {status} on {player_icon} {player}\n\n󰎇 {title}\n󰠃 {artist}\n󰀥 {album}\n󱦟 {position} - {length}",
 
             "player-icons":
             {
@@ -172,19 +166,19 @@
                 "mpv":          " ",
                 "spotify":      "󰓇 ",
                 "vlc":          "󰕼 ",
-                "YoutubeMusic": "󰗃 ",
+                "YoutubeMusic": "󰗃 "
             },
 
             "status-icons":
             {
                 "playing": "󰏤",
                 "paused":  "󰐊",
-                "stopped": "󰓛",
-            },
+                "stopped": "󰓛"
+            }
         },
         // }}}
 
-        "custom/arrL-08": { "format": "", "tooltip": false, },
+        "custom/arrL-08": { "format": "", "tooltip": false },
 
         // {{{ Network
         "network":
@@ -199,28 +193,18 @@
             "format-wifi":         "{icon} {essid} 󰇚󰕒 {bandwidthTotalBytes}",
             "format-linked":       "󰿨  Linked",
             "format-disconnected": "󰤭  On",
-            "format-icons":        [ "󰤯 ", "󰤟 ", "󰤢 ", "󰤥 ", "󰤨 ", ],
+            "format-icons":        [ "󰤯 ", "󰤟 ", "󰤢 ", "󰤥 ", "󰤨 " ],
 
             "tooltip-format":              "",
             "tooltip-format-disconnected": "󰤭  On",
 
-            "tooltip-format-ethernet":
-"󰈀 Ethernet 󰇚 {bandwidthDownBytes} 󰕒 {bandwidthUpBytes}
-Interface:   {ifname}
-IP Address:  {ipaddr}
-Subnet mask: {netmask}
-Gateway:     {gwaddr}",
+            "tooltip-format-ethernet": "󰈀 Ethernet 󰇚 {bandwidthDownBytes} 󰕒 {bandwidthUpBytes}\nInterface:   {ifname}\nIP Address:  {ipaddr}\nSubnet mask: {netmask}\nGateway:     {gwaddr}",
 
-            "tooltip-format-wifi":
-"{icon} {essid} {signalStrength}% ({frequency}GHz) 󰇚 {bandwidthDownBytes} 󰕒 {bandwidthUpBytes}
-Interface:   {ifname}
-IP Address:  {ipaddr}
-Subnet mask: {netmask}
-Gateway:     {gwaddr}",
+            "tooltip-format-wifi": "{icon} {essid} {signalStrength}% ({frequency}GHz) 󰇚 {bandwidthDownBytes} 󰕒 {bandwidthUpBytes}\nInterface:   {ifname}\nIP Address:  {ipaddr}\nSubnet mask: {netmask}\nGateway:     {gwaddr}"
         },
         // }}}
 
-        "custom/arrL-07": { "format": "", "tooltip": false, },
+        "custom/arrL-07": { "format": "", "tooltip": false },
 
         // {{{ Bluetooth
         "bluetooth":
@@ -240,19 +224,13 @@ Gateway:     {gwaddr}",
             "tooltip-format-enumerate-connected": "- {device_address}",
             "tooltip-format-enumerate-connected-battery": "- {device_alias} (󰂎 {device_battery_percentage}%)",
 
-            "tooltip-format-connected":
-"󰂱 {controller_alias}
-Devices ({num_connections} connected):
-{device_enumerate}",
+            "tooltip-format-connected": "󰂱 {controller_alias}\nDevices ({num_connections} connected):\n{device_enumerate}",
 
-            "tooltip-format-connected-battery":
-"󰂱 {controller_alias}
-Devices ({num_connections} connected):
-{device_enumerate}",
+            "tooltip-format-connected-battery": "󰂱 {controller_alias}\nDevices ({num_connections} connected):\n{device_enumerate}"
         },
         // }}}
 
-        "custom/arrL-06": { "format": "", "tooltip": false, },
+        "custom/arrL-06": { "format": "", "tooltip": false },
 
         // {{{ Pulseaudio
         "pulseaudio":
@@ -298,16 +276,16 @@ Devices ({num_connections} connected):
                 "portable":         "󰏲",
                 "portable-muted":   "󰷯",
 
-                "default":          [ "󰕿", "󰖀", "󰕾", ],
-                "default-muted":    "󰖁",
+                "default":          [ "󰕿", "󰖀", "󰕾" ],
+                "default-muted":    "󰖁"
             },
 
             "tooltip":        true,
-            "tooltip-format": "{icon} Output: {desc}",
+            "tooltip-format": "{icon} Output: {desc}"
         },
         // }}}
 
-        "custom/arrL-05":    { "format": "", "tooltip": false, },
+        "custom/arrL-05": { "format": "", "tooltip": false },
 
         // {{{ Battery
         "battery":
@@ -317,22 +295,20 @@ Devices ({num_connections} connected):
             "states":
             {
                 "low":      15,
-                "critical": 5,
+                "critical": 5
             },
 
             "format":          "{icon} {capacity}%",
             "format-charging": "{icon}󱐋 {capacity}%",
             "format-critical": "{icon}󱈸 {capacity}%",
-            "format-icons":    [ "󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹", ],
+            "format-icons":    [ "󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹" ],
 
             "tooltip":        true,
-            "tooltip-format":
-"󰂎 {timeTo}
-Power draw: {power}W",
+            "tooltip-format": "󰂎 {timeTo}\nPower draw: {power}W"
         },
         // }}}
 
-        "custom/arrL-04":   { "format": "", "tooltip": false, },
+        "custom/arrL-04": { "format": "", "tooltip": false },
 
         // {{{ Language
         "hyprland/language":
@@ -341,38 +317,38 @@ Power draw: {power}W",
 
             "format":    "󰌌 {}",
             "format-en": "en",
-            "format-ro": "ro",
+            "format-ro": "ro"
         },
         // }}}
 
-        "custom/arrL-03":   { "format": "", "tooltip": false, },
+        "custom/arrL-03": { "format": "", "tooltip": false },
 
         // {{{ Tray
         "tray":
         {
             "icon-size": 16,
-            "spacing":   10,
+            "spacing":   10
         },
         // }}}
 
-        "custom/arrL-02":   { "format": "", "tooltip": false, },
+        "custom/arrL-02": { "format": "", "tooltip": false },
 
         // {{{ Privacy
         "privacy":
         {
             "icon-size":    16,
-            "icon-spacing": 10,
+            "icon-spacing": 10
         },
         // }}}
 
-        "custom/arrL-01":   { "format": "", "tooltip": false, },
+        "custom/arrL-01": { "format": "", "tooltip": false },
 
         // {{{ Maximize
         "custom/maximize":
         {
             "on-click": "hyprctl dispatch fullscreen 1",
             "format":   "",
-            "tooltip":  false,
+            "tooltip":  false
         },
         // }}}
 
@@ -381,8 +357,8 @@ Power draw: {power}W",
         {
             "on-click": "hyprctl dispatch killactive",
             "format":   "",
-            "tooltip":  false,
-        },
+            "tooltip":  false
+        }
         // }}}
         // }}}
     }
