@@ -21,7 +21,7 @@
         // {{{ Left modules
         "modules-left":
         [
-            "custom/overview",     "custom/arrR-01",
+            "custom/appmenu",      "custom/arrR-01",
             "hyprland/workspaces", "custom/arrR-02",
             "custom/weather",      "custom/arrR-03",
             "hyprland/window",     "custom/arrR-04"
@@ -53,8 +53,8 @@
 
         // {{{ Module config
         // {{{ Left modules
-        // {{{ Overview
-        "custom/overview":
+        // {{{ App menu
+        "custom/appmenu":
         {
             "on-click":        "rofi -show combi",
             "format":          "󰍜 ",
@@ -69,8 +69,8 @@
         {
             "show-special": true,
 
-            "on-scroll-up":   "hyprctl dispatch workspace e+1",
-            "on-scroll-down": "hyprctl dispatch workspace e-1",
+            "on-scroll-up":   "hyprctl eval 'hl.dispatch(hl.dsp.focus({ workspace = \"e+1\" }))'",
+            "on-scroll-down": "hyprctl eval 'hl.dispatch(hl.dsp.focus({ workspace = \"e-1\" }))'",
 
             "format": "{icon} {id}",
             "format-icons":
@@ -346,7 +346,7 @@
         // {{{ Maximize
         "custom/maximize":
         {
-            "on-click": "hyprctl dispatch fullscreen 1",
+            "on-click": "hyprctl dispatch 'hl.dsp.window.fullscreen({ mode = \"maximized\" })'",
             "format":   "",
             "tooltip":  false
         },
@@ -355,7 +355,7 @@
         // {{{ Close
         "custom/close":
         {
-            "on-click": "hyprctl dispatch killactive",
+            "on-click": "hyprctl dispatch 'hl.dsp.window.close()'",
             "format":   "",
             "tooltip":  false
         }

@@ -107,7 +107,7 @@ tooltip
 /* }}} */
 
 /* {{{ Common between modules */
-#custom-overview, #custom-weather, #window,
+#custom-appmenu, #custom-weather, #window,
 #clock,
 #mpris, #network, #bluetooth, #pulseaudio, #battery, #language, #tray, #privacy, #custom-maximize, #custom-close
 {
@@ -116,8 +116,8 @@ tooltip
 /* }}} */
 
 /* {{{ Left modules */
-/* {{{ Overview */
-#custom-overview
+/* {{{ appmenu */
+#custom-appmenu
 {
     background: @C01;
     padding:    0px 0px 0px 5px;

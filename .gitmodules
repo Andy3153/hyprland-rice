@@ -7,3 +7,6 @@
 [submodule "dotconfig/hypr/colorschemes/catppuccin-hyprtoolkit"]
 	path = dotconfig/hypr/colorschemes/catppuccin-hyprtoolkit
 	url = https://github.com/catppuccin/hyprtoolkit
+[submodule "dotconfig/hypr/lua/colorschemes/catppuccin-hyprland"]
+	path = dotconfig/hypr/lua/colorschemes/catppuccin-hyprland
+	url = https://github.com/catppuccin/hyprland
