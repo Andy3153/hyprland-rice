@@ -11,7 +11,7 @@ local autostartPrograms =
   "wpctl set-mute @DEFAULT_AUDIO_SINK@ 0",                 -- Unmute sink
   "wpctl set-volume --limit 1.5 @DEFAULT_AUDIO_SINK@ 0.5", -- Set sink volume to 50%
   vars.action.playSound .. vars.sound.loginSound,          -- Startup sound
-  "launch-waybar",                                         -- Status bar
+  "waybar",                                                -- Status bar
   "dunst",                                                 -- Notification daemon
   "wl-paste --type text --watch cliphist store",           -- Clipboard manager
   "wl-paste --type image --watch cliphist store",          -- [...]
