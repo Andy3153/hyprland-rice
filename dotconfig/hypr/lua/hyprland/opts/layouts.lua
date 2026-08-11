@@ -8,19 +8,19 @@ hl.config(
   dwindle =
   {
     force_split          = 2, -- kinda spiral tiling layout
-    special_scale_factor = 0.98
+    special_scale_factor = .98
   },
 
   master =
   {
     allow_small_split = true,
-    mfact             = 0.5
+    mfact             = .5
   },
 
   scrolling =
   {
-    column_width       = 0.499,
-    follow_min_visible = 0.15,
+    column_width       = .499,
+    follow_min_visible = .15,
     wrap_focus         = false,
     wrap_swapcol       = false
   }

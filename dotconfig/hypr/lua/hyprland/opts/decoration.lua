@@ -12,7 +12,7 @@ hl.config(
 {
   decoration =
   {
-    rounding       = 20,
+    rounding       = 12,
     rounding_power = 1,
 
     blur =
@@ -40,10 +40,10 @@ hl.config(
 
 local curves =
 {
-  emphasizedAccel   = { type = "bezier", points = { { 0.3, 0 }, { 0.8, 0.15 } } },
-  emphasizedDecel   = { type = "bezier", points = { { 0.05, 0.7 }, { 0.1, 1 } } },
-  specialWorkSwitch = { type = "bezier", points = { { 0.05, 0.7 }, { 0.1, 1 } } },
-  standard          = { type = "bezier", points = { { 0.2, 0 }, { 0, 1 } } },
+  emphasizedAccel   = { type = "bezier", points = { { .3,  0 },  { .8, .15 } } },
+  emphasizedDecel   = { type = "bezier", points = { { .05, .7 }, { .1, 1 } } },
+  specialWorkSwitch = { type = "bezier", points = { { .05, .7 }, { .1, 1 } } },
+  standard          = { type = "bezier", points = { { .2,  0 },  { 0,  1 } } },
 }
 
 -- {{{ Applying the curves in the array
