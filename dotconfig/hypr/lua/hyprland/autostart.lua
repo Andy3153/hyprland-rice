@@ -6,25 +6,43 @@
 
 local autostartPrograms =
 {
-  "brightnessctl set 100%",                                -- Reset brightness to maximum
-  vars.action.brightness.keyboard .. "100%",               -- Reset keyboard brightness to maximum
-  "wpctl set-mute @DEFAULT_AUDIO_SINK@ 0",                 -- Unmute sink
-  "wpctl set-volume --limit 1.5 @DEFAULT_AUDIO_SINK@ 0.5", -- Set sink volume to 50%
-  vars.action.playSound .. vars.sound.loginSound,          -- Startup sound
-  "waybar",                                                -- Status bar
-  "dunst",                                                 -- Notification daemon
-  "wl-paste --type text --watch cliphist store",           -- Clipboard manager
-  "wl-paste --type image --watch cliphist store",          -- [...]
-  "checkFan.sh --in-notification",                         -- Fan control notification
-  "batnotifsd",                                            -- Battery notifications daemon
-  "openrgb --startminimized",                              -- RGB control
-  "qbittorrent"                                            -- qBittorrent
+  {
+    "wpctl set-mute @DEFAULT_AUDIO_SINK@ 0",                 -- Unmute speaker
+    "wpctl set-volume --limit 1.5 @DEFAULT_AUDIO_SINK@ 0.5", -- Set speaker volume to 50%
+    vars.action.playSound .. vars.sound.loginSound,          -- Startup sound
+  },
+
+  "brightnessctl set 100%",                       -- Set brightness to maximum
+  vars.action.brightness.keyboard .. "100%",      -- Set keyboard brightness to maximum
+  "waybar",                                       -- Status bar
+  "dunst",                                        -- Notification daemon
+  "wl-paste --type text  --watch cliphist store", -- Clipboard manager
+  "wl-paste --type image --watch cliphist store", -- [...]
+  "checkFan.sh --in-notification",                -- Fan control notification
+  "batnotifsd",                                   -- Battery notifications daemon
+  "openrgb --startminimized",                     -- RGB control
+  "qbittorrent"                                   -- qBittorrent
 }
 
 -- {{{ Running the applications in the array
 hl.on("hyprland.start", function()
   for _, value in pairs(autostartPrograms) do
-    hl.exec_cmd(value)
+    -- Execute arrays sequentially
+    if type(value) == "table" then
+      local sequentialExec = ""
+
+      for _, value2 in pairs(value) do
+        sequentialExec = sequentialExec .. value2
+
+        if value2 ~= value[#value] then
+          sequentialExec = sequentialExec .. " & "
+        end
+      end
+
+      hl.exec_cmd(sequentialExec)
+    else
+      hl.exec_cmd(value)
+    end
   end
 end)
 -- }}}
