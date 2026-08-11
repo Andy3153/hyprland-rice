@@ -35,7 +35,7 @@ hl.on("hyprland.start", function()
         sequentialExec = sequentialExec .. value2
 
         if value2 ~= value[#value] then
-          sequentialExec = sequentialExec .. " & "
+          sequentialExec = sequentialExec .. " ; "
         end
       end
 

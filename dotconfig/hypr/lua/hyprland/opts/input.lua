@@ -17,8 +17,8 @@ hl.config(
     sensitivity   = .1,
     accel_profile = "flat",
 
-    follow_mouse_shrink    = 75,
-    follow_mouse_threshold = 100,
+    follow_mouse_shrink    = 30,
+    follow_mouse_threshold = 10,
 
     touchpad =
     {
