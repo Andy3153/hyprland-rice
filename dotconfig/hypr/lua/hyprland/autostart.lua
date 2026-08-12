@@ -7,9 +7,9 @@
 local autostartPrograms =
 {
   {
-    "wpctl set-mute @DEFAULT_AUDIO_SINK@ 0",                 -- Unmute speaker
-    "wpctl set-volume --limit 1.5 @DEFAULT_AUDIO_SINK@ 0.5", -- Set speaker volume to 50%
-    vars.action.playSound .. vars.sound.loginSound,          -- Startup sound
+    "wpctl set-mute @DEFAULT_AUDIO_SINK@ 0",                 -- Unmute audio output
+    "wpctl set-volume --limit 1.5 @DEFAULT_AUDIO_SINK@ 0.5", -- Set audio output volume to 50%
+    vars.action.playSound .. "desktop-login",                -- Startup sound
   },
 
   "brightnessctl set 100%",                       -- Set brightness to maximum

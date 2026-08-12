@@ -20,7 +20,7 @@ end
 
 local speaker = "swayosd-client --max-volume 150 --output-volume "
 local speakerControl = function(percent)
-  return speaker .. tostring(percent) .. " && " .. vars.action.playSound .. vars.sound.volumeSound
+  return speaker .. tostring(percent) .. " && " .. vars.action.playSound .. "audio-volume-change"
 end
 local speakerMute = speaker .. "mute-toggle"
 
@@ -43,8 +43,6 @@ local appMenu_dmenu = appMenuProg .. "-dmenu"
 
 local toRgb  = function(color) return "rgb("  .. tostring(color) .. ")" end
 local toRgba = function(color) return "rgba(" .. tostring(color) .. ")" end
-
-local soundPath = dataHome .. "/sounds/sounds"
 -- }}}
 
 vars =
@@ -69,7 +67,7 @@ vars =
     media        = media,
     mediaControl = mediaControl,
 
-    playSound = "canberra-gtk-play --file ",
+    playSound = "canberra-gtk-play --id sounds/",
     toggleDnd = "dunst-dnd-toggle",
 
     volume =
@@ -113,14 +111,6 @@ vars =
     -- actual colors declared by `lua.colorschemes.common-colors-[...]`
     toRgb  = toRgb,
     toRgba = toRgba
-  },
-  -- }}}
-
-  -- {{{ Sounds
-  sound =
-  {
-    loginSound  = soundPath .. "/login.oga",
-    volumeSound = soundPath .. "/volume-change.oga"
   }
   -- }}}
 }
