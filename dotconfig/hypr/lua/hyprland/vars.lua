@@ -110,7 +110,7 @@ vars =
   {
     -- actual colors declared by `lua.colorschemes.common-colors-[...]`
     toRgb  = toRgb,
-    toRgba = toRgba
+    toRgba = toRgba,
   }
   -- }}}
 }

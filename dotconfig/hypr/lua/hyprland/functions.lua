@@ -4,6 +4,10 @@
 -- created   06/08/26 ~ 19:15:03
 --
 
+-- {{{ Variables
+local runtimeDir = os.getenv("XDG_RUNTIME_DIR")
+-- }}}
+
 -- {{{ Inspect table
 local function inspectTable(t, indent, visited)
   indent  = indent or 0
@@ -43,6 +47,143 @@ function Print(text)
   {
     timeout = timeout,
     text    = text
+  })
+end
+-- }}}
+
+-- {{{ Print to OSD
+function PrintOSD(table)
+  local run = "swayosd-client "
+
+  if table.icon then run = run .. "--custom-icon \"" .. table.icon .. "\" " end
+  run = run .. "--custom-message \"" .. table.message .. "\""
+
+  hl.exec_cmd(run)
+end
+-- }}}
+
+-- {{{ Generate random string
+function RandomString(stringLength)
+  local charset = "abcdefghijklmnopqrstuvwxyz"
+  local result = ""
+
+  for i = 1, stringLength do
+    local randIndex = math.random(1, #charset)
+    result = result .. charset:sub(randIndex, randIndex)
+  end
+
+  return result
+end
+-- }}}
+
+-- {{{ Systemd inhibit
+function SystemdInhibitStart(table)
+  if not table then table = { } end
+
+  local run = "systemd-inhibit "
+  local exec
+  local pidFileName
+
+  if table.mode then run = run .. "--mode \"" .. table.mode .. "\" " end
+  if table.what then run = run .. "--what \"" .. table.what .. "\" " end
+  if table.who  then run = run .. "--who \""  .. table.who  .. "\" " end
+  if table.why  then run = run .. "--why \""  .. table.why  .. "\" " end
+
+  if table.exec then
+    exec = table.exec
+  else
+    exec = "sleep infinity"
+  end
+
+  run = run .. exec
+
+  if table.pidFileName then
+    pidFileName = table.pidFileName
+  elseif table.what then
+    pidFileName = table.what
+  else
+    pidFileName = RandomString(6)
+  end
+
+  run = run .. " & echo \"$!\" > \"" .. runtimeDir .. "/hyprlandRice." .. pidFileName .. ".pid\""
+
+  if table.dontRun then return run else hl.exec_cmd(run) end
+end
+
+function SystemdInhibitStop(table)
+  local pidFileName = table.pidFileName
+
+  local pidFilePath = "\"" .. runtimeDir .. "/hyprlandRice." .. pidFileName .. ".pid" .. "\""
+
+  local run = "kill -9 $(cat " .. pidFilePath .. ") || true && rm -f " .. pidFilePath
+
+  if table.dontRun then return run else hl.exec_cmd(run) end
+end
+-- }}}
+
+-- {{{ Lid switch behavior
+local inhibitLidSwitchStart = SystemdInhibitStart(
+{
+  what        = "handle-lid-switch",
+  who         = "Hyprland Rice",
+  why         = "Inhibit lid switch (managed by Hyprland config)",
+  pidFileName = "inhibitLidSwitch",
+  dontRun     = true
+})
+
+local inhibitLidSwitchStop = SystemdInhibitStop(
+{
+  pidFileName = "inhibitLidSwitch",
+  dontRun     = true
+})
+
+local inhibitLidSwitchStopStart = inhibitLidSwitchStop .. " ; " .. inhibitLidSwitchStart
+
+local lidSwitchBehaviorIndex = 1
+
+function LidSwitchBehavior()
+  local icon
+  local behaviorList = { "suspend", "lock", "ignore" }
+  local index        = lidSwitchBehaviorIndex
+
+  index                  = (index % #behaviorList) + 1
+  lidSwitchBehaviorIndex = index
+
+  local behavior = behaviorList[index]
+
+  if behavior == "suspend" then
+    icon = "system-suspend-symbolic"
+
+    hl.unbind("switch:on:Lid Switch")
+    hl.unbind("switch:off:Lid Switch")
+
+    hl.exec_cmd(inhibitLidSwitchStop)
+
+    -- managed by logind (https://github.com/Andy3153/nixos-rice/blob/c79f352ae24f9060090d25a0ce0f8a5ee100a521/modules/hardware/systemKeys.nix)
+
+  elseif behavior == "lock" then
+    icon = "lock-symbolic"
+
+    hl.unbind("switch:on:Lid Switch")
+    hl.unbind("switch:off:Lid Switch")
+
+    hl.exec_cmd(inhibitLidSwitchStopStart)
+
+    hl.bind("switch:on:Lid Switch", hl.dsp.exec_cmd(vars.action.lockScreen))
+
+  elseif behavior == "ignore" then
+    icon = "window-close-symbolic"
+
+    hl.unbind("switch:on:Lid Switch")
+    hl.unbind("switch:off:Lid Switch")
+
+    hl.exec_cmd(inhibitLidSwitchStopStart)
+  end
+
+  PrintOSD(
+  {
+    icon    = icon,
+    message = "Laptop lid behavior: " .. behavior
   })
 end
 -- }}}
