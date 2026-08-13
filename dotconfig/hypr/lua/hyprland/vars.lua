@@ -68,7 +68,6 @@ vars =
     mediaControl = mediaControl,
 
     playSound = "canberra-gtk-play --id sounds/",
-    toggleDnd = "dunst-dnd-toggle",
 
     volume =
     {

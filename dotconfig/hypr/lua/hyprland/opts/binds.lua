@@ -47,17 +47,17 @@ local binds =
   -- }}}
 
   -- {{{ System functions
-  { "SUPER +                v",            exec(vars.action.clipboardHistory) },                -- clipboard manager history
-  { "CTRL  + ALT  +         l",            exec(vars.action.lockScreen) },                      -- lock screen
-  { "SUPER + CTRL + SHIFT + x",            exec("hyprctl kill") },                              -- xkill alternative
-  { "SUPER + CTRL + SHIFT + c",            exec("suspend_compositing --notify toggle") },       -- suspend compositing
-  { "SUPER + CTRL + SHIFT + d",            exec(vars.action.toggleDnd) },                       -- DND mode
-  { "                       print",        exec(vars.app.screenshot .. "screen") },             -- screenshot (screen)
-  { "CTRL  +                print",        exec(vars.app.screenshot .. "full ") },              -- screenshot (all screens)
-  { "SHIFT +                print",        exec(vars.app.screenshot .. "gui") },                -- screenshot (crop)
-  { "SUPER + CTRL + SHIFT + q",            exec(vars.action.logOut) },                          -- power menu
-  { "                       XF86PowerOff", exec(vars.action.logOut) },                          -- [ ... ]
-  { "SUPER + CTRL + SHIFT + l",            function() LidSwitchBehavior() end },                -- lid switch behavior toggle
+  { "SUPER +                v",            exec(vars.action.clipboardHistory) },          -- clipboard manager history
+  { "CTRL  + ALT  +         l",            exec(vars.action.lockScreen) },                -- lock screen
+  { "                       print",        exec(vars.app.screenshot .. "screen") },       -- screenshot (screen)
+  { "CTRL  +                print",        exec(vars.app.screenshot .. "full ") },        -- screenshot (all screens)
+  { "SHIFT +                print",        exec(vars.app.screenshot .. "gui") },          -- screenshot (crop)
+  { "SUPER + CTRL + SHIFT + x",            exec("hyprctl kill") },                        -- xkill alternative
+  { "SUPER + CTRL + SHIFT + c",            exec("suspend_compositing --notify toggle") }, -- suspend compositing
+  { "SUPER + CTRL + SHIFT + q",            exec(vars.action.logOut) },                    -- power menu
+  { "                       XF86PowerOff", exec(vars.action.logOut) },                    -- [ ... ]
+  { "SUPER + CTRL + SHIFT + l",            function() LidSwitchBehaviorToggle() end },    -- lid switch behavior toggle
+  { "SUPER + CTRL + SHIFT + d",            function() DndToggle() end },                  -- DnD mode
 
   -- {{{ Media keys
   -- {{{ Speaker volume

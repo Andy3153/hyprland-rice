@@ -141,7 +141,7 @@ local inhibitLidSwitchStopStart = inhibitLidSwitchStop .. " ; " .. inhibitLidSwi
 
 local lidSwitchBehaviorIndex = 1
 
-function LidSwitchBehavior()
+function LidSwitchBehaviorToggle()
   local icon
   local behaviorList = { "suspend", "lock", "ignore" }
   local index        = lidSwitchBehaviorIndex
@@ -185,5 +185,49 @@ function LidSwitchBehavior()
     icon    = icon,
     message = "Laptop lid behavior: " .. behavior
   })
+end
+-- }}}
+
+-- {{{ Do not Disturb
+function DndToggle()
+  local icon
+
+  local isDnd
+  local dndOn  = "dunstctl set-paused true"
+  local dndOff = "dunstctl set-paused false"
+
+  local handle = io.popen("dunstctl is-paused")
+
+  if handle ~= nil then
+    isDnd = handle:read("*l")
+    handle:close()
+  end
+
+  if isDnd == "true" then
+    icon  = "notification-disabled-symbolic"
+    isDnd = true
+  else
+    icon  = "notification-symbolic"
+    isDnd = false
+  end
+
+  if isDnd then
+    hl.exec_cmd(dndOff)
+
+    PrintOSD(
+    {
+      icon    = icon,
+      message = "Do not Disturb: off"
+    })
+
+  else
+    hl.exec_cmd(dndOn)
+
+    PrintOSD(
+    {
+      icon    = icon,
+      message = "Do not Disturb: on"
+    })
+  end
 end
 -- }}}
