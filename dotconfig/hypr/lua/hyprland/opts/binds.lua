@@ -52,6 +52,8 @@ local binds =
   { "                       print",        function() Screenshot({ mode = "screen" }) end },             -- screenshot (screen)
   { "CTRL  +                print",        function() Screenshot({ mode = "allScreens" }) end },         -- screenshot (all screens)
   { "SHIFT +                print",        function() Screenshot({ mode = "selection" }) end },          -- screenshot (selection)
+  { "SUPER +                p",            function() ColorPicker() end },                               -- color picker
+  { "SUPER +        SHIFT + p",            function() ColorPickerFormatToggle() end },                   -- color picker (toggle format)
   { "SUPER + CTRL + SHIFT + x",            exec("hyprctl kill") },                                       -- xkill alternative
   { "SUPER + CTRL + SHIFT + c",            exec("suspend_compositing --notify toggle") },                -- suspend compositing
   { "SUPER + CTRL + SHIFT + q",            exec(vars.action.logOut) },                                   -- power menu

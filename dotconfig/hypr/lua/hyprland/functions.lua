@@ -336,3 +336,33 @@ function Screenshot(table)
   hl.exec_cmd(run)
 end
 -- }}}
+
+-- {{{ Color picker
+local colorPickerFormat = "hex"
+local colorPickerFormatIndex = 1
+
+function ColorPicker()
+  local run = "hyprpicker --autocopy --notify --render-inactive --lowercase-hex "
+  run = run .. "--format " .. colorPickerFormat
+
+  hl.exec_cmd(run)
+end
+
+function ColorPickerFormatToggle()
+  local icon       = "color-select-symbolic"
+  local formatList = { "hex", "rgb", "hsv", "hsl", "cmyk" }
+  local index      = colorPickerFormatIndex
+
+  index                  = (index % #formatList) + 1
+  colorPickerFormatIndex = index
+
+  local format      = formatList[index]
+  colorPickerFormat = format
+
+  PrintOSD(
+  {
+    icon    = icon,
+    message = "Color picker format: " .. format
+  })
+end
+-- }}}
