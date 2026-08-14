@@ -20,7 +20,8 @@ local autostartPrograms =
 
 local logoutPrograms =
 {
-  SystemdInhibitStop({ pidFileName = "inhibitLidSwitch" }) -- Close inhibitors
+  SystemdInhibitStop({ pidFileName = "inhibitLidSwitch" }), -- Close lid switch mode inhibitor
+  SystemdInhibitStop({ pidFileName = "inhibitIdle" })       -- Close idle inhibitor
 }
 
 -- {{{ Running the applications in the autostart array

@@ -231,3 +231,43 @@ function DndToggle()
   end
 end
 -- }}}
+
+-- {{{ Idle inhibit
+function IdleInhibitToggle()
+  local icon
+
+  local pidFileName = "inhibitIdle"
+  local pidFilePath = runtimeDir .. "/hyprlandRice." .. pidFileName .. ".pid"
+  local pidFile     = io.open(pidFilePath, "r")
+
+  if pidFile then
+    icon = "my-caffeine-off-symbolic"
+
+    pidFile:close()
+    SystemdInhibitStop({ pidFileName = pidFileName })
+
+    PrintOSD(
+    {
+      icon    = icon,
+      message = "Idle inhibition: off"
+    })
+
+  else
+    icon = "my-caffeine-on-symbolic"
+
+    SystemdInhibitStart(
+    {
+      what        = "idle",
+      who         = "Hyprland Rice",
+      why         = "Inhibit idle (managed by Hyprland config)",
+      pidFileName = pidFileName
+    })
+
+    PrintOSD(
+    {
+      icon    = icon,
+      message = "Idle inhibition: on"
+    })
+  end
+end
+-- }}}

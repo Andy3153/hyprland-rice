@@ -58,6 +58,7 @@ local binds =
   { "                       XF86PowerOff", exec(vars.action.logOut) },                    -- [ ... ]
   { "SUPER + CTRL + SHIFT + l",            function() LidSwitchBehaviorToggle() end },    -- lid switch behavior toggle
   { "SUPER + CTRL + SHIFT + d",            function() DndToggle() end },                  -- DnD mode
+  { "SUPER + CTRL + SHIFT + i",            function() IdleInhibitToggle() end },          -- idle inhibit toggle
 
   -- {{{ Media keys
   -- {{{ Speaker volume
