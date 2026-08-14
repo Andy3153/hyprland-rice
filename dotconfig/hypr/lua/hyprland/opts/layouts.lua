@@ -3,6 +3,14 @@
 -- Tiling layouts config
 --
 
+-- {{{ Variables
+local dsp    = hl.dsp
+local layout = dsp.layout
+local window = dsp.window
+
+local currentTilingLayout = hl.get_config("general.layout")
+-- }}}
+
 hl.config(
 {
   dwindle =
@@ -25,3 +33,16 @@ hl.config(
     wrap_swapcol       = false
   }
 })
+
+if currentTilingLayout == "scrolling" then
+  hl.unbind("SUPER + CTRL + h")
+  hl.unbind("SUPER + CTRL + l")
+  hl.unbind("SUPER +        m")
+
+  hl.bind("SUPER + CTRL       + h", layout("colresize -.03"), { repeating = true })
+  hl.bind("SUPER + CTRL       + l", layout("colresize +.03"), { repeating = true })
+  hl.bind("SUPER +            + n", layout("consume_or_expel next"))
+  hl.bind("SUPER +      SHIFT + n", layout("consume_or_expel prev"))
+  hl.bind("SUPER +              m", layout("fit active"))
+  hl.bind("SUPER +      SHIFT + m", window.fullscreen({ mode = "maximized" }))
+end
