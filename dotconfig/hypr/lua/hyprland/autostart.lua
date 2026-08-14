@@ -12,7 +12,8 @@ local autostartPrograms =
     what        = "handle-power-key",
     who         = "Hyprland Rice",
     why         = "Inhibit power key (managed by Hyprland config)",
-    pidFileName = "inhibitPowerKey"
+    pidFileName = "inhibitPowerKey",
+    dontRun     = true
   }),
 
   "brightnessctl set 100%",                       -- Set brightness to maximum
