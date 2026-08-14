@@ -169,7 +169,7 @@ function LidSwitchBehaviorToggle()
 
     hl.exec_cmd(inhibitLidSwitchStopStart)
 
-    hl.bind("switch:on:Lid Switch", hl.dsp.exec_cmd(vars.action.lockScreen))
+    hl.bind("switch:on:Lid Switch", hl.dsp.exec_cmd(vars.action.lockScreen), { locked = true })
 
   elseif behavior == "ignore" then
     icon = "window-close-symbolic"
