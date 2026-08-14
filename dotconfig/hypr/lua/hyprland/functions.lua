@@ -204,10 +204,10 @@ function DndToggle()
   end
 
   if isDnd == "true" then
-    icon  = "notification-disabled-symbolic"
+    icon  = "notification-symbolic"
     isDnd = true
   else
-    icon  = "notification-symbolic"
+    icon  = "notification-disabled-symbolic"
     isDnd = false
   end
 
