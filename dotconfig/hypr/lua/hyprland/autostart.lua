@@ -20,6 +20,7 @@ local autostartPrograms =
   vars.action.brightness.keyboard .. "100%",      -- Set keyboard brightness to maximum
   "waybar",                                       -- Status bar
   "dunst",                                        -- Notification daemon
+  vars.action.logOut .. " --service",             -- Power menu service
   "wl-paste --type text  --watch cliphist store", -- Clipboard manager
   "wl-paste --type image --watch cliphist store", -- [...]
   "checkFan.sh --in-notification",                -- Fan control notification
