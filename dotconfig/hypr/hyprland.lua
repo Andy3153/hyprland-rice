@@ -8,11 +8,11 @@
 --
 
 require("lua.hyprland.vars")
+require("lua.colorschemes.common-colors-catppuccin-mocha")
 require("lua.hyprland.functions")
 require("lua.hyprland.monitors")
 require("lua.hyprland.autostart")
 require("lua.hyprland.envvars")
-require("lua.colorschemes.common-colors-catppuccin-mocha")
 require("lua.hyprland.opts")
 require("lua.hyprland.workspaceRules")
 require("lua.hyprland.layerRules")

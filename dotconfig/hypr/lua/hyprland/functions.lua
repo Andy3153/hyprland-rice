@@ -6,6 +6,10 @@
 
 -- {{{ Variables
 local runtimeDir = os.getenv("XDG_RUNTIME_DIR")
+local cacheDir   = os.getenv("XDG_CACHE_HOME")
+
+local col = vars.color
+local rgb = col.toRgb
 -- }}}
 
 -- {{{ Inspect table
@@ -36,8 +40,13 @@ end
 -- }}}
 
 -- {{{ Print to Hyprland notifications
+--
+-- https://wiki.hypr.land/Configuring/Advanced-and-Cool/Notifications/
+-- https://wiki.hypr.land/Configuring/Advanced-and-Cool/Using-hyprctl/#notify
+--
+
 function Print(text)
-  local text       = inspectTable(text)
+  text             = inspectTable(text)
   local timeout    = string.len(text) * 1000
   local maxTimeout = 20000
 
@@ -45,10 +54,15 @@ function Print(text)
 
   hl.notification.create(
   {
-    timeout = timeout,
-    text    = text
+    text      = text,
+    timeout   = timeout,
+    icon      = 1,
+    color     = rgb(col.select0),
+    font_size = 14
   })
 end
+
+function PrintHyprland(text) Print(text) end
 -- }}}
 
 -- {{{ Print to OSD
@@ -59,6 +73,36 @@ function PrintOSD(table)
   run = run .. "--custom-message \"" .. table.message .. "\""
 
   hl.exec_cmd(run)
+end
+-- }}}
+
+-- {{{ Print to file
+function PrintFile(arg)
+  local filePath
+  local message
+
+  if type(arg) == "table" then
+    message = arg.message
+
+    if arg.file then
+      filePath = cacheDir .. "/hyprlandRice." .. arg.file .. ".tmp"
+    else
+      filePath = cacheDir .. "/hyprlandRice.PrintFile.tmp"
+    end
+
+  else
+    filePath = cacheDir .. "/hyprlandRice.PrintFile.tmp"
+    message = arg
+  end
+
+  local file = io.open(filePath, "w")
+
+  if file then
+    file:write(message)
+    file:close()
+  end
+
+  PrintHyprland("Wrote to file `" .. filePath .. "`")
 end
 -- }}}
 
@@ -269,5 +313,26 @@ function IdleInhibitToggle()
       message = "Idle inhibition: on"
     })
   end
+end
+-- }}}
+
+-- {{{ Screenshot
+function Screenshot(table)
+  if not table then table = { } end
+
+  local run           = "flameshot "
+  local activeMonitor = hl.get_active_monitor().id
+
+  if table.mode then
+    if table.mode == "allScreens" then run = run .. "full " end
+    if table.mode == "screen"     then run = run .. "screen " .. "--number " .. activeMonitor .. " " end
+    if table.mode == "selection"  then run = run .. "gui "    end
+  else
+    run = run .. "screen --number " .. activeMonitor .. " "
+  end
+
+  run = run .. "--clipboard "
+
+  hl.exec_cmd(run)
 end
 -- }}}

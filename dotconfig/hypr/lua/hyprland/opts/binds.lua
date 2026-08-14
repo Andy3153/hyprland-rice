@@ -49,9 +49,9 @@ local binds =
   -- {{{ System functions
   { "SUPER +                v",            exec(vars.action.clipboardHistory) },                         -- clipboard manager history
   { "CTRL  + ALT  +         l",            exec(vars.action.lockScreen) },                               -- lock screen
-  { "                       print",        exec(vars.app.screenshot .. "screen") },                      -- screenshot (screen)
-  { "CTRL  +                print",        exec(vars.app.screenshot .. "full ") },                       -- screenshot (all screens)
-  { "SHIFT +                print",        exec(vars.app.screenshot .. "gui") },                         -- screenshot (crop)
+  { "                       print",        function() Screenshot({ mode = "screen" }) end },             -- screenshot (screen)
+  { "CTRL  +                print",        function() Screenshot({ mode = "allScreens" }) end },         -- screenshot (all screens)
+  { "SHIFT +                print",        function() Screenshot({ mode = "selection" }) end },          -- screenshot (selection)
   { "SUPER + CTRL + SHIFT + x",            exec("hyprctl kill") },                                       -- xkill alternative
   { "SUPER + CTRL + SHIFT + c",            exec("suspend_compositing --notify toggle") },                -- suspend compositing
   { "SUPER + CTRL + SHIFT + q",            exec(vars.action.logOut) },                                   -- power menu

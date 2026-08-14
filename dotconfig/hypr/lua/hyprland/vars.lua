@@ -99,7 +99,6 @@ vars =
 
     browser     = "librewolf",
     taskManager = terminal_exec .. " btop",
-    screenshot  = "flameshot ",
     calculator  = "kcalc"
   },
   -- }}}
