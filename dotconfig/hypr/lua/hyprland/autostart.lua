@@ -6,6 +6,15 @@
 
 local autostartPrograms =
 {
+  -- Inhibit power key
+  SystemdInhibitStart(
+  {
+    what        = "handle-power-key",
+    who         = "Hyprland Rice",
+    why         = "Inhibit power key (managed by Hyprland config)",
+    pidFileName = "inhibitPowerKey"
+  }),
+
   "brightnessctl set 100%",                       -- Set brightness to maximum
   vars.action.brightness.keyboard .. "100%",      -- Set keyboard brightness to maximum
   "waybar",                                       -- Status bar
@@ -21,7 +30,8 @@ local autostartPrograms =
 local logoutPrograms =
 {
   SystemdInhibitStop({ pidFileName = "inhibitLidSwitch" }), -- Close lid switch mode inhibitor
-  SystemdInhibitStop({ pidFileName = "inhibitIdle" })       -- Close idle inhibitor
+  SystemdInhibitStop({ pidFileName = "inhibitIdle" }),      -- Close idle inhibitor
+  SystemdInhibitStop({ pidFileName = "inhibitPowerKey" })   -- Close power key inhibitor
 }
 
 -- {{{ Running the applications in the autostart array
