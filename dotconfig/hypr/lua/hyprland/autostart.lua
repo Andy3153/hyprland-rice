@@ -18,7 +18,12 @@ local autostartPrograms =
   "qbittorrent"                                   -- qBittorrent
 }
 
--- {{{ Running the applications in the array
+local logoutPrograms =
+{
+  SystemdInhibitStop({ pidFileName = "inhibitLidSwitch" }) -- Close inhibitors
+}
+
+-- {{{ Running the applications in the autostart array
 hl.on("hyprland.start", function()
   for _, value in pairs(autostartPrograms) do
     -- Execute arrays sequentially
@@ -37,6 +42,14 @@ hl.on("hyprland.start", function()
     else
       hl.exec_cmd(value)
     end
+  end
+end)
+-- }}}
+
+-- {{{ Running the applications in the logout array
+hl.on("hyprland.shutdown", function()
+  for _, value in pairs(logoutPrograms) do
+    hl.exec_cmd(value)
   end
 end)
 -- }}}
