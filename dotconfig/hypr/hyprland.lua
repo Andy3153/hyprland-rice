@@ -9,7 +9,8 @@
 
 require("lua.hyprland.vars")
 require("lua.colorschemes.common-colors-catppuccin-mocha")
-require("lua.hyprland.functions")
+require("lua.functions")
+require("lua.hyprland.hlfunctions")
 require("lua.hyprland.monitors")
 require("lua.hyprland.autostart")
 require("lua.hyprland.envvars")
