@@ -6,6 +6,11 @@
   "no-version-info":     true,
   "show-keybinds":       true,
 
+  "button-defaults":
+  {
+    "keybind-label": "%S"
+  },
+
   "buttons":
   [
     {
