@@ -39,6 +39,19 @@ local function inspectTable(t, indent, visited)
 end
 -- }}}
 
+-- {{{ Execute command and return stdout
+local function execCmd(cmd)
+  local handle = io.popen(cmd)
+  if handle then
+    local output = handle:read("*a")
+    handle:close()
+    return output
+  else
+    return nil
+  end
+end
+-- }}}
+
 -- {{{ Print to Hyprland notifications
 --
 -- https://wiki.hypr.land/Configuring/Advanced-and-Cool/Notifications/
@@ -365,4 +378,36 @@ function ColorPickerFormatToggle()
     message = "Color picker format: " .. format
   })
 end
+-- }}}
+
+-- {{{ Battery
+local function upowerEnumerateDevices()    return execCmd("upower --enumerate") end
+local function upowerGetDeviceInfo(device) return execCmd("upower --show-info " .. device) end
+
+-- {{{ Get main battery
+function GetMainBat()
+  local devices = upowerEnumerateDevices()
+
+  if devices then
+    for device in devices:gmatch("[^\r\n]+") do
+      if device:match("battery") then
+        local deviceInfo = upowerGetDeviceInfo(device)
+
+        if deviceInfo and deviceInfo:match("power supply:%s+yes") then
+          return device
+        end
+      end
+    end
+  end
+end
+-- }}}
+
+-- {{{ Get battery percentage
+function GetBatPercent(battery)
+  local batteryInfo = upowerGetDeviceInfo(battery)
+  local percentage  = batteryInfo:match("percentage:%s*(%d+)%%")
+
+  if percentage then return tonumber(percentage) else return nil end
+end
+-- }}}
 -- }}}
