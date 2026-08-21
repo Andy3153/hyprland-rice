@@ -192,11 +192,11 @@
             "format-ethernet":     "󰈀 Ethernet 󰇚󰕒 {bandwidthTotalBytes}",
             "format-wifi":         "{icon} {essid} 󰇚󰕒 {bandwidthTotalBytes}",
             "format-linked":       "󰿨  Linked",
-            "format-disconnected": "󰤭  On",
+            "format-disconnected": "󰈂 Disconnected",
             "format-icons":        [ "󰤯 ", "󰤟 ", "󰤢 ", "󰤥 ", "󰤨 " ],
 
             "tooltip-format":              "",
-            "tooltip-format-disconnected": "󰤭  On",
+            "tooltip-format-disconnected": "󰈂 Disconnected",
 
             "tooltip-format-ethernet": "󰈀 Ethernet 󰇚 {bandwidthDownBytes} 󰕒 {bandwidthUpBytes}\nInterface:   {ifname}\nIP Address:  {ipaddr}\nSubnet mask: {netmask}\nGateway:     {gwaddr}",
 
