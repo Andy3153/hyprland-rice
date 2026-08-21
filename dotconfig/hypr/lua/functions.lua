@@ -58,6 +58,148 @@ function RandomString(stringLength)
 end
 -- }}}
 
+-- {{{ Weather
+function GetWeatherInfo()
+  local weatherInfo = {}
+  local weather     = ExecCmd("weather4bar")
+  local count       = 0
+
+  for line in weather:gmatch("([^\n]*)\n?") do
+    count = count + 1
+
+    if count == 1 then weatherInfo.icon          = line end
+    if count == 2 then weatherInfo.temp          = line end
+    if count == 3 then weatherInfo.city          = line end
+    if count == 5 then weatherInfo.msg           = line end
+    if count == 6 then weatherInfo.feelsLikeTemp = line:match('Feels like ([%d%.%-]+)') end
+  end
+
+  return weatherInfo
+end
+-- }}}
+
+-- {{{ Bluetooth
+-- {{{ Get bluetooth info
+function GetBluetoothInfo(device)
+  local bluetoothInfo  = {}
+  local connectionName = ExecCmd("bluetoothctl devices Connected"):match("Device %S+ (.+)\n")
+  local state          = ExecCmd("bluetoothctl show"):match("Powered:%s*([%w%-]+)")
+
+  if state == "no" then
+    bluetoothInfo.state = "off"
+  else
+    bluetoothInfo.state = "on"
+  end
+
+  if connectionName then
+    bluetoothInfo.connectionName = connectionName
+    bluetoothInfo.state          = "connected"
+  end
+
+  return bluetoothInfo
+end
+-- }}}
+
+-- {{{ Get bluetooth icon
+local bluetoothIcons =
+{
+  off = "󰂲", on = "󰂯", connected = "󰂱"
+}
+
+function GetBluetoothIcon(bluetoothInfo)
+  local connectionName = bluetoothInfo.connectionName
+  local state          = bluetoothInfo.state
+
+  local bluetoothIcon
+
+  if     state == "connected" then
+    bluetoothIcon = bluetoothIcons.connected
+  elseif state == "on" then
+    bluetoothIcon = bluetoothIcons.on
+  elseif state == "off" then
+    bluetoothIcon = bluetoothIcons.off
+  end
+
+  return bluetoothIcon
+end
+-- }}}
+-- }}}
+
+-- {{{ Audio
+-- {{{ Get audio info
+function GetAudioInfo(device)
+  local audioInfo  = {}
+  local audio      = ExecCmd("wpctl get-volume " .. device)
+  local state      = "unmuted"
+  local percentage = audio:match("Volume:%s*([%d%.]+)")
+
+  if audio:match("%[MUTED%]") ~= nil then state  = "muted" end
+
+  if state      then audioInfo.state      = state end
+  if percentage then audioInfo.percentage = tonumber(percentage) * 100 end
+
+  return audioInfo
+end
+-- }}}
+
+-- {{{ Get audio sink icon
+local audioSinkIcons =
+{
+  _0p = "󰕿", _50p = "󰖀", _100p = "󰕾",
+  muted = "󰖁"
+}
+
+local function audioSinkIconPercent(percentage)
+  if     percentage <   35 then return audioSinkIcons._0p
+  elseif percentage <   70 then return audioSinkIcons._50p
+  elseif percentage >= 100 then return audioSinkIcons._100p
+  end
+end
+
+function GetAudioSinkIcon(audioSinkInfo)
+  local state      = audioSinkInfo.state
+  local percentage = audioSinkInfo.percentage
+
+  local audioSinkIcon
+
+  if state == "unmuted" then
+    audioSinkIcon = audioSinkIconPercent(percentage)
+  else
+    audioSinkIcon = audioSinkIcons.muted
+  end
+
+  return audioSinkIcon
+end
+-- }}}
+
+-- {{{ Get audio source icon
+local audioSourceIcons =
+{
+  _100p = "󰍬",
+  muted = "󰍭"
+}
+
+local function audioSourceIconPercent(percentage)
+  return audioSourceIcons._100p
+end
+
+function GetAudioSourceIcon(audioSourceInfo)
+  local state      = audioSourceInfo.state
+  local percentage = audioSourceInfo.percentage
+
+  local audioSourceIcon
+
+  if state == "unmuted" then
+    audioSourceIcon = audioSourceIconPercent(percentage)
+  else
+    audioSourceIcon = audioSourceIcons.muted
+  end
+
+  return audioSourceIcon
+end
+-- }}}
+-- }}}
+
 -- {{{ Keymap
 function GetKeymap()
   output = ExecCmd("hyprctl devices -j")
@@ -110,7 +252,7 @@ local batteryIcons =
   _40p = "󰁽", _50p = "󰁾", _60p  = "󰁿", _70p = "󰂀",
   _80p = "󰂁", _90p = "󰂂", _100p = "󰁹",
   charging = "󱐋",
-  critical = "󱈸",
+  critical = "󱈸"
 }
 
 local function batteryIconPercent(percentage)
@@ -124,7 +266,7 @@ local function batteryIconPercent(percentage)
   elseif percentage <   70 then return batteryIcons._70p
   elseif percentage <   80 then return batteryIcons._80p
   elseif percentage <   90 then return batteryIcons._90p
-  elseif percentage <  100 then return batteryIcons._100p
+  elseif percentage <= 100 then return batteryIcons._100p
   end
 end
 
