@@ -78,6 +78,111 @@ function GetWeatherInfo()
 end
 -- }}}
 
+-- {{{ Media
+-- {{{ Get media info
+function GetMediaInfo()
+  local mediaInfo  = {}
+  local media      = ExecCmd("playerctl metadata 2>/dev/null")
+  local state
+  local album      = media:match("xesam:album%s+([^\n]+)")
+  local artist     = media:match("xesam:artist%s+([^\n]+)")
+  local playerName = media:match("^%s*(%S+)")
+  local title      = media:match("xesam:title%s+([^\n]+)")
+
+  if playerName then
+    state = ExecCmd("playerctl --player " .. playerName .. " status 2>&1 || true")
+  else
+    state = ExecCmd("playerctl status 2>&1 || true")
+  end
+
+  if     state == "Paused\n"  then mediaInfo.state = "pause"
+  elseif state == "Playing\n" then mediaInfo.state = "play"
+  end
+
+  if album      then mediaInfo.album      = album      end
+  if artist     then mediaInfo.artist     = artist     end
+  if playerName then mediaInfo.playerName = playerName end
+  if title      then mediaInfo.title      = title      end
+
+  return mediaInfo
+end
+-- }}}
+
+-- {{{ Get media icon
+local mediaIcons =
+{
+  play = "󰏤", pause  =  "󰐊",
+  media = "󰝚 "
+}
+
+function GetMediaIcon(mediaInfo)
+  local state = mediaInfo.state
+
+  local mediaIcon
+
+  if     state == "pause" then mediaIcon = mediaIcons.media .. mediaIcons.pause
+  elseif state == "play"  then mediaIcon = mediaIcons.media .. mediaIcons.play
+  end
+
+  return mediaIcon
+end
+-- }}}
+-- }}}
+
+-- {{{ Network
+-- {{{ Get network info
+function GetNetworkInfo()
+  local networkInfo        = {}
+  local network            = ExecCmd("nmcli --terse --fields TYPE,STATE,CONNECTION device")
+  local wifiState          = network:match("wifi:([^:]+):")
+  local wifiConnectionName = network:match("wifi:[^:]+:([^\n]+)")
+  local ethState           = network:match("ethernet:([^:]+):")
+
+  if     wifiState == "unavailable"  then networkInfo.state = "off"
+  elseif wifiState == "disconnected" then networkInfo.state = "on"
+  end
+
+  if wifiConnectionName then
+    networkInfo.connectionName = wifiConnectionName
+    networkInfo.state              = "connected"
+  end
+
+  if ethState == "connected" then
+    networkInfo.state          = "on"
+    networkInfo.connectionName = "Ethernet"
+  end
+
+  return networkInfo
+end
+-- }}}
+
+-- {{{ Get network icon
+local networkIcons =
+{
+  _0p = "󰤯 ", _25p = "󰤟 ", _50p = "󰤢 ", _75p = "󰤥 ", _100p = "󰤨 ",
+  ethernet = "󰈀 ",
+  off      = "󰈂 "
+}
+
+function GetNetworkIcon(networkInfo)
+  local connectionName = networkInfo.connectionName
+  local state          = networkInfo.state
+
+  local networkIcon
+
+  if     state == "off" then networkIcon = networkIcons.off
+  elseif state == "on"  then networkIcon = networkIcons.off
+  end
+
+  if     connectionName == "Ethernet" then networkIcon = networkIcons.ethernet
+  elseif connectionName               then networkIcon = networkIcons._100p
+  end
+
+  return networkIcon
+end
+-- }}}
+-- }}}
+
 -- {{{ Bluetooth
 -- {{{ Get bluetooth info
 function GetBluetoothInfo(device)
@@ -107,8 +212,7 @@ local bluetoothIcons =
 }
 
 function GetBluetoothIcon(bluetoothInfo)
-  local connectionName = bluetoothInfo.connectionName
-  local state          = bluetoothInfo.state
+  local state = bluetoothInfo.state
 
   local bluetoothIcon
 
