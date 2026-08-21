@@ -127,17 +127,17 @@ local binds =
   -- }}}
 
   -- {{{ Workspace
-  { "SUPER + 1",             focus({ workspace = 1 }) },
-  { "SUPER + 2",             focus({ workspace = 2 }) },
-  { "SUPER + 3",             focus({ workspace = 3 }) },
-  { "SUPER + 4",             focus({ workspace = 4 }) },
-  { "SUPER + 5",             focus({ workspace = 5 }) },
-  { "SUPER + 6",             focus({ workspace = 6 }) },
-  { "SUPER + 7",             focus({ workspace = 7 }) },
-  { "SUPER + 8",             focus({ workspace = 8 }) },
-  { "SUPER + 9",             focus({ workspace = 9 }) },
-  { "SUPER + 0",             focus({ workspace = 10 }) },
-  { "SUPER + grave",         workspace.toggle_special("special") },
+  { "SUPER + 1",     focus({ workspace = 1 }) },
+  { "SUPER + 2",     focus({ workspace = 2 }) },
+  { "SUPER + 3",     focus({ workspace = 3 }) },
+  { "SUPER + 4",     focus({ workspace = 4 }) },
+  { "SUPER + 5",     focus({ workspace = 5 }) },
+  { "SUPER + 6",     focus({ workspace = 6 }) },
+  { "SUPER + 7",     focus({ workspace = 7 }) },
+  { "SUPER + 8",     focus({ workspace = 8 }) },
+  { "SUPER + 9",     focus({ workspace = 9 }) },
+  { "SUPER + 0",     focus({ workspace = 10 }) },
+  { "SUPER + grave", workspace.toggle_special("special") },
 
   { "SUPER + SHIFT + 1",     window.move({ workspace = 1,         follow = false }) },
   { "SUPER + SHIFT + 2",     window.move({ workspace = 2,         follow = false }) },
@@ -150,6 +150,11 @@ local binds =
   { "SUPER + SHIFT + 9",     window.move({ workspace = 9,         follow = false }) },
   { "SUPER + SHIFT + 0",     window.move({ workspace = 10,        follow = false }) },
   { "SUPER + SHIFT + grave", window.move({ workspace = "special", follow = false }) },
+
+  { "SUPER + ALT + h", workspace.move({ monitor = "l" }) },
+  { "SUPER + ALT + j", workspace.move({ monitor = "d" }) },
+  { "SUPER + ALT + k", workspace.move({ monitor = "u" }) },
+  { "SUPER + ALT + l", workspace.move({ monitor = "r" }) },
   -- }}}
 
   -- {{{ Group
