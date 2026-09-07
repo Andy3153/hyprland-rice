@@ -9,7 +9,7 @@ include colorschemes/catppuccin-mocha
 # }}}
 
 # {{{ Font
-set font "IosevkaTerm NF 12"
+set font "Monospace 12"
 # }}}
 
 # {{{ Look

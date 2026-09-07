@@ -10,7 +10,7 @@ configuration {
     modes:       "window,drun,run,ssh,combi";
     combi-modes: "drun,run";
 
-    font:        "IosevkaTerm NF 14";
+    font:        "Monospace 14";
     show-icons:  true;
     icon-theme:  "Papirus Dark";
 

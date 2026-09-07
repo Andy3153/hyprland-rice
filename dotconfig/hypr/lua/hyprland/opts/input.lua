@@ -8,14 +8,14 @@ hl.config(
   input =
   {
     kb_layout          = "us,ro",
-    kb_variant         = ",std",
     kb_options         = "grp:alt_shift_toggle",
+    kb_variant         = ",std",
     numlock_by_default = true,
-    repeat_rate        = 20,
     repeat_delay       = 300,
+    repeat_rate        = 20,
 
-    sensitivity   = .1,
     accel_profile = "flat",
+    sensitivity   = .1,
 
     follow_mouse_shrink    = 30,
     follow_mouse_threshold = 10,
