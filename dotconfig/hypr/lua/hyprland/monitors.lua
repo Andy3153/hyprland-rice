@@ -10,7 +10,7 @@ local monitors =
   {
     output = "desc:Sharp Corporation LQ156M1JW26",
     mode   = "1920x1080@240",
-    scale  = "1",
+    scale  = 1,
     vrr    = 1
   },
   -- }}}
@@ -19,7 +19,7 @@ local monitors =
   {
     output = "desc:Chimei Innolux Corporation 0x1239",
     mode   = "1920x1080@60",
-    scale  = "1.2",
+    scale  = 1.2,
     vrr    = 1
   },
   -- }}}
@@ -28,7 +28,7 @@ local monitors =
   {
     output = "desc:Dell Inc. DELL S2721HN H82MSJ3",
     mode   = "1920x1080@75",
-    scale  = "1",
+    scale  = 1,
     vrr    = 1
   },
   -- }}}
@@ -37,7 +37,7 @@ local monitors =
   {
     output = "desc:Samsung Electric Company SAMSUNG 0x01000600",
     mode   = "3840x2160@75",
-    scale  = "2",
+    scale  = 2,
     vrr    = 1
   },
   -- }}}
@@ -46,7 +46,7 @@ local monitors =
   {
     output = "desc:Samsung Electric Company SAMSUNG",
     mode   = "1366x768@60",
-    scale  = "1",
+    scale  = 1,
     vrr    = 1
   },
   -- }}}
@@ -55,6 +55,15 @@ local monitors =
   {
     output   = "desc:BBC HDP-V104 demoset-1",
     disabled = true
+  },
+  -- }}}
+
+  -- {{{ Capture card
+  {
+    output = "desc:HJW HDMI TO USB",
+    mirror = 0,
+    scale  = 1,
+    vrr    = 1
   },
   -- }}}
 
