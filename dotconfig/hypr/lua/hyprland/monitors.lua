@@ -51,6 +51,15 @@ local monitors =
   },
   -- }}}
 
+  -- {{{ Monitor
+  {
+    output = "desc:AOC 24G2W1G3-",
+    mode   = "1920x1080@144",
+    scale  = 1,
+    vrr    = 1
+  },
+  -- }}}
+
   -- {{{ Dummy plug
   {
     output   = "desc:BBC HDP-V104 demoset-1",
