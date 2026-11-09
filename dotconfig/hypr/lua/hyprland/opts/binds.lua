@@ -112,10 +112,10 @@ local binds =
   { "SUPER + SHIFT + k",         window.move({ direction = "up" }) },
   { "SUPER + SHIFT + l",         window.move({ direction = "right" }) },
 
-  { "SUPER + CTRL  + h",         window.resize({ x = -30, y = 0,   relative = true }, { repeating = true }) },
-  { "SUPER + CTRL  + j",         window.resize({ x = 0,   y = 30,  relative = true }, { repeating = true }) },
-  { "SUPER + CTRL  + k",         window.resize({ x = 0,   y = -30, relative = true }, { repeating = true }) },
-  { "SUPER + CTRL  + l",         window.resize({ x = 30,  y = 0,   relative = true }, { repeating = true }) },
+  { "SUPER + CTRL  + h",         window.resize({ x = -30, y = 0,   relative = true }) },
+  { "SUPER + CTRL  + j",         window.resize({ x = 0,   y = 30,  relative = true }) },
+  { "SUPER + CTRL  + k",         window.resize({ x = 0,   y = -30, relative = true }) },
+  { "SUPER + CTRL  + l",         window.resize({ x = 30,  y = 0,   relative = true }) },
   { "SUPER +         mouse:272", window.drag() },
   { "SUPER +         mouse:273", window.resize() },
 
