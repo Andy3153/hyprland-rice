@@ -15,8 +15,7 @@ hl.config(
 {
   dwindle =
   {
-    force_split          = 2, -- kinda spiral tiling layout
-    special_scale_factor = .98
+    force_split = 2, -- kinda spiral tiling layout
   },
 
   master =
