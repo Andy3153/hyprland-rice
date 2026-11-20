@@ -3,6 +3,9 @@
 -- Input config
 --
 
+local numlock_by_default = true
+if GetHostname():find("fidget") then numlock_by_default = false end
+
 hl.config(
 {
   input =
@@ -10,7 +13,7 @@ hl.config(
     kb_layout          = "us,ro",
     kb_options         = "grp:alt_shift_toggle",
     kb_variant         = ",std",
-    numlock_by_default = true,
+    numlock_by_default = numlock_by_default,
     repeat_delay       = 300,
     repeat_rate        = 20,
 

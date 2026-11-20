@@ -44,6 +44,10 @@ function ExecCmd(cmd)
 end
 -- }}}
 
+-- {{{ Get hostname
+function GetHostname() return ExecCmd("hostname") end
+-- }}}
+
 -- {{{ Generate random string
 function RandomString(stringLength)
   local charset = "abcdefghijklmnopqrstuvwxyz"
